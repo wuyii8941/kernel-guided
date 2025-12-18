@@ -1,0 +1,17 @@
+import torch
+arg_1 = 16
+arg_2 = 33
+arg_3_0 = 4
+arg_3_1 = 12
+arg_3_2 = -16
+arg_3 = [arg_3_0,arg_3_1,arg_3_2,]
+arg_4_0 = 2
+arg_4_1 = 1
+arg_4_2 = 1
+arg_4 = [arg_4_0,arg_4_1,arg_4_2,]
+arg_5 = 1
+arg_class = torch.nn.Conv3d(arg_1,arg_2,arg_3,stride=arg_4,padding=arg_5,)
+arg_6_0_tensor = torch.randint(-8192,4,[20, 16, 10, 50, 91], dtype=torch.int32)
+arg_6_0 = arg_6_0_tensor.clone()
+arg_6 = [arg_6_0,]
+res = arg_class(*arg_6)

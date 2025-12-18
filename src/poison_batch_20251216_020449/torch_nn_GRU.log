@@ -1,0 +1,376 @@
+======================================================================
+🔬 HYBRID STRATEGY BENCHMARK + POISON INJECTION
+======================================================================
+API: torch.nn.GRU
+Max Iterations: 4,500
+Strategy: ε-greedy (10% exploration) + Adaptive Mutation
+🧪 Poison Injection: 5% Inf + 5% NaN + 10% Extreme
+🎯 Precision Tolerance: 1e-06
+Oracles: CRASH + CUDA + PRECISION
+======================================================================
+📝 Config: /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf
+[Patch] 🧪 Poison Injection enabled (ALL strategies):
+        Float: 5% Inf + 5% NaN + 10% Extreme
+        Int:   10% boundary + 10% extreme + 10% trap
+
+======================================================================
+PHASE 1: RANDOM BASELINE (All Oracles + Poison)
+======================================================================
+[Fuzzer] 🎯 Precision tolerance: diff_bound=1e-06
+[Fuzzer] Using ALL oracles: CRASH + CUDA + PRECISION
+[Logger] Trace file: poison_batch_20251216_020449/torch_nn_GRU/random/torch_nn_GRU_random_trace.jsonl
+[Checkpoint] Manager initialized: torch_nn_GRU_random_checkpoint.pkl
+[Safety] Guards enabled: Speedometer + DiskGuard + OutlierFilter
+
+[Fuzzer] Initialized: Random
+  API: torch.nn.GRU
+  Patches: Disabled
+  Hybrid Strategy: N/A
+  Data Logging: Enabled
+  Checkpoint: Enabled
+  Safety Guards: Enabled
+
+======================================================================
+Starting Random fuzzing
+Iterations: 0 → 4500
+======================================================================
+
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 30 kernels: ['cudaGetDeviceCount', 'cudaHostGetDevicePointer', 'Activity Buffer Request']...[0m
+  [Random] Iter 1: +30 new kernels! Total: 30
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 16 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'cudaStreamGetPriority']...[0m
+  [Random] Iter 6: +2 new kernels! Total: 32
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+  🐛 [Random] Found 1 new bugs! Total: 1
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+  [Random] Iter 70: +1 new kernels! Total: 33
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'void persistRNN_addBias<float, float>(cudnnRNNMode_t, int, int, float*, float*)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+<string>:9: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at /pytorch/aten/src/ATen/EmptyTensor.cpp:55.)
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+--- Checkpoint: 225/4500 (40.6 min) ---
+Kernels: 33 | Bugs: 1 | Valid: 100.0%
+Speed: 0.04 it/s (avg: 0.09) | Elapsed: 40m 36s | ETA: 12h 51m
+⚠️  SLOW SPEED: 0.04 it/s (threshold: 0.5)
+   → Check if Precision Oracle is too slow
+Disk: 1937.29 GB free (81.0% used)
+Filter: 0/225 filtered (0.0%)
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaStreamSynchronize', 'void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaStreamSynchronize', 'cudaDeviceGetStreamPriorityRange', 'cudaStreamWaitEvent']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamSynchronize', 'cudaDeviceSynchronize', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaStreamSynchronize', 'cudaMalloc', 'Activity Buffer Request']...[0m

@@ -1,0 +1,10 @@
+import torch
+arg_1 = 16
+arg_2 = 2048
+arg_3 = 1
+arg_4 = "max"
+arg_class = torch.nn.Conv2d(arg_1,arg_2,kernel_size=arg_3,bias=arg_4,)
+arg_5_0_tensor = torch.randint(-32768,1,[89, 1024, 8, 8], dtype=torch.int16)
+arg_5_0 = arg_5_0_tensor.clone()
+arg_5 = [arg_5_0,]
+res = arg_class(*arg_5)

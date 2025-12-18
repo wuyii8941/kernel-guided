@@ -1,0 +1,14 @@
+import torch
+arg_1 = 22
+arg_2 = 32
+arg_3 = 5
+arg_4 = 1024
+arg_5_0 = 1e+20
+arg_5_1 = "max"
+arg_5_2 = -84.0
+arg_5 = [arg_5_0,arg_5_1,arg_5_2,]
+arg_class = torch.nn.Conv2d(arg_1,arg_2,arg_3,arg_4,arg_5,)
+arg_6_0_tensor = torch.rand([32, 1, 5, 5], dtype=torch.float32)
+arg_6_0 = arg_6_0_tensor.clone()
+arg_6 = [arg_6_0,]
+res = arg_class(*arg_6)

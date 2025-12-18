@@ -1,0 +1,29 @@
+{
+  "api": "torch.nn.MultiheadAttention",
+  "max_iterations": 15000,
+  "random": {
+    "total_kernels": 33,
+    "compute_kernels": 27,
+    "dirty_kernels": 6,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 24,
+    "compute_kernels": 20,
+    "dirty_kernels": 4,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 298
+  },
+  "key_ratios": {
+    "compute_kernel_ratio": 0.7407407407407407,
+    "deep_bug_ratio": 1.0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.PoissonNLLLoss",
+  "max_iterations": 3000,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00b18 \u2192 \u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 56,
+    "iterations_run": 2992,
+    "bugs": {
+      "total": 1,
+      "crash": 0,
+      "cuda": 1,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 76,
+    "iterations_run": 2992,
+    "bugs": {
+      "total": 1,
+      "crash": 0,
+      "cuda": 1,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 1.3571428571428572,
+    "bug_ratio": 1.0,
+    "exclusive_random": 7,
+    "exclusive_guided": 27
+  }
+}

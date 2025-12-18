@@ -1,0 +1,29 @@
+{
+  "api": "torch.nn.TransformerEncoderLayer",
+  "max_iterations": 20000,
+  "random": {
+    "total_kernels": 34,
+    "compute_kernels": 29,
+    "dirty_kernels": 5,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 28,
+    "compute_kernels": 24,
+    "dirty_kernels": 4,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 396
+  },
+  "key_ratios": {
+    "compute_kernel_ratio": 0.8275862068965517,
+    "deep_bug_ratio": 1.0
+  }
+}

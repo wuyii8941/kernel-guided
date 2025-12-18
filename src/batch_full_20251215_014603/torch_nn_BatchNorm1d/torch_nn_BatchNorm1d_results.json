@@ -1,0 +1,29 @@
+{
+  "api": "torch.nn.BatchNorm1d",
+  "max_iterations": 8000,
+  "random": {
+    "total_kernels": 34,
+    "compute_kernels": 29,
+    "dirty_kernels": 5,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 19,
+    "compute_kernels": 18,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 2,
+      "deep": 2,
+      "shallow": 0
+    },
+    "stagnation_resets": 156
+  },
+  "key_ratios": {
+    "compute_kernel_ratio": 0.6206896551724138,
+    "deep_bug_ratio": 2.0
+  }
+}

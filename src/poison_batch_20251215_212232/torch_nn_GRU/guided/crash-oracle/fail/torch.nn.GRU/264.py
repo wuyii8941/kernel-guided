@@ -1,0 +1,12 @@
+import torch
+arg_1 = 1
+arg_2 = "max"
+arg_3 = 8
+arg_4 = True
+arg_class = torch.nn.GRU(input_size=arg_1,hidden_size=arg_2,num_layers=arg_3,batch_first=arg_4,)
+arg_5_0_tensor = torch.randint(-4096,2048,[99, np.int64(16)], dtype=torch.int32)
+arg_5_0 = arg_5_0_tensor.clone()
+arg_5_1_tensor = torch.rand([1, np.int64(16), 135, 5, 1], dtype=torch.float32)
+arg_5_1 = arg_5_1_tensor.clone()
+arg_5 = [arg_5_0,arg_5_1,]
+res = arg_class(*arg_5)

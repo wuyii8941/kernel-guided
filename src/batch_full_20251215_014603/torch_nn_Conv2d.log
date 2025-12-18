@@ -1,0 +1,3172 @@
+/data1/tzh/FreeFuzz-baseline/miniconda3/envs/freefuzz_env/lib/python3.9/site-packages/torch/nn/init.py:582: UserWarning: Initializing zero-element tensors is a no-op
+  warnings.warn("Initializing zero-element tensors is a no-op")
+<string>:7: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at /pytorch/aten/src/ATen/EmptyTensor.cpp:55.)
+======================================================================
+🔬 KERNEL-GUIDED FUZZING BENCHMARK
+======================================================================
+API: torch.nn.Conv2d
+Max Iterations: 5,000
+Features: Kernel Classification + Bug Depth Analysis
+======================================================================
+📝 Config: /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf
+
+======================================================================
+PHASE 1: RANDOM BASELINE
+======================================================================
+[Fuzzer] Using ALL oracles: CRASH + CUDA + PRECISION
+[Logger] Trace file: batch_full_20251215_014603/torch_nn_Conv2d/random/torch_nn_Conv2d_random_trace.jsonl
+[Checkpoint] Manager initialized: torch_nn_Conv2d_random_checkpoint.pkl
+[Safety] Guards enabled: Speedometer + DiskGuard + OutlierFilter
+
+[Fuzzer] Initialized: Random
+  API: torch.nn.Conv2d
+  Patches: Disabled
+  Stagnation Reset: 50 iters threshold
+
+======================================================================
+Starting Random fuzzing: 0 → 5000
+======================================================================
+
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+  [Random] Iter 0: +6 new kernels! Total: 6
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 28 kernels: ['cudaGetDeviceCount', 'cudaPeekAtLastError', 'Runtime Triggered Module Loading']...[0m
+  [Random] Iter 1: +23 new kernels! Total: 29
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+  [Random] Iter 15: +1 new kernels! Total: 30
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🐛 [Random] Found 1 new bugs!
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  [Random] Iter 53: +1 new kernels! Total: 31
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaMalloc', 'cudaMemGetInfo', 'Activity Buffer Request']...[0m
+  [Random] Iter 82: +1 new kernels! Total: 32
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 14 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 16 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+  [Random] Iter 107: +1 new kernels! Total: 33
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+  [Random] Iter 123: +2 new kernels! Total: 35
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  [Random] Iter 145: +2 new kernels! Total: 37
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #1
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'Runtime Triggered Module Loading']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  🔄 [Random] STAGNATION RESET #2
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+--- Checkpoint: 250/5000 (17.9 min) ---
+Kernels: 37 (Compute: 28) | Bugs: 1
+Stagnation Resets: 2
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaDeviceGetAttribute', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+  🔄 [Random] STAGNATION RESET #3
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  [Random] Iter 301: +1 new kernels! Total: 38
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+  🔄 [Random] STAGNATION RESET #4
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaEventRecord', 'cudaLaunchKernel', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+  🔄 [Random] STAGNATION RESET #5
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'Runtime Triggered Module Loading']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaEventRecord', 'cudaLaunchKernel', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #6
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaLaunchKernel', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+--- Checkpoint: 500/5000 (27.4 min) ---
+Kernels: 38 (Compute: 29) | Bugs: 1
+Stagnation Resets: 6
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #7
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #8
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #9
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+  🔄 [Random] STAGNATION RESET #10
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #11
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaDeviceGetAttribute', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaEventRecord', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  [Random] Iter 727: +1 new kernels! Total: 39
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+--- Checkpoint: 750/5000 (37.8 min) ---
+Kernels: 39 (Compute: 30) | Bugs: 1
+Stagnation Resets: 11
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaDeviceGetAttribute', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaLaunchKernel', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #12
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessor']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #13
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #14
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaLaunchKernel', 'cudaMalloc', 'cudaDeviceGetAttribute']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 14 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+  🔄 [Random] STAGNATION RESET #15
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessor']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+  🔄 [Random] STAGNATION RESET #16
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+--- Checkpoint: 1000/5000 (46.2 min) ---
+Kernels: 39 (Compute: 30) | Bugs: 1
+Stagnation Resets: 16
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  🔄 [Random] STAGNATION RESET #17
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaDeviceGetAttribute', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #18
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessor']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+  🔄 [Random] STAGNATION RESET #19
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 17 kernels: ['cudaFuncGetAttributes', 'void nchwAddPaddingKernel<float, float, float, true, (cudnnKernelDataType_t)0>(int, int, int, int, int, int, int, int, float const*, float*, int, int, int, int, int, float, float, cudnn::reduced_divisor, cudnn::reduced_divisor, cudnn::reduced_divisor)', 'cudaPeekAtLastError']...[0m
+  [Random] Iter 1153: +3 new kernels! Total: 42
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaDeviceGetAttribute', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaDeviceGetAttribute', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #20
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+--- Checkpoint: 1250/5000 (50.4 min) ---
+Kernels: 42 (Compute: 31) | Bugs: 1
+Stagnation Resets: 20
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #21
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaLaunchKernel', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #22
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #23
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  [Random] Iter 1392: +1 new kernels! Total: 43
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+  🔄 [Random] STAGNATION RESET #24
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  [Random] Iter 1478: +1 new kernels! Total: 44
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+--- Checkpoint: 1500/5000 (56.3 min) ---
+Kernels: 44 (Compute: 33) | Bugs: 1
+Stagnation Resets: 24
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #25
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #26
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 17 kernels: ['cudaFuncGetAttributes', 'void nchwAddPaddingKernel<float, float, float, true, (cudnnKernelDataType_t)0>(int, int, int, int, int, int, int, int, float const*, float*, int, int, int, int, int, float, float, cudnn::reduced_divisor, cudnn::reduced_divisor, cudnn::reduced_divisor)', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #27
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 13 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #28
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaFuncSetAttribute']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaFuncSetAttribute']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaDeviceGetAttribute', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #29
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaLaunchKernel', 'cudaMalloc', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaMalloc']...[0m
+
+--- Checkpoint: 1750/5000 (70.5 min) ---
+Kernels: 44 (Compute: 33) | Bugs: 1
+Stagnation Resets: 29
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+  🔄 [Random] STAGNATION RESET #30
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #31
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaLaunchKernel', 'cudaMalloc', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #32
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaMalloc']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaMalloc', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaMalloc', 'Activity Buffer Request', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 5 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+  🔄 [Random] STAGNATION RESET #33
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaFuncGetAttributes', 'cudaEventRecord', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaFuncGetAttributes', 'cudaLaunchKernel', 'cudaPeekAtLastError']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  🔄 [Random] STAGNATION RESET #34
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+--- Checkpoint: 2000/5000 (85.2 min) ---
+Kernels: 44 (Compute: 33) | Bugs: 1
+Stagnation Resets: 34
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+  [Random] Iter 2015: +1 new kernels! Total: 45
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 11 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaFuncSetAttribute']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaPeekAtLastError', 'cudaLaunchKernelExC']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 3 kernels: ['Activity Buffer Request', 'cudaStreamSynchronize', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['cudaFuncGetAttributes', 'cudaPeekAtLastError', 'cudaLaunchKernel']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceGetAttribute', 'Activity Buffer Request']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['Activity Buffer Request', 'cudaDeviceSynchronize']...[0m

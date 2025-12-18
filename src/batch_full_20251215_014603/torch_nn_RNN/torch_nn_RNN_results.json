@@ -1,0 +1,29 @@
+{
+  "api": "torch.nn.RNN",
+  "max_iterations": 12000,
+  "random": {
+    "total_kernels": 29,
+    "compute_kernels": 24,
+    "dirty_kernels": 5,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 15,
+    "compute_kernels": 14,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 238
+  },
+  "key_ratios": {
+    "compute_kernel_ratio": 0.5833333333333334,
+    "deep_bug_ratio": 0.0
+  }
+}

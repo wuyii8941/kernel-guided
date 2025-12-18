@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.LSTM",
+  "max_iterations": 4500,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00b18 \u2192 \u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 42,
+    "iterations_run": 4493,
+    "bugs": {
+      "total": 1,
+      "crash": 0,
+      "cuda": 1,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 29,
+    "iterations_run": 4495,
+    "bugs": {
+      "total": 1,
+      "crash": 0,
+      "cuda": 1,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 0.6904761904761905,
+    "bug_ratio": 1.0,
+    "exclusive_random": 17,
+    "exclusive_guided": 4
+  }
+}

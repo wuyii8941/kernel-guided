@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.TransformerEncoderLayer",
+  "max_iterations": 4000,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00b18 \u2192 \u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 34,
+    "iterations_run": 4000,
+    "bugs": {
+      "total": 1,
+      "crash": 0,
+      "cuda": 1,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 27,
+    "iterations_run": 4000,
+    "bugs": {
+      "total": 1,
+      "crash": 0,
+      "cuda": 1,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 0.7941176470588235,
+    "bug_ratio": 1.0,
+    "exclusive_random": 7,
+    "exclusive_guided": 0
+  }
+}

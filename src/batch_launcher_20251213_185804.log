@@ -1,0 +1,141 @@
+==================================================
+🔥 Batch Test - All Baseline APIs
+==================================================
+
+[Running under nohup - safe to close SSH]
+Max Concurrent: 3
+
+Total APIs to test: 40
+
+Categories:
+  - Recurrent: 3 (⭐ 重点 - 优先)
+  - Transformer: 3 (⭐ 重点)
+  - Normalization: 6
+  - Convolution: 3
+  - Pooling: 6
+  - Linear: 1
+  - Activation: 8
+  - Dropout: 3
+  - Loss: 5
+  - Other: 2
+
+Output directory: batch_full_20251213_185804
+Estimated time: 12-24 hours (with concurrency control & saturation early-stop)
+
+Starting in 3 seconds...
+
+==================================================
+Starting Tests with Concurrency Control
+==================================================
+
+
+[1/40] 🚀 Starting: torch.nn.LSTM (max: 15000)
+   ✅ PID: 1846547
+
+[2/40] 🚀 Starting: torch.nn.GRU (max: 15000)
+   ✅ PID: 1848233
+
+[3/40] 🚀 Starting: torch.nn.RNN (max: 12000)
+   ✅ PID: 1849890
+./run_all_baseline.sh: line 177: 1849890 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_RNN.log
+
+[4/40] 🚀 Starting: torch.nn.MultiheadAttention (max: 15000)
+   ✅ PID: 1851500
+./run_all_baseline.sh: line 177: 1851500 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_MultiheadAttention.log
+
+[5/40] 🚀 Starting: torch.nn.TransformerEncoderLayer (max: 20000)
+   ✅ PID: 1852440
+./run_all_baseline.sh: line 177: 1852440 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_TransformerEncoderLayer.log
+
+[6/40] 🚀 Starting: torch.nn.TransformerDecoderLayer (max: 20000)
+   ✅ PID: 1852516
+./run_all_baseline.sh: line 177: 1852516 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_TransformerDecoderLayer.log
+
+[7/40] 🚀 Starting: torch.nn.BatchNorm1d (max: 8000)
+   ✅ PID: 1852770
+./run_all_baseline.sh: line 177: 1846547 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1848233 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1852770 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_BatchNorm1d.log
+
+[8/40] 🚀 Starting: torch.nn.BatchNorm2d (max: 8000)
+   ✅ PID: 1852876
+
+[9/40] 🚀 Starting: torch.nn.BatchNorm3d (max: 8000)
+   ✅ PID: 1853012
+./run_all_baseline.sh: line 177: 1853012 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1852876 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_BatchNorm3d.log
+
+[10/40] 🚀 Starting: torch.nn.LayerNorm (max: 8000)
+   ✅ PID: 1853168
+
+[11/40] 🚀 Starting: torch.nn.GroupNorm (max: 8000)
+   ✅ PID: 1853304
+
+[12/40] 🚀 Starting: torch.nn.InstanceNorm2d (max: 8000)
+   ✅ PID: 1853461
+./run_all_baseline.sh: line 177: 1853461 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_InstanceNorm2d.log
+
+[13/40] 🚀 Starting: torch.nn.Conv1d (max: 5000)
+   ✅ PID: 1853579
+./run_all_baseline.sh: line 177: 1853168 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1853304 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1853579 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_Conv1d.log
+
+[14/40] 🚀 Starting: torch.nn.Conv2d (max: 5000)
+   ✅ PID: 1853682
+
+[15/40] 🚀 Starting: torch.nn.Conv3d (max: 5000)
+   ✅ PID: 1853833
+./run_all_baseline.sh: line 177: 1853833 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_Conv3d.log
+
+[16/40] 🚀 Starting: torch.nn.MaxPool1d (max: 5000)
+   ✅ PID: 1853952
+
+[17/40] 🚀 Starting: torch.nn.MaxPool2d (max: 5000)
+   ✅ PID: 1854103
+./run_all_baseline.sh: line 177: 1853682 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1853952 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1854103 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_MaxPool2d.log
+
+[18/40] 🚀 Starting: torch.nn.AvgPool1d (max: 5000)
+   ✅ PID: 1854212
+
+[19/40] 🚀 Starting: torch.nn.AvgPool2d (max: 5000)
+   ✅ PID: 1854363
+./run_all_baseline.sh: line 177: 1854212 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+./run_all_baseline.sh: line 177: 1854363 Killed                  nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_AvgPool2d.log
+
+[20/40] 🚀 Starting: torch.nn.AdaptiveAvgPool2d (max: 5000)
+   ✅ PID: 1856159
+
+[21/40] 🚀 Starting: torch.nn.AdaptiveMaxPool2d (max: 5000)
+   ✅ PID: 1858200
+./run_all_baseline.sh: line 177: 1858200 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_AdaptiveMaxPool2d.log
+
+[22/40] 🚀 Starting: torch.nn.Linear (max: 8000)
+   ✅ PID: 1860184
+./run_all_baseline.sh: line 177: 1860184 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+   ⚠️  May have crashed - check: batch_full_20251213_185804/torch_nn_Linear.log
+
+[23/40] 🚀 Starting: torch.nn.ReLU (max: 3000)
+   ✅ PID: 1862160
+./run_all_baseline.sh: line 177: 1862160 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+
+[24/40] 🚀 Starting: torch.nn.LeakyReLU (max: 3000)
+   ✅ PID: 1862996
+./run_all_baseline.sh: line 177: 1862996 Segmentation fault      nohup python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+
+[25/40] 🚀 Starting: torch.nn.PReLU (max: 3000)
+   ✅ PID: 1863093

@@ -1,0 +1,13 @@
+import torch
+arg_1 = 100
+arg_2 = "replicate"
+arg_3 = 2
+arg_4 = 1
+arg_5 = 0
+arg_6_tensor = torch.rand([33], dtype=torch.float32)
+arg_6 = arg_6_tensor.clone()
+arg_class = torch.nn.Conv2d(in_channels=arg_1,out_channels=arg_2,kernel_size=arg_3,stride=arg_4,padding=arg_5,bias=arg_6,)
+arg_7_0_tensor = torch.rand([26, 128, 144, 144], dtype=torch.float32)
+arg_7_0 = arg_7_0_tensor.clone()
+arg_7 = [arg_7_0,]
+res = arg_class(*arg_7)

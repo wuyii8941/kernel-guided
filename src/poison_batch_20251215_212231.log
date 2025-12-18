@@ -1,0 +1,630 @@
+==================================================
+🧪 Poison Injection Batch Test
+==================================================
+
+[Running under nohup - safe to close SSH]
+Poison Strategy: 5% Inf + 5% NaN + 10% Extreme + 30% Dict + 50% Mild
+Precision Bound: 1e-6 (stricter than default 1e-5)
+
+==================================================
+Test Plan Summary
+==================================================
+
+Total APIs: 49
+Total iterations: 94500
+Estimated time: ~31 hours (assuming ~3000 iter/hour)
+
+Priority Order:
+  🔴 Tier 1: Math-heavy (Softmax, Loss, Sigmoid...) - 14 APIs
+  🟠 Tier 2: Normalization (LayerNorm, BatchNorm...) - 9 APIs
+  🟡 Tier 3: RNN/Transformer - 10 APIs
+  🟢 Tier 4: Linear/Conv - 8 APIs
+  🔵 Tier 5: Pool/Dropout/Other - remaining
+
+Output directory: poison_batch_20251215_212232
+
+Starting in 5 seconds...
+✅ Found: benchmark_full_oracle.py
+
+==================================================
+Starting Tests
+==================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1/49] 🔴 Tier1 torch.nn.Softmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_Softmax
+
+Started: 2025-12-15 21:22:37
+PID: 820990
+
+Finished: 2025-12-15 21:24:43 (126s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 1/49 | ✅1 ❌0 ⏭️0 | Time: 0h2m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2/49] 🔴 Tier1 torch.nn.LogSoftmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_LogSoftmax
+
+Started: 2025-12-15 21:24:45
+PID: 824337
+
+Finished: 2025-12-15 21:26:18 (93s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 2/49 | ✅2 ❌0 ⏭️0 | Time: 0h3m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3/49] 🔴 Tier1 torch.nn.CrossEntropyLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_CrossEntropyLoss
+
+Started: 2025-12-15 21:26:20
+PID: 826850
+
+Finished: 2025-12-15 21:27:46 (86s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 3/49 | ✅3 ❌0 ⏭️0 | Time: 0h5m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4/49] 🔴 Tier1 torch.nn.NLLLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_NLLLoss
+
+Started: 2025-12-15 21:27:48
+PID: 828478
+
+Finished: 2025-12-15 21:28:54 (66s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 4/49 | ✅4 ❌0 ⏭️0 | Time: 0h6m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[5/49] 🔴 Tier1 torch.nn.BCELoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_BCELoss
+
+Started: 2025-12-15 21:28:56
+PID: 830042
+
+Finished: 2025-12-15 21:30:27 (91s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 5/49 | ✅5 ❌0 ⏭️0 | Time: 0h7m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[6/49] 🔴 Tier1 torch.nn.BCEWithLogitsLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_BCEWithLogitsLoss
+
+Started: 2025-12-15 21:30:29
+PID: 832944
+
+Finished: 2025-12-15 21:32:07 (98s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 6/49 | ✅6 ❌0 ⏭️0 | Time: 0h9m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[7/49] 🔴 Tier1 torch.nn.KLDivLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_KLDivLoss
+
+Started: 2025-12-15 21:32:09
+PID: 835960
+
+Finished: 2025-12-15 21:32:12 (3s)
+Exit code: 1
+❌ Failed with exit code 1
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 7/49 | ✅6 ❌1 ⏭️0 | Time: 0h9m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[8/49] 🔴 Tier1 torch.nn.PoissonNLLLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_PoissonNLLLoss
+
+Started: 2025-12-15 21:32:14
+PID: 836088
+
+Finished: 2025-12-15 21:33:31 (77s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=1
+
+Progress: 8/49 | ✅7 ❌1 ⏭️0 | Time: 0h10m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[9/49] 🔴 Tier1 torch.nn.Sigmoid
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_Sigmoid
+
+Started: 2025-12-15 21:33:33
+PID: 838491
+
+Finished: 2025-12-15 21:36:09 (156s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 9/49 | ✅8 ❌1 ⏭️0 | Time: 0h13m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[10/49] 🔴 Tier1 torch.nn.Tanh
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_Tanh
+
+Started: 2025-12-15 21:36:11
+PID: 843211
+
+Finished: 2025-12-15 21:37:16 (64s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 10/49 | ✅9 ❌1 ⏭️0 | Time: 0h14m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[11/49] 🔴 Tier1 torch.nn.Softplus
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_Softplus
+
+Started: 2025-12-15 21:37:18
+PID: 845168
+
+Finished: 2025-12-15 21:38:12 (54s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 11/49 | ✅10 ❌1 ⏭️0 | Time: 0h15m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[12/49] 🔴 Tier1 torch.nn.GELU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_GELU
+
+Started: 2025-12-15 21:38:15
+PID: 846845
+
+Finished: 2025-12-15 22:01:21 (1386s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 12/49 | ✅11 ❌1 ⏭️0 | Time: 0h38m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[13/49] 🔴 Tier1 torch.nn.SELU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_SELU
+
+Started: 2025-12-15 22:01:23
+PID: 873680
+
+Finished: 2025-12-15 22:02:16 (53s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 13/49 | ✅12 ❌1 ⏭️0 | Time: 0h39m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[14/49] 🔴 Tier1 torch.nn.Mish
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_Mish
+
+Started: 2025-12-15 22:02:18
+PID: 875350
+
+Finished: 2025-12-15 22:02:21 (3s)
+Exit code: 1
+❌ Failed with exit code 1
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 14/49 | ✅12 ❌2 ⏭️0 | Time: 0h39m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[15/49] 🟠 Tier2 torch.nn.LayerNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_LayerNorm
+
+Started: 2025-12-15 22:02:23
+PID: 875586
+
+Finished: 2025-12-15 22:04:09 (106s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=2
+  Guided: K=0, Bugs=3
+
+Progress: 15/49 | ✅13 ❌2 ⏭️0 | Time: 0h41m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[16/49] 🟠 Tier2 torch.nn.BatchNorm1d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_BatchNorm1d
+
+Started: 2025-12-15 22:04:11
+PID: 878868
+
+Finished: 2025-12-15 22:05:52 (101s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 16/49 | ✅14 ❌2 ⏭️0 | Time: 0h43m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[17/49] 🟠 Tier2 torch.nn.BatchNorm2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_BatchNorm2d
+
+Started: 2025-12-15 22:05:54
+PID: 881907
+
+Finished: 2025-12-15 22:12:51 (417s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=2
+
+Progress: 17/49 | ✅15 ❌2 ⏭️0 | Time: 0h50m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[18/49] 🟠 Tier2 torch.nn.GroupNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_GroupNorm
+
+Started: 2025-12-15 22:12:53
+PID: 894326
+
+Finished: 2025-12-15 22:14:30 (97s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=2
+  Guided: K=0, Bugs=2
+
+Progress: 18/49 | ✅16 ❌2 ⏭️0 | Time: 0h51m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19/49] 🟠 Tier2 torch.nn.InstanceNorm2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_InstanceNorm2d
+
+Started: 2025-12-15 22:14:32
+PID: 897188
+
+Finished: 2025-12-15 22:37:35 (1383s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=2
+  Guided: K=0, Bugs=1
+
+Progress: 19/49 | ✅17 ❌2 ⏭️0 | Time: 1h14m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[20/49] 🟠 Tier2 torch.nn.LocalResponseNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_LocalResponseNorm
+
+Started: 2025-12-15 22:37:37
+PID: 936560
+
+Finished: 2025-12-15 22:39:00 (83s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 20/49 | ✅18 ❌2 ⏭️0 | Time: 1h16m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[21/49] 🟡 Tier3 torch.nn.LSTM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: poison_batch_20251215_212232/torch_nn_LSTM
+
+Started: 2025-12-15 22:39:02
+PID: 938254
+
+Finished: 2025-12-15 22:43:16 (254s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 21/49 | ✅19 ❌2 ⏭️0 | Time: 1h20m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[22/49] 🟡 Tier3 torch.nn.GRU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: poison_batch_20251215_212232/torch_nn_GRU
+
+Started: 2025-12-15 22:43:18
+PID: 943487
+
+Finished: 2025-12-15 23:10:57 (1659s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 22/49 | ✅20 ❌2 ⏭️0 | Time: 1h48m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[23/49] 🟡 Tier3 torch.nn.RNN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: poison_batch_20251215_212232/torch_nn_RNN
+
+Started: 2025-12-15 23:10:59
+PID: 1001928
+
+Finished: 2025-12-16 00:36:39 (5140s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 23/49 | ✅21 ❌2 ⏭️0 | Time: 3h14m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[24/49] 🟡 Tier3 torch.nn.LSTMCell
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_LSTMCell
+
+Started: 2025-12-16 00:36:41
+PID: 1291107
+
+Finished: 2025-12-16 00:37:58 (77s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=0
+
+Progress: 24/49 | ✅22 ❌2 ⏭️0 | Time: 3h15m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[25/49] 🟡 Tier3 torch.nn.GRUCell
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_GRUCell
+
+Started: 2025-12-16 00:38:00
+PID: 1291204
+
+Finished: 2025-12-16 00:39:16 (76s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 25/49 | ✅23 ❌2 ⏭️0 | Time: 3h16m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[26/49] 🟡 Tier3 torch.nn.RNNCell
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_RNNCell
+
+Started: 2025-12-16 00:39:18
+PID: 1291588
+
+Finished: 2025-12-16 00:40:18 (60s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 26/49 | ✅24 ❌2 ⏭️0 | Time: 3h17m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[27/49] 🟡 Tier3 torch.nn.MultiheadAttention
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: poison_batch_20251215_212232/torch_nn_MultiheadAttention
+
+Started: 2025-12-16 00:40:20
+PID: 1293374
+
+Finished: 2025-12-16 00:45:32 (312s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 27/49 | ✅25 ❌2 ⏭️0 | Time: 3h22m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[28/49] 🟡 Tier3 torch.nn.TransformerEncoderLayer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251215_212232/torch_nn_TransformerEncoderLayer
+
+Started: 2025-12-16 00:45:34
+PID: 1300916
+
+Finished: 2025-12-16 00:53:55 (501s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 28/49 | ✅26 ❌2 ⏭️0 | Time: 3h31m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[29/49] 🟡 Tier3 torch.nn.TransformerDecoderLayer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251215_212232/torch_nn_TransformerDecoderLayer
+
+Started: 2025-12-16 00:53:58
+PID: 1312267
+
+Finished: 2025-12-16 01:06:59 (781s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 29/49 | ✅27 ❌2 ⏭️0 | Time: 3h44m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[30/49] 🟡 Tier3 torch.nn.Transformer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 5000
+Output: poison_batch_20251215_212232/torch_nn_Transformer
+
+Started: 2025-12-16 01:07:01
+PID: 1329556
+
+Finished: 2025-12-16 01:07:04 (3s)
+Exit code: 1
+❌ Failed with exit code 1
+
+Results:
+  Random: K=0, Bugs=0
+  Guided: K=0, Bugs=0
+
+Progress: 30/49 | ✅27 ❌3 ⏭️0 | Time: 3h44m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[31/49] 🟢 Tier4 torch.nn.Linear
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2000
+Output: poison_batch_20251215_212232/torch_nn_Linear
+
+Started: 2025-12-16 01:07:06
+PID: 1329695
+
+Finished: 2025-12-16 01:18:02 (656s)
+Exit code: 0
+✅ Completed successfully
+
+Results:
+  Random: K=0, Bugs=1
+  Guided: K=0, Bugs=1
+
+Progress: 31/49 | ✅28 ❌3 ⏭️0 | Time: 3h55m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[32/49] 🟢 Tier4 torch.nn.Bilinear
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: poison_batch_20251215_212232/torch_nn_Bilinear
+
+Started: 2025-12-16 01:18:04
+PID: 1345890

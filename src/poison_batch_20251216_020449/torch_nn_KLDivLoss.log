@@ -1,0 +1,54 @@
+======================================================================
+🔬 HYBRID STRATEGY BENCHMARK + POISON INJECTION
+======================================================================
+API: torch.nn.KLDivLoss
+Max Iterations: 3,000
+Strategy: ε-greedy (10% exploration) + Adaptive Mutation
+🧪 Poison Injection: 5% Inf + 5% NaN + 10% Extreme
+🎯 Precision Tolerance: 1e-06
+Oracles: CRASH + CUDA + PRECISION
+======================================================================
+📝 Config: /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf
+[Patch] 🧪 Poison Injection enabled (ALL strategies):
+        Float: 5% Inf + 5% NaN + 10% Extreme
+        Int:   10% boundary + 10% extreme + 10% trap
+
+======================================================================
+PHASE 1: RANDOM BASELINE (All Oracles + Poison)
+======================================================================
+[Fuzzer] 🎯 Precision tolerance: diff_bound=1e-06
+[Fuzzer] Using ALL oracles: CRASH + CUDA + PRECISION
+[Logger] Trace file: poison_batch_20251216_020449/torch_nn_KLDivLoss/random/torch_nn_KLDivLoss_random_trace.jsonl
+[Checkpoint] Manager initialized: torch_nn_KLDivLoss_random_checkpoint.pkl
+[Safety] Guards enabled: Speedometer + DiskGuard + OutlierFilter
+
+[Fuzzer] Initialized: Random
+  API: torch.nn.KLDivLoss
+  Patches: Disabled
+  Hybrid Strategy: N/A
+  Data Logging: Enabled
+  Checkpoint: Enabled
+  Safety Guards: Enabled
+
+======================================================================
+Starting Random fuzzing
+Iterations: 0 → 3000
+======================================================================
+
+NO SUCH API: torch.nn.KLDivLoss
+[Patch] 🔄 Adaptive range disabled
+[Patch] 🔄 Poison Injection restored
+Traceback (most recent call last):
+  File "/data1/tzh/FreeFuzz-baseline/FreeFuzz/src/benchmark_full_oracle.py", line 1644, in <module>
+    main()
+  File "/data1/tzh/FreeFuzz-baseline/FreeFuzz/src/benchmark_full_oracle.py", line 1634, in main
+    run_full_oracle_experiment(
+  File "/data1/tzh/FreeFuzz-baseline/FreeFuzz/src/benchmark_full_oracle.py", line 1504, in run_full_oracle_experiment
+    random_coverage = random_fuzzer.run_fuzzing_loop(
+  File "/data1/tzh/FreeFuzz-baseline/FreeFuzz/src/benchmark_full_oracle.py", line 1059, in run_fuzzing_loop
+    api = TorchAPI(self.api_name)
+  File "/data1/tzh/FreeFuzz-baseline/FreeFuzz/src/classes/torch_api.py", line 272, in __init__
+    record = TorchDatabase.get_rand_record(self.api)
+  File "/data1/tzh/FreeFuzz-baseline/FreeFuzz/src/classes/database.py", line 87, in get_rand_record
+    assert(0)
+AssertionError

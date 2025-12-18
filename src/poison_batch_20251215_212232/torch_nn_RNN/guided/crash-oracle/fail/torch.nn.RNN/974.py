@@ -1,0 +1,11 @@
+import torch
+arg_1 = 4
+arg_2 = 23
+arg_3 = 1
+arg_class = torch.nn.RNN(arg_1,arg_2,arg_3,)
+arg_4_0_tensor = torch.randint(-32,2,[5, 9, 10], dtype=torch.int8)
+arg_4_0 = arg_4_0_tensor.clone()
+arg_4_1_tensor = torch.randint(-8,128,[6], dtype=torch.int32)
+arg_4_1 = arg_4_1_tensor.clone()
+arg_4 = [arg_4_0,arg_4_1,]
+res = arg_class(*arg_4)

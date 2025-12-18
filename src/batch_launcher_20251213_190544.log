@@ -1,0 +1,632 @@
+==================================================
+🔥 Batch Test - Serial Mode
+==================================================
+
+[Running under nohup - safe to close SSH]
+Mode: Serial (避免 Segmentation Fault)
+Priority: Segfault-prone APIs first
+
+Total APIs to test: 40
+
+Test order:
+  🔴 Priority 1: Segfault-prone (10 APIs)
+     - RNN, MultiheadAttention, Transformer*, BatchNorm*, etc.
+  🟢 Priority 2: Stable APIs (LSTM, GRU)
+  🟡 Priority 3: Others
+
+Output directory: batch_full_20251213_190544
+Estimated time: 24-48 hours (serial mode)
+
+Starting in 3 seconds...
+
+==================================================
+Starting Serial Tests
+==================================================
+
+
+======================================
+[1/40] Testing: torch.nn.RNN
+======================================
+Max iterations: 12000
+Output: batch_full_20251213_190544/torch_nn_RNN
+Log: batch_full_20251213_190544/torch_nn_RNN.log
+
+Starting at: 2025年 12月 13日 星期六 19:05:47 CST
+PID: 1864082
+
+Waiting for completion...
+
+Finished at: 2025年 12月 13日 星期六 20:02:48 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 0
+
+Progress: Completed=1, Failed=0, Skipped=0, Remaining=39
+
+
+======================================
+[2/40] Testing: torch.nn.MultiheadAttention
+======================================
+Max iterations: 15000
+Output: batch_full_20251213_190544/torch_nn_MultiheadAttention
+Log: batch_full_20251213_190544/torch_nn_MultiheadAttention.log
+
+Starting at: 2025年 12月 13日 星期六 20:02:52 CST
+PID: 1867426
+
+Waiting for completion...
+
+Finished at: 2025年 12月 13日 星期六 20:32:59 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 4975
+
+Progress: Completed=2, Failed=0, Skipped=0, Remaining=38
+
+
+======================================
+[3/40] Testing: torch.nn.TransformerEncoderLayer
+======================================
+Max iterations: 20000
+Output: batch_full_20251213_190544/torch_nn_TransformerEncoderLayer
+Log: batch_full_20251213_190544/torch_nn_TransformerEncoderLayer.log
+
+Starting at: 2025年 12月 13日 星期六 20:33:02 CST
+PID: 1871120
+
+Waiting for completion...
+
+Finished at: 2025年 12月 13日 星期六 21:30:58 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 10575
+
+Progress: Completed=3, Failed=0, Skipped=0, Remaining=37
+
+
+======================================
+[4/40] Testing: torch.nn.TransformerDecoderLayer
+======================================
+Max iterations: 20000
+Output: batch_full_20251213_190544/torch_nn_TransformerDecoderLayer
+Log: batch_full_20251213_190544/torch_nn_TransformerDecoderLayer.log
+
+Starting at: 2025年 12月 13日 星期六 21:31:01 CST
+PID: 1883318
+
+Waiting for completion...
+
+Finished at: 2025年 12月 13日 星期六 22:40:29 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 9807
+
+Progress: Completed=4, Failed=0, Skipped=0, Remaining=36
+
+
+======================================
+[5/40] Testing: torch.nn.BatchNorm1d
+======================================
+Max iterations: 8000
+Output: batch_full_20251213_190544/torch_nn_BatchNorm1d
+Log: batch_full_20251213_190544/torch_nn_BatchNorm1d.log
+
+Starting at: 2025年 12月 13日 星期六 22:40:32 CST
+PID: 2067457
+
+Waiting for completion...
+
+Finished at: 2025年 12月 13日 星期六 22:48:42 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 710
+
+Progress: Completed=5, Failed=0, Skipped=0, Remaining=35
+
+
+======================================
+[6/40] Testing: torch.nn.BatchNorm2d
+======================================
+Max iterations: 8000
+Output: batch_full_20251213_190544/torch_nn_BatchNorm2d
+Log: batch_full_20251213_190544/torch_nn_BatchNorm2d.log
+
+Starting at: 2025年 12月 13日 星期六 22:48:45 CST
+PID: 2097609
+
+Waiting for completion...
+
+Finished at: 2025年 12月 13日 星期六 23:12:08 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 324
+
+Progress: Completed=6, Failed=0, Skipped=0, Remaining=34
+
+
+======================================
+[7/40] Testing: torch.nn.BatchNorm3d
+======================================
+Max iterations: 8000
+Output: batch_full_20251213_190544/torch_nn_BatchNorm3d
+Log: batch_full_20251213_190544/torch_nn_BatchNorm3d.log
+
+Starting at: 2025年 12月 13日 星期六 23:12:11 CST
+PID: 2191760
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 03:08:43 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 1069
+
+Progress: Completed=7, Failed=0, Skipped=0, Remaining=33
+
+
+======================================
+[8/40] Testing: torch.nn.LayerNorm
+======================================
+Max iterations: 8000
+Output: batch_full_20251213_190544/torch_nn_LayerNorm
+Log: batch_full_20251213_190544/torch_nn_LayerNorm.log
+
+Starting at: 2025年 12月 14日 星期日 03:08:46 CST
+PID: 2746654
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 03:20:36 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 39
+
+Progress: Completed=8, Failed=0, Skipped=0, Remaining=32
+
+
+======================================
+[9/40] Testing: torch.nn.GroupNorm
+======================================
+Max iterations: 8000
+Output: batch_full_20251213_190544/torch_nn_GroupNorm
+Log: batch_full_20251213_190544/torch_nn_GroupNorm.log
+
+Starting at: 2025年 12月 14日 星期日 03:20:40 CST
+PID: 2753478
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 03:26:31 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 270
+
+Progress: Completed=9, Failed=0, Skipped=0, Remaining=31
+
+
+======================================
+[10/40] Testing: torch.nn.InstanceNorm2d
+======================================
+Max iterations: 8000
+Output: batch_full_20251213_190544/torch_nn_InstanceNorm2d
+Log: batch_full_20251213_190544/torch_nn_InstanceNorm2d.log
+
+Starting at: 2025年 12月 14日 星期日 03:26:34 CST
+PID: 2754385
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 05:28:58 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 1227
+
+Progress: Completed=10, Failed=0, Skipped=0, Remaining=30
+
+
+======================================
+[11/40] Testing: torch.nn.LSTM
+======================================
+Max iterations: 15000
+Output: batch_full_20251213_190544/torch_nn_LSTM
+Log: batch_full_20251213_190544/torch_nn_LSTM.log
+
+Starting at: 2025年 12月 14日 星期日 05:29:01 CST
+PID: 2792824
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 05:59:12 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 8186
+
+Progress: Completed=11, Failed=0, Skipped=0, Remaining=29
+
+
+======================================
+[12/40] Testing: torch.nn.GRU
+======================================
+Max iterations: 15000
+Output: batch_full_20251213_190544/torch_nn_GRU
+Log: batch_full_20251213_190544/torch_nn_GRU.log
+
+Starting at: 2025年 12月 14日 星期日 05:59:15 CST
+PID: 2794726
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 06:38:15 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 0
+
+Progress: Completed=12, Failed=0, Skipped=0, Remaining=28
+
+
+======================================
+[13/40] Testing: torch.nn.Conv1d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_Conv1d
+Log: batch_full_20251213_190544/torch_nn_Conv1d.log
+
+Starting at: 2025年 12月 14日 星期日 06:38:18 CST
+PID: 2800144
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 06:42:27 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 42
+
+Progress: Completed=13, Failed=0, Skipped=0, Remaining=27
+
+
+======================================
+[14/40] Testing: torch.nn.Conv2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_Conv2d
+Log: batch_full_20251213_190544/torch_nn_Conv2d.log
+
+Starting at: 2025年 12月 14日 星期日 06:42:30 CST
+PID: 2800826
+
+Waiting for completion...
+./run_all_baseline.sh: line 207: 2800826 Killed                  python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+
+Finished at: 2025年 12月 14日 星期日 09:08:20 CST
+Exit code: 137
+❌ Failed with exit code 137
+Kernels found: 0
+Bugs found: 287
+
+Progress: Completed=13, Failed=1, Skipped=0, Remaining=26
+
+
+======================================
+[15/40] Testing: torch.nn.Conv3d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_Conv3d
+Log: batch_full_20251213_190544/torch_nn_Conv3d.log
+
+Starting at: 2025年 12月 14日 星期日 09:08:23 CST
+PID: 2894990
+
+Waiting for completion...
+./run_all_baseline.sh: line 207: 2894990 Killed                  python3 benchmark_full_oracle.py --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /data1/tzh/FreeFuzz-baseline/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+
+Finished at: 2025年 12月 14日 星期日 12:48:31 CST
+Exit code: 137
+❌ Failed with exit code 137
+Kernels found: 0
+Bugs found: 154
+
+Progress: Completed=13, Failed=2, Skipped=0, Remaining=25
+
+
+======================================
+[16/40] Testing: torch.nn.MaxPool1d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool1d
+Log: batch_full_20251213_190544/torch_nn_MaxPool1d.log
+
+Starting at: 2025年 12月 14日 星期日 12:48:34 CST
+PID: 2945219
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 12:52:12 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 0
+
+Progress: Completed=14, Failed=2, Skipped=0, Remaining=24
+
+
+======================================
+[17/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+Starting at: 2025年 12月 14日 星期日 12:52:15 CST
+PID: 2945823
+
+Waiting for completion...
+
+Finished at: 2025年 12月 14日 星期日 13:27:16 CST
+Exit code: 0
+✅ Completed successfully
+Kernels found: 0
+Bugs found: 1
+
+Progress: Completed=15, Failed=2, Skipped=0, Remaining=23
+
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[18/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[19/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[20/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[21/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[22/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[23/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[24/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[25/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[26/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[27/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[28/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[29/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[30/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[31/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[32/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[33/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[34/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[35/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[36/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[37/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[38/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[39/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+./run_all_baseline.sh: line 163: cannot create temp file for here-document: No space left on device
+
+======================================
+[40/40] Testing: torch.nn.MaxPool2d
+======================================
+Max iterations: 5000
+Output: batch_full_20251213_190544/torch_nn_MaxPool2d
+Log: batch_full_20251213_190544/torch_nn_MaxPool2d.log
+
+✅ Already completed - skipping
+
+==================================================
+All Tests Finished
+==================================================
+
+Total: 40
+Completed: 15
+Failed: 2
+Skipped: 23
+
+./run_all_baseline.sh: line 264: cannot create temp file for here-document: No space left on device
+./run_all_baseline.sh: line 349: cannot create temp file for here-document: No space left on device
+Monitor script: batch_full_20251213_190544/monitor.sh
+Pause script: batch_full_20251213_190544/pause.sh
+
+Done!
+./run_all_baseline.sh: line 380: unexpected EOF while looking for matching ``'
+./run_all_baseline.sh: line 381: syntax error: unexpected end of file

@@ -1,0 +1,29 @@
+{
+  "api": "torch.nn.LSTM",
+  "max_iterations": 15000,
+  "random": {
+    "total_kernels": 64,
+    "compute_kernels": 57,
+    "dirty_kernels": 7,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 59,
+    "compute_kernels": 51,
+    "dirty_kernels": 8,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 287
+  },
+  "key_ratios": {
+    "compute_kernel_ratio": 0.8947368421052632,
+    "deep_bug_ratio": 1.0
+  }
+}

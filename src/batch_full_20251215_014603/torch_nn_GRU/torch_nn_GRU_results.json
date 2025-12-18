@@ -1,0 +1,29 @@
+{
+  "api": "torch.nn.GRU",
+  "max_iterations": 15000,
+  "random": {
+    "total_kernels": 32,
+    "compute_kernels": 27,
+    "dirty_kernels": 5,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 16,
+    "compute_kernels": 15,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 298
+  },
+  "key_ratios": {
+    "compute_kernel_ratio": 0.5555555555555556,
+    "deep_bug_ratio": 0.0
+  }
+}

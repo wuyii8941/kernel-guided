@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.Softplus",
+  "max_iterations": 1500,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00b18 \u2192 \u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 16,
+    "iterations_run": 1500,
+    "bugs": {
+      "total": 0,
+      "crash": 0,
+      "cuda": 0,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 8,
+    "iterations_run": 1500,
+    "bugs": {
+      "total": 0,
+      "crash": 0,
+      "cuda": 0,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 0.5,
+    "bug_ratio": 0.0,
+    "exclusive_random": 8,
+    "exclusive_guided": 0
+  }
+}

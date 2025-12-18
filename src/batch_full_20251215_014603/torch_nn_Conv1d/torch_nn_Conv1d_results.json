@@ -1,0 +1,29 @@
+{
+  "api": "torch.nn.Conv1d",
+  "max_iterations": 5000,
+  "random": {
+    "total_kernels": 36,
+    "compute_kernels": 27,
+    "dirty_kernels": 9,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 25,
+    "compute_kernels": 20,
+    "dirty_kernels": 5,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 97
+  },
+  "key_ratios": {
+    "compute_kernel_ratio": 0.7407407407407407,
+    "deep_bug_ratio": 1.0
+  }
+}
