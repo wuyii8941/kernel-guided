@@ -1,0 +1,12 @@
+import torch
+arg_1_0 = False
+arg_1_1 = True
+arg_1 = [arg_1_0,arg_1_1,]
+arg_2_0 = 2
+arg_2_1 = 1
+arg_2 = [arg_2_0,arg_2_1,]
+arg_class = torch.nn.MaxPool2d(arg_1,arg_2,)
+arg_3_0_tensor = torch.randint(-4096,128,[0, 240, 149, 160], dtype=torch.int32)
+arg_3_0 = arg_3_0_tensor.clone()
+arg_3 = [arg_3_0,]
+res = arg_class(*arg_3)

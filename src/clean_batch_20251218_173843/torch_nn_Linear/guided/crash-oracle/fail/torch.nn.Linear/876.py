@@ -1,0 +1,9 @@
+import torch
+arg_1 = 1066
+arg_2 = 31640
+arg_3 = 78
+arg_class = torch.nn.Linear(arg_1,arg_2,bias=arg_3,)
+arg_4_0_tensor = torch.rand([5, 1, 1024], dtype=torch.float32)
+arg_4_0 = arg_4_0_tensor.clone()
+arg_4 = [arg_4_0,]
+res = arg_class(*arg_4)

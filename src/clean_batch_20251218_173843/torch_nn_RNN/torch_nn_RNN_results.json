@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.RNN",
+  "max_iterations": 3500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 30,
+    "compute_kernels": 24,
+    "dirty_kernels": 6,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 14,
+    "compute_kernels": 11,
+    "dirty_kernels": 3,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 69
+  },
+  "ratios": {
+    "compute_kernel": 0.4583333333333333,
+    "deep_bug": 0.0
+  }
+}

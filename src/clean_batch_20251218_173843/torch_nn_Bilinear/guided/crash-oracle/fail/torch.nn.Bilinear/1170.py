@@ -1,0 +1,11 @@
+import torch
+arg_1 = 1024
+arg_2 = 57
+arg_3 = 31640
+arg_class = torch.nn.Bilinear(arg_1,arg_2,arg_3,)
+arg_4_0_tensor = torch.randint(-64,4,[128, 20], dtype=torch.int32)
+arg_4_0 = arg_4_0_tensor.clone()
+arg_4_1_tensor = torch.randint(-32,1,[128, 88], dtype=torch.int8)
+arg_4_1 = arg_4_1_tensor.clone()
+arg_4 = [arg_4_0,arg_4_1,]
+res = arg_class(*arg_4)

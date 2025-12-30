@@ -1,0 +1,692 @@
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [3,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [4,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [5,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [6,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [7,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [8,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [9,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [10,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [11,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [12,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [13,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [14,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [15,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [16,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [17,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [18,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [19,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [20,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [21,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [22,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [23,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [24,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [25,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [26,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [27,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [28,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [29,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [30,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [31,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [32,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [33,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [34,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [35,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [36,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [37,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [38,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [39,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [40,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [41,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [42,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [43,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [44,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [45,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [46,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [47,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [48,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [49,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [50,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [51,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [52,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [53,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [54,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [55,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [56,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [57,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [58,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [59,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [60,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [61,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [62,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [2,0,0], thread: [63,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [3,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [4,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [5,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [6,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [7,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [8,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [9,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [10,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [11,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [12,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [13,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [14,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [15,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [16,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [17,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [18,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [19,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [20,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [21,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [22,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [23,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [24,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [25,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [26,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [27,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [28,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [29,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [30,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [31,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [32,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [33,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [34,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [35,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [36,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [37,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [38,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [39,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [40,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [41,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [42,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [43,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [44,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [45,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [46,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [47,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [48,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [49,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [50,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [51,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [52,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [53,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [54,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [55,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [56,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [57,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [58,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [59,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [60,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [61,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [62,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [1,0,0], thread: [63,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [3,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [4,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [6,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [7,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [8,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [9,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [10,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [11,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [12,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [13,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [14,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [15,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [16,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [17,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [18,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [19,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [20,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [21,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [22,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [23,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [24,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [25,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [26,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [27,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [28,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [29,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [30,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [31,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [32,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [33,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [34,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [35,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [36,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [37,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [38,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [39,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [40,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [41,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [42,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [43,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [44,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [45,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [46,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [47,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [48,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [49,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [50,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [51,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [52,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [53,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [54,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [55,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [56,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [57,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [58,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [59,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [60,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [61,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [62,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [0,0,0], thread: [63,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [3,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [4,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [5,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [6,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [7,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [8,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [9,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [10,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [11,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [12,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [13,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [14,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [15,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [16,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [17,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [18,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [19,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [20,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [21,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [22,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [23,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [24,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [25,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [26,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [27,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [28,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [29,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [30,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [31,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [32,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [33,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [34,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [35,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [36,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [37,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [38,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [39,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [40,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [41,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [42,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [43,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [44,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [45,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [46,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [47,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [48,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [49,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [50,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [51,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [52,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [53,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [54,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [55,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [56,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [57,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [58,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [59,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [60,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [61,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [62,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [3,0,0], thread: [63,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [3,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [4,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [5,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [6,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [7,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [8,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [9,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [10,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [11,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [12,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [13,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [14,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [15,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [16,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [17,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [18,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [19,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [20,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [21,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [22,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [23,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [24,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [25,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [26,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [27,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [28,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [29,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [30,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [31,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [32,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [33,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [34,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [35,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [36,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [37,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [38,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [39,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [40,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [41,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [42,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [43,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [44,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [45,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [46,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [47,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [48,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [49,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [50,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [51,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [52,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [53,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [54,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [55,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [56,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [57,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [58,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [59,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [60,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [61,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [62,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/NLLLoss2d.cu:95: nll_loss2d_forward_kernel: block: [4,0,0], thread: [63,0,0] Assertion `t >= 0 && t < n_classes` failed.
+======================================================================
+🔬 KERNEL-GUIDED FUZZING (Original Strategy)
+======================================================================
+API: torch.nn.NLLLoss
+Max Iterations: 3,000
+Strategy: 80% DB Sampling + Standard Mutation (No Constraints)
+======================================================================
+📝 Config: /workspace/FreeFuzz/src/config/demo_torch.conf
+
+======================================================================
+PHASE 1: RANDOM BASELINE (Original FreeFuzz)
+======================================================================
+[Fuzzer] Random | Corpus: False | Oracles: 3
+
+======================================================================
+Starting Random: 0 → 3000
+======================================================================
+
+  🔄 [Random] STAGNATION RESET #1
+  🔄 [Random] STAGNATION RESET #2
+  🔄 [Random] STAGNATION RESET #3
+
+--- Checkpoint 150/3000 (0.1m) ---
+Kernels: 0 (Compute: 0)
+Speed: 68.6 it/s | Elapsed: 7s | ETA: 2m 13s
+  🔄 [Random] STAGNATION RESET #4
+  🔄 [Random] STAGNATION RESET #5
+  🔄 [Random] STAGNATION RESET #6
+
+--- Checkpoint 300/3000 (0.2m) ---
+Kernels: 0 (Compute: 0)
+Speed: 66.7 it/s | Elapsed: 9s | ETA: 1m 23s
+  🔄 [Random] STAGNATION RESET #7
+  🔄 [Random] STAGNATION RESET #8
+  🔄 [Random] STAGNATION RESET #9
+
+--- Checkpoint 450/3000 (0.2m) ---
+Kernels: 0 (Compute: 0)
+Speed: 58.7 it/s | Elapsed: 11s | ETA: 1m 6s
+  🔄 [Random] STAGNATION RESET #10
+  🔄 [Random] STAGNATION RESET #11
+  🔄 [Random] STAGNATION RESET #12
+
+--- Checkpoint 600/3000 (0.2m) ---
+Kernels: 0 (Compute: 0)
+Speed: 63.0 it/s | Elapsed: 14s | ETA: 57s
+  🔄 [Random] STAGNATION RESET #13
+  🔄 [Random] STAGNATION RESET #14
+  🔄 [Random] STAGNATION RESET #15
+
+--- Checkpoint 750/3000 (0.3m) ---
+Kernels: 0 (Compute: 0)
+Speed: 57.9 it/s | Elapsed: 16s | ETA: 50s
+  🔄 [Random] STAGNATION RESET #16
+  🔄 [Random] STAGNATION RESET #17
+  🔄 [Random] STAGNATION RESET #18
+
+--- Checkpoint 900/3000 (0.3m) ---
+Kernels: 0 (Compute: 0)
+Speed: 56.3 it/s | Elapsed: 19s | ETA: 45s
+  🔄 [Random] STAGNATION RESET #19
+  🔄 [Random] STAGNATION RESET #20
+  🔄 [Random] STAGNATION RESET #21
+
+--- Checkpoint 1050/3000 (0.4m) ---
+Kernels: 0 (Compute: 0)
+Speed: 50.9 it/s | Elapsed: 22s | ETA: 41s
+  🔄 [Random] STAGNATION RESET #22
+  🔄 [Random] STAGNATION RESET #23
+  🔄 [Random] STAGNATION RESET #24
+
+--- Checkpoint 1200/3000 (0.4m) ---
+Kernels: 0 (Compute: 0)
+Speed: 50.7 it/s | Elapsed: 25s | ETA: 38s
+  🔄 [Random] STAGNATION RESET #25
+  🔄 [Random] STAGNATION RESET #26
+  🔄 [Random] STAGNATION RESET #27
+
+--- Checkpoint 1350/3000 (0.5m) ---
+Kernels: 0 (Compute: 0)
+Speed: 47.6 it/s | Elapsed: 28s | ETA: 34s
+  🔄 [Random] STAGNATION RESET #28
+  🔄 [Random] STAGNATION RESET #29
+  🔄 [Random] STAGNATION RESET #30
+
+--- Checkpoint 1500/3000 (0.5m) ---
+Kernels: 0 (Compute: 0)
+Speed: 46.4 it/s | Elapsed: 31s | ETA: 31s
+  🔄 [Random] STAGNATION RESET #31
+  🔄 [Random] STAGNATION RESET #32
+  🔄 [Random] STAGNATION RESET #33
+
+--- Checkpoint 1650/3000 (0.6m) ---
+Kernels: 0 (Compute: 0)
+Speed: 51.3 it/s | Elapsed: 34s | ETA: 28s
+  🔄 [Random] STAGNATION RESET #34
+  🔄 [Random] STAGNATION RESET #35
+  🔄 [Random] STAGNATION RESET #36
+
+--- Checkpoint 1800/3000 (0.6m) ---
+Kernels: 0 (Compute: 0)
+Speed: 52.5 it/s | Elapsed: 37s | ETA: 25s
+  🔄 [Random] STAGNATION RESET #37
+  🔄 [Random] STAGNATION RESET #38
+  🔄 [Random] STAGNATION RESET #39
+
+--- Checkpoint 1950/3000 (0.7m) ---
+Kernels: 0 (Compute: 0)
+Speed: 50.6 it/s | Elapsed: 40s | ETA: 21s
+  🔄 [Random] STAGNATION RESET #40
+  🔄 [Random] STAGNATION RESET #41
+  🔄 [Random] STAGNATION RESET #42
+
+--- Checkpoint 2100/3000 (0.7m) ---
+Kernels: 0 (Compute: 0)
+Speed: 54.5 it/s | Elapsed: 43s | ETA: 18s
+  🔄 [Random] STAGNATION RESET #43
+  🔄 [Random] STAGNATION RESET #44
+  🔄 [Random] STAGNATION RESET #45
+
+--- Checkpoint 2250/3000 (0.8m) ---
+Kernels: 0 (Compute: 0)
+Speed: 50.9 it/s | Elapsed: 46s | ETA: 15s
+  🔄 [Random] STAGNATION RESET #46
+  🔄 [Random] STAGNATION RESET #47
+  🔄 [Random] STAGNATION RESET #48
+
+--- Checkpoint 2400/3000 (0.8m) ---
+Kernels: 0 (Compute: 0)
+Speed: 49.5 it/s | Elapsed: 49s | ETA: 12s
+  🔄 [Random] STAGNATION RESET #49
+  🔄 [Random] STAGNATION RESET #50
+  🔄 [Random] STAGNATION RESET #51
+
+--- Checkpoint 2550/3000 (0.9m) ---
+Kernels: 0 (Compute: 0)
+Speed: 48.3 it/s | Elapsed: 52s | ETA: 9s
+  🔄 [Random] STAGNATION RESET #52
+  🔄 [Random] STAGNATION RESET #53
+  🔄 [Random] STAGNATION RESET #54
+
+--- Checkpoint 2700/3000 (0.9m) ---
+Kernels: 0 (Compute: 0)
+Speed: 44.9 it/s | Elapsed: 55s | ETA: 6s
+  🔄 [Random] STAGNATION RESET #55
+  🔄 [Random] STAGNATION RESET #56
+  🔄 [Random] STAGNATION RESET #57
+
+--- Checkpoint 2850/3000 (1.0m) ---
+Kernels: 0 (Compute: 0)
+Speed: 46.4 it/s | Elapsed: 58s | ETA: 3s
+  🔄 [Random] STAGNATION RESET #58
+  🔄 [Random] STAGNATION RESET #59
+  🔄 [Random] STAGNATION RESET #60
+
+--- Checkpoint 3000/3000 (1.0m) ---
+Kernels: 0 (Compute: 0)
+Speed: 46.7 it/s | Elapsed: 1m 2s | ETA: 0s
+
+======================================================================
+Random completed in 1.0 min
+======================================================================
+
+======================================================================
+STATS: Random
+======================================================================
+Kernels: 0 | Compute: 0 | Dirty: 0
+Stagnation Resets: 60
+
+[Random] Bugs: Total=0 | CRASH=0 | CUDA=0 | PRECISION=0
+         Deep=0 | Shallow=0
+
+======================================================================
+PHASE 2: KERNEL-GUIDED (80% DB Sampling Only)
+======================================================================
+[Patch] ✅ Database sampling: 20% → 80%
+[Fuzzer] Guided | Corpus: True | Oracles: 3
+
+======================================================================
+Starting Guided: 0 → 3000
+======================================================================
+
+  🔄 [Guided] STAGNATION RESET #1
+  🔄 [Guided] STAGNATION RESET #2
+  🔄 [Guided] STAGNATION RESET #3
+
+--- Checkpoint 150/3000 (0.0m) ---
+Kernels: 0 (Compute: 0)
+Speed: 82.0 it/s | Elapsed: 1s | ETA: 35s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #4
+  🔄 [Guided] STAGNATION RESET #5
+  🔄 [Guided] STAGNATION RESET #6
+
+--- Checkpoint 300/3000 (0.1m) ---
+Kernels: 0 (Compute: 0)
+Speed: 81.5 it/s | Elapsed: 3s | ETA: 32s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #7
+  🔄 [Guided] STAGNATION RESET #8
+  🔄 [Guided] STAGNATION RESET #9
+
+--- Checkpoint 450/3000 (0.1m) ---
+Kernels: 0 (Compute: 0)
+Speed: 68.6 it/s | Elapsed: 5s | ETA: 32s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #10
+  🔄 [Guided] STAGNATION RESET #11
+  🔄 [Guided] STAGNATION RESET #12
+
+--- Checkpoint 600/3000 (0.1m) ---
+Kernels: 0 (Compute: 0)
+Speed: 66.9 it/s | Elapsed: 7s | ETA: 31s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #13
+  🔄 [Guided] STAGNATION RESET #14
+  🔄 [Guided] STAGNATION RESET #15
+
+--- Checkpoint 750/3000 (0.2m) ---
+Kernels: 0 (Compute: 0)
+Speed: 72.7 it/s | Elapsed: 9s | ETA: 29s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #16
+  🔄 [Guided] STAGNATION RESET #17
+  🔄 [Guided] STAGNATION RESET #18
+
+--- Checkpoint 900/3000 (0.2m) ---
+Kernels: 0 (Compute: 0)
+Speed: 63.3 it/s | Elapsed: 12s | ETA: 28s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #19
+  🔄 [Guided] STAGNATION RESET #20
+  🔄 [Guided] STAGNATION RESET #21
+
+--- Checkpoint 1050/3000 (0.2m) ---
+Kernels: 0 (Compute: 0)
+Speed: 62.2 it/s | Elapsed: 14s | ETA: 27s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #22
+  🔄 [Guided] STAGNATION RESET #23
+  🔄 [Guided] STAGNATION RESET #24
+
+--- Checkpoint 1200/3000 (0.3m) ---
+Kernels: 0 (Compute: 0)
+Speed: 52.0 it/s | Elapsed: 17s | ETA: 26s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #25
+  🔄 [Guided] STAGNATION RESET #26
+  🔄 [Guided] STAGNATION RESET #27
+
+--- Checkpoint 1350/3000 (0.3m) ---
+Kernels: 0 (Compute: 0)
+Speed: 49.9 it/s | Elapsed: 20s | ETA: 25s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #28
+  🔄 [Guided] STAGNATION RESET #29
+  🔄 [Guided] STAGNATION RESET #30
+
+--- Checkpoint 1500/3000 (0.4m) ---
+Kernels: 0 (Compute: 0)benchmark_full_oracle_tc.py:745: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  plt.tight_layout()
+benchmark_full_oracle_tc.py:748: UserWarning: Glyph 127919 (\N{DIRECT HIT}) missing from current font.
+  plt.savefig(plot_file, dpi=150, bbox_inches='tight')
+benchmark_full_oracle_tc.py:748: UserWarning: Glyph 128465 (\N{WASTEBASKET}) missing from current font.
+  plt.savefig(plot_file, dpi=150, bbox_inches='tight')
+benchmark_full_oracle_tc.py:748: UserWarning: Glyph 128203 (\N{CLIPBOARD}) missing from current font.
+  plt.savefig(plot_file, dpi=150, bbox_inches='tight')
+
+Speed: 43.5 it/s | Elapsed: 23s | ETA: 23s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #31
+  🔄 [Guided] STAGNATION RESET #32
+  🔄 [Guided] STAGNATION RESET #33
+
+--- Checkpoint 1650/3000 (0.5m) ---
+Kernels: 0 (Compute: 0)
+Speed: 44.1 it/s | Elapsed: 27s | ETA: 22s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #34
+  🔄 [Guided] STAGNATION RESET #35
+  🔄 [Guided] STAGNATION RESET #36
+
+--- Checkpoint 1800/3000 (0.5m) ---
+Kernels: 0 (Compute: 0)
+Speed: 46.2 it/s | Elapsed: 30s | ETA: 20s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #37
+  🔄 [Guided] STAGNATION RESET #38
+  🔄 [Guided] STAGNATION RESET #39
+
+--- Checkpoint 1950/3000 (0.6m) ---
+Kernels: 0 (Compute: 0)
+Speed: 51.5 it/s | Elapsed: 33s | ETA: 18s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #40
+  🔄 [Guided] STAGNATION RESET #41
+  🔄 [Guided] STAGNATION RESET #42
+
+--- Checkpoint 2100/3000 (0.6m) ---
+Kernels: 0 (Compute: 0)
+Speed: 46.7 it/s | Elapsed: 36s | ETA: 15s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #43
+  🔄 [Guided] STAGNATION RESET #44
+  🔄 [Guided] STAGNATION RESET #45
+
+--- Checkpoint 2250/3000 (0.7m) ---
+Kernels: 0 (Compute: 0)
+Speed: 32.8 it/s | Elapsed: 40s | ETA: 13s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #46
+  🔄 [Guided] STAGNATION RESET #47
+  🔄 [Guided] STAGNATION RESET #48
+
+--- Checkpoint 2400/3000 (0.8m) ---
+Kernels: 0 (Compute: 0)
+Speed: 36.1 it/s | Elapsed: 45s | ETA: 11s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #49
+  🔄 [Guided] STAGNATION RESET #50
+  🔄 [Guided] STAGNATION RESET #51
+
+--- Checkpoint 2550/3000 (0.8m) ---
+Kernels: 0 (Compute: 0)
+Speed: 32.9 it/s | Elapsed: 49s | ETA: 8s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #52
+  🔄 [Guided] STAGNATION RESET #53
+  🔄 [Guided] STAGNATION RESET #54
+
+--- Checkpoint 2700/3000 (0.9m) ---
+Kernels: 0 (Compute: 0)
+Speed: 32.4 it/s | Elapsed: 54s | ETA: 6s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #55
+  🔄 [Guided] STAGNATION RESET #56
+  🔄 [Guided] STAGNATION RESET #57
+
+--- Checkpoint 2850/3000 (1.0m) ---
+Kernels: 0 (Compute: 0)
+Speed: 30.0 it/s | Elapsed: 59s | ETA: 3s
+Corpus: 0
+  🔄 [Guided] STAGNATION RESET #58
+  🔄 [Guided] STAGNATION RESET #59
+  🔄 [Guided] STAGNATION RESET #60
+
+--- Checkpoint 3000/3000 (1.1m) ---
+Kernels: 0 (Compute: 0)
+Speed: 28.9 it/s | Elapsed: 1m 4s | ETA: 0s
+Corpus: 0
+
+======================================================================
+Guided completed in 1.1 min
+======================================================================
+
+======================================================================
+STATS: Guided
+======================================================================
+Kernels: 0 | Compute: 0 | Dirty: 0
+Stagnation Resets: 60
+
+[Guided] Bugs: Total=0 | CRASH=0 | CUDA=0 | PRECISION=0
+         Deep=0 | Shallow=0
+[Patch] 🔄 Database sampling restored
+
+📊 Plot saved: clean_batch_20251218_173843/torch_nn_NLLLoss/torch_nn_NLLLoss_analysis.png
+
+======================================================================
+📈 KEY INSIGHTS
+======================================================================
+Compute Kernel Ratio (Guided/Random): 0.00x
+Deep Bug Ratio (Guided/Random):       0.00x
+
+💾 Results saved: clean_batch_20251218_173843/torch_nn_NLLLoss/torch_nn_NLLLoss_results.json

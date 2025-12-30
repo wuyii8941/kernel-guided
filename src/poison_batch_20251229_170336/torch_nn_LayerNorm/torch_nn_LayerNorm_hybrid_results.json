@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.LayerNorm",
+  "max_iterations": 6000,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00c2\u00b18 \u00e2\u2020\u2019 \u00c2\u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 9,
+    "iterations_run": 5976,
+    "bugs": {
+      "total": 28,
+      "crash": 13,
+      "cuda": 15,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 7,
+    "iterations_run": 5984,
+    "bugs": {
+      "total": 10,
+      "crash": 4,
+      "cuda": 6,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 0.7777777777777778,
+    "bug_ratio": 0.35714285714285715,
+    "exclusive_random": 2,
+    "exclusive_guided": 0
+  }
+}

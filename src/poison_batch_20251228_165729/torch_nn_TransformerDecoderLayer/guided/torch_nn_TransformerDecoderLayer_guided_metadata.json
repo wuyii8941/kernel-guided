@@ -1,0 +1,7 @@
+{
+  "iteration": 6499,
+  "total_kernels": 54,
+  "corpus_size": 20,
+  "logger_iterations": 6500,
+  "strategy": "guided"
+}

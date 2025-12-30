@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.PoissonNLLLoss",
+  "max_iterations": 3000,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 44,
+    "compute_kernels": 24,
+    "dirty_kernels": 20,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 48,
+    "compute_kernels": 23,
+    "dirty_kernels": 25,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 46
+  },
+  "ratios": {
+    "compute_kernel": 0.9583333333333334,
+    "deep_bug": 1.0
+  }
+}

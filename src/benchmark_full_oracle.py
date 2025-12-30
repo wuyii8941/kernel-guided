@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
 """
 Kernel-Guided Fuzzing Benchmark - Full Oracle Edition with Hybrid Strategy
 ==========================================================================
 
-核心增强:
-1. **混合策略**: ε-greedy (90% 微创 + 10% 探索)
-2. **动态变异**: 停滞时自动扩大变异范围
-3. **取消饱和停止**: 改为"扩大搜索"而非"终止"
-4. **全 Oracle 支持**: CRASH + CUDA + PRECISION
+æ ¸å¿ƒå¢žå¼º:
+1. **æ··åˆç­–ç•¥**: Îµ-greedy (90% å¾®åˆ› + 10% æŽ¢ç´¢)
+2. **åŠ¨æ€å˜å¼‚**: åœæ»žæ—¶è‡ªåŠ¨æ‰©å¤§å˜å¼‚èŒƒå›´
+3. **å–æ¶ˆé¥±å’Œåœæ­¢**: æ”¹ä¸º"æ‰©å¤§æœç´¢"è€Œéž"ç»ˆæ­¢"
+4. **å…¨ Oracle æ”¯æŒ**: CRASH + CUDA + PRECISION
+5. **æ™ºèƒ½å½’ç±»**: åŸºäºŽé”™è¯¯æŒ‡çº¹çš„ Bug åŽ»é‡ä¸Žåˆ†ç±» (New!)
 
 Author: Research Team
 Date: 2025-12-13
@@ -21,6 +23,7 @@ import hashlib
 import re
 import pickle
 import shutil
+import gc
 from os.path import join
 from pathlib import Path
 from typing import Set, List, Dict, Tuple, Optional
@@ -28,6 +31,7 @@ from collections import defaultdict, deque
 import matplotlib.pyplot as plt
 import numpy as np
 import time
+import torch
 
 # FreeFuzz imports
 from classes.database import TorchDatabase
@@ -38,11 +42,11 @@ from constants.enum import OracleType
 
 
 # =============================================================================
-# Safety Guards (保护机制)
+# Safety Guards (ä¿æŠ¤æœºåˆ¶)
 # =============================================================================
 
 class Speedometer:
-    """速度监控 - 及时发现性能问题"""
+    """é€Ÿåº¦ç›‘æŽ§ - åŠæ—¶å‘çŽ°æ€§èƒ½é—®é¢˜"""
     def __init__(self, window_size: int = 100, slow_threshold: float = 0.5):
         self.window_size = window_size
         self.slow_threshold = slow_threshold
@@ -81,11 +85,11 @@ class Speedometer:
         current_speed = self.get_speed()
         if current_speed < self.slow_threshold:
             self.slow_warnings += 1
-            warning = (f"⚠️  SLOW SPEED: {current_speed:.2f} it/s (threshold: {self.slow_threshold})")
+            warning = (f"âš ï¸  SLOW SPEED: {current_speed:.2f} it/s (threshold: {self.slow_threshold})")
             if current_speed < 0.1:
-                warning += "\n   → Check if Precision Oracle is too slow"
+                warning += "\n   â†’ Check if Precision Oracle is too slow"
             elif current_speed < 0.5:
-                warning += "\n   → Consider reducing complexity or disabling oracles"
+                warning += "\n   â†’ Consider reducing complexity or disabling oracles"
             return True, warning
         return False, ""
     
@@ -109,7 +113,7 @@ class Speedometer:
 
 
 class DiskGuard:
-    """磁盘空间监控 - 防止爆满崩溃"""
+    """ç£ç›˜ç©ºé—´ç›‘æŽ§ - é˜²æ­¢çˆ†æ»¡å´©æºƒ"""
     def __init__(self, output_dir: str, min_free_gb: float = 1.0, auto_cleanup: bool = True):
         self.output_dir = Path(output_dir)
         self.min_free_gb = min_free_gb
@@ -125,9 +129,9 @@ class DiskGuard:
         total, used, free = self.get_disk_usage()
         if free < self.min_free_gb:
             self.warnings += 1
-            warning = f"⚠️  DISK SPACE: Only {free:.2f} GB free (threshold: {self.min_free_gb} GB)"
+            warning = f"âš ï¸  DISK SPACE: Only {free:.2f} GB free (threshold: {self.min_free_gb} GB)"
             if self.auto_cleanup:
-                warning += "\n   → Attempting auto-cleanup..."
+                warning += "\n   â†’ Attempting auto-cleanup..."
             return True, warning
         return False, ""
     
@@ -156,11 +160,11 @@ class DiskGuard:
         if self.auto_cleanup:
             cleaned = self.cleanup_temp_files()
             total, used, free = self.get_disk_usage()
-            message = f"{warning}\n   Cleaned {cleaned} files → {free:.2f} GB free"
+            message = f"{warning}\n   Cleaned {cleaned} files â†’ {free:.2f} GB free"
             if free < self.min_free_gb:
-                message += "\n   ❌ CRITICAL: Still low after cleanup!"
+                message += "\n   âŒ CRITICAL: Still low after cleanup!"
                 return True, message
-            message += "\n   ✅ Cleanup successful"
+            message += "\n   âœ… Cleanup successful"
             return False, message
         return True, warning
     
@@ -170,7 +174,7 @@ class DiskGuard:
 
 
 class OutlierFilter:
-    """异常参数过滤 - 防止 OOM"""
+    """å¼‚å¸¸å‚æ•°è¿‡æ»¤ - é˜²æ­¢ OOM"""
     def __init__(self, max_elements: int = int(1e8), max_memory_gb: float = 4.0):
         self.max_elements = max_elements
         self.max_memory_gb = max_memory_gb
@@ -217,11 +221,11 @@ class OutlierFilter:
 
 
 # =============================================================================
-# Checkpoint System (断点续传)
+# Checkpoint System (æ–­ç‚¹ç»­ä¼ )
 # =============================================================================
 
 class CheckpointManager:
-    """检查点管理器 - 支持断点续传"""
+    """æ£€æŸ¥ç‚¹ç®¡ç†å™¨ - æ”¯æŒæ–­ç‚¹ç»­ä¼ """
     
     def __init__(self, checkpoint_dir: str, strategy: str, api_name: str):
         self.checkpoint_dir = Path(checkpoint_dir)
@@ -267,7 +271,7 @@ class CheckpointManager:
             return True
             
         except Exception as e:
-            print(f"[Checkpoint] ❌ Save failed: {e}")
+            print(f"[Checkpoint] âŒ Save failed: {e}")
             return False
     
     def load(self) -> Optional[Dict]:
@@ -278,7 +282,7 @@ class CheckpointManager:
             with open(self.checkpoint_file, 'rb') as f:
                 data = pickle.load(f)
             
-            print(f"[Checkpoint] ✅ Loaded from iteration {data['iteration']}")
+            print(f"[Checkpoint] âœ… Loaded from iteration {data['iteration']}")
             print(f"  Kernels: {len(data['coverage_kernels'])}")
             if data.get('corpus_seeds'):
                 print(f"  Corpus: {len(data['corpus_seeds'])} seeds")
@@ -286,7 +290,7 @@ class CheckpointManager:
             return data
             
         except Exception as e:
-            print(f"[Checkpoint] ❌ Load failed: {e}")
+            print(f"[Checkpoint] âŒ Load failed: {e}")
             return None
     
     def exists(self) -> bool:
@@ -304,14 +308,14 @@ class CheckpointManager:
 
 
 # =============================================================================
-# Feature Extractor (参数指纹提取)
+# Feature Extractor (å‚æ•°æŒ‡çº¹æå–)
 # =============================================================================
 
 def extract_features(api: TorchAPI) -> str:
     """
-    提取 API 调用的参数指纹，用于后续的特征多样性分析
+    æå– API è°ƒç”¨çš„å‚æ•°æŒ‡çº¹ï¼Œç”¨äºŽåŽç»­çš„ç‰¹å¾å¤šæ ·æ€§åˆ†æž
     
-    返回格式: "param1:type1:value1|param2:type2:value2|..."
+    è¿”å›žæ ¼å¼: "param1:type1:value1|param2:type2:value2|..."
     """
     features = []
     
@@ -353,11 +357,11 @@ def extract_features(api: TorchAPI) -> str:
 
 
 # =============================================================================
-# Experiment Logger (原始数据记录器)
+# Experiment Logger (åŽŸå§‹æ•°æ®è®°å½•å™¨)
 # =============================================================================
 
 class ExperimentLogger:
-    """轻量级实验数据记录器"""
+    """è½»é‡çº§å®žéªŒæ•°æ®è®°å½•å™¨"""
     
     def __init__(self, output_file: str, strategy: str):
         self.output_file = output_file
@@ -369,11 +373,11 @@ class ExperimentLogger:
         self.invalid_count = 0
     
     def log_iteration(self, 
-                     iteration: int,
-                     source: str,
-                     api: TorchAPI,
-                     valid: bool,
-                     kernels: List[str]):
+                      iteration: int,
+                      source: str,
+                      api: TorchAPI,
+                      valid: bool,
+                      kernels: List[str]):
         features = extract_features(api)
         
         record = {
@@ -405,60 +409,148 @@ class ExperimentLogger:
     def __del__(self):
         self.close()
 
-# 保存原始方法
+# ä¿å­˜åŽŸå§‹æ–¹æ³•
 _ORIGINAL_DO_SELECT_FROM_DB = None
 _ORIGINAL_MUTATE_INT_VALUE = None
 _ORIGINAL_MUTATE_FLOAT_VALUE = None
 
 
 # =============================================================================
-# Bug Tracker (Bug 追踪器)
+# Bug Tracker (Bug è¿½è¸ªå™¨) - ðŸ”¥ å‡çº§ç‰ˆï¼šæŒ‡çº¹è¯†åˆ«
 # =============================================================================
 
-class BugTracker:
-    """追踪所有类型的 Bug"""
+class BugAnalyzer:
+    """æ›´ç²¾ç»†çš„ Bug åˆ†æžå™¨ï¼Œæ”¯æŒé”™è¯¯æŒ‡çº¹æå–"""
     
+    # ç”¨äºŽæ¸…æ´—é”™è¯¯ä¿¡æ¯ä¸­çš„æ•°å­—ã€åœ°å€ã€Shape
+    REGEX_PATTERNS = [
+        (r'0x[0-9a-fA-F]+', 'ADDR'),           # æ›¿æ¢å†…å­˜åœ°å€
+        (r'\d+\.\d+', 'FLOAT'),                # æ›¿æ¢æµ®ç‚¹æ•°
+        (r'\d+', 'INT'),                       # æ›¿æ¢æ•´æ•°
+        (r'\[.*?\]', '[SHAPE]'),               # æ›¿æ¢ Tensor Shape æè¿°
+        (r'\s+', ' '),                         # åˆå¹¶ç©ºæ ¼
+    ]
+
+    @staticmethod
+    def get_signature(content: str) -> str:
+        """基于代码特征生成指纹（bug文件只保存代码，不保存错误信息）"""
+        if not content:
+            return "unknown_empty"
+        
+        features = []
+        
+        # 1. 提取 dtype（最重要的区分特征）
+        dtype_matches = re.findall(r'dtype\s*=\s*(torch\.[a-z0-9]+)', content)
+        if dtype_matches:
+            unique_dtypes = sorted(set(dtype_matches))
+            features.append(f"dtype={','.join(unique_dtypes)}")
+        
+        # 2. 提取 tensor 维度数（归一化 shape）
+        shape_matches = re.findall(r'torch\.rand(?:int)?\s*\(\s*[\[\(]([^\]\)]+)[\]\)]', content)
+        if shape_matches:
+            for shape in shape_matches[:2]:
+                ndim = shape.count(',') + 1
+                features.append(f"ndim={ndim}")
+                break
+        
+        # 3. 提取特殊值特征（投毒触发的关键）
+        if re.search(r'\bnan\b', content, re.IGNORECASE):
+            features.append("NaN")
+        if re.search(r'\binf\b', content, re.IGNORECASE):
+            features.append("Inf")
+        
+        # 4. 生成指纹
+        if not features:
+            return f"hash={hashlib.md5(content.encode()).hexdigest()[:12]}"
+        
+        return "|".join(sorted(features))
+
+    @staticmethod
+    def classify_bug(error_msg: str) -> str:
+        """åˆ†ç±»é€»è¾‘ï¼ˆä¿æŒä½ åŽŸæœ‰çš„ Deep/Shallowï¼Œä½†æ›´ç²¾å‡†ï¼‰"""
+        sig = BugAnalyzer.get_signature(error_msg).lower()
+        
+        if "segfault" in sig or "core_dump" in sig:
+            return "CRITICAL_SEGFAULT"  # å•ç‹¬æŠŠå´©æºƒæ‹Žå‡ºæ¥
+        
+        deep_keywords = ['cuda', 'kernel', 'launch', 'cublas', 'cudnn', 'internal', 'assert']
+        if any(k in sig for k in deep_keywords):
+            return "DEEP_INTERNAL"
+            
+        shallow_keywords = ['type', 'shape', 'dim', 'expect', 'got', 'invalid', 'implement']
+        if any(k in sig for k in shallow_keywords):
+            return "SHALLOW_CHECK"
+            
+        return "RUNTIME_OTHER"
+
+class BugTracker:
     def __init__(self, name: str, output_dir: str):
         self.name = name
         self.output_dir = output_dir
         
+        # å…¼å®¹æ—§é€»è¾‘ï¼šå­˜å‚¨ç®€å•çš„åˆ—è¡¨ï¼Œç”¨äºŽç»˜å›¾å‡½æ•°çš„è®¡æ•°
         self.bugs = {
             "crash": [],
             "cuda": [],
             "precision": []
         }
-        
         self.bug_files = {
             "crash": set(),
             "cuda": set(),
             "precision": set()
         }
-    
-    def scan_bugs(self):
-        oracle_names = {
-            "crash": "crash-oracle",
-            "cuda": "cuda-oracle",
-            "precision": "precision-oracle"
-        }
         
-        for bug_type, oracle_name in oracle_names.items():
+        # ðŸ”¥ æ–°é€»è¾‘ï¼šå­˜å‚¨ç»“æž„åŒ–æŒ‡çº¹ä¿¡æ¯
+        self.unique_bugs = defaultdict(list)
+        self.bug_stats = defaultdict(int) # ç»Ÿè®¡å„ç±»åˆ«çš„æ•°é‡
+        
+    def scan_bugs(self):
+        # æ¸…ç©ºé‡æ‰«ï¼Œé˜²æ­¢é‡å¤
+        self.unique_bugs.clear()
+        self.bug_stats.clear()
+        # æ³¨æ„ï¼šä¸ºäº†ç»˜å›¾å…¼å®¹ï¼Œæˆ‘ä»¬ä¸è½»æ˜“æ¸…ç©º self.bugsï¼Œè€Œæ˜¯æ¯æ¬¡å¢žé‡æ·»åŠ æ–°çš„
+        # æˆ–è€…ä¸ºäº†ä¿æŒä¸€è‡´ï¼Œè¿™é‡Œå…ˆä¸æ¸…ç©º self.bugsï¼Œä¾é  set åŽ»é‡
+        
+        oracle_map = {"crash": "crash-oracle", "cuda": "cuda-oracle", "precision": "precision-oracle"}
+        
+        for bug_type, oracle_name in oracle_map.items():
             bug_dir = join(self.output_dir, oracle_name, "potential-bug")
-            if os.path.exists(bug_dir):
-                for root, dirs, files in os.walk(bug_dir):
-                    for file in files:
-                        if file.endswith('.py'):
-                            bug_file = join(root, file)
-                            if bug_file not in self.bug_files[bug_type]:
-                                self.bug_files[bug_type].add(bug_file)
-                                
-                                api_name = os.path.basename(os.path.dirname(bug_file))
-                                
-                                self.bugs[bug_type].append((
-                                    len(self.bugs[bug_type]),
-                                    api_name,
-                                    bug_file
-                                ))
-    
+            if not os.path.exists(bug_dir):
+                continue
+                
+            for root, _, files in os.walk(bug_dir):
+                for f in files:
+                    if not f.endswith('.py'): continue
+                    
+                    file_path = join(root, f)
+                    
+                    # 1. æ—§é€»è¾‘å…¼å®¹ï¼šåŠ å…¥åˆ—è¡¨ï¼Œç”¨äºŽç»˜å›¾ç»Ÿè®¡æ€»æ•°
+                    if file_path not in self.bug_files[bug_type]:
+                        self.bug_files[bug_type].add(file_path)
+                        self.bugs[bug_type].append((len(self.bugs[bug_type]), "unknown", file_path))
+                    
+                    # 2. ðŸ”¥ æ–°é€»è¾‘ï¼šæŒ‡çº¹æå–ä¸ŽåŽ»é‡
+                    try:
+                        # å°è¯•è¯»å–é”™è¯¯æ—¥å¿—ï¼ˆå‡è®¾åŒå .txt æˆ– .log å­˜åœ¨ï¼Œæˆ–è€…ä»Ž py æ–‡ä»¶æ³¨é‡Šè¯»å–ï¼‰
+                        # è¿™é‡Œç®€åŒ–ä¸ºï¼šç›´æŽ¥è¯»å– python æ–‡ä»¶ï¼Œå¦‚æžœé‡Œé¢æ²¡æœ‰é”™è¯¯ä¿¡æ¯ï¼Œé»˜è®¤æ ‡è®°
+                        content = ""
+                        with open(file_path, 'r', errors='ignore') as f_obj:
+                            content = f_obj.read()
+                        
+                        # æå–æŒ‡çº¹
+                        signature = BugAnalyzer.get_signature(content)
+                        category = BugAnalyzer.classify_bug(content)
+                        
+                        # ç»„åˆé”®å€¼ï¼šç±»åž‹ + æŒ‡çº¹
+                        unique_key = f"[{bug_type.upper()}]_[{category}] : {signature}"
+                        
+                        self.unique_bugs[unique_key].append(file_path)
+                        self.bug_stats[category] += 1
+                        
+                    except Exception as e:
+                        # å®¹é”™å¤„ç†
+                        pass
+
     def get_total_bugs(self) -> int:
         return sum(len(bugs) for bugs in self.bugs.values())
     
@@ -466,42 +558,257 @@ class BugTracker:
         return len(self.bugs.get(bug_type, []))
     
     def print_summary(self):
+        self.scan_bugs()
         print(f"\n{'='*70}")
-        print(f"BUG DETECTION SUMMARY: {self.name}")
-        print(f"{'='*70}")
-        print(f"Total Bugs Found:    {self.get_total_bugs()}")
-        print(f"  🔥 CRASH:          {self.get_bugs_by_type('crash')}")
-        print(f"  🔀 CUDA:           {self.get_bugs_by_type('cuda')}")
-        print(f"  ⚡ PRECISION:      {self.get_bugs_by_type('precision')}")
+        print(f"ðŸ§© BUG ANALYSIS REPORT: {self.name}")
         print(f"{'='*70}")
         
-        for bug_type in ["crash", "cuda", "precision"]:
-            if self.bugs[bug_type]:
-                print(f"\n{bug_type.upper()} Bugs (showing first 3):")
-                for i, (bug_num, api_name, bug_file) in enumerate(self.bugs[bug_type][:3]):
-                    rel_path = bug_file.replace(self.output_dir + "/", "")
-                    print(f"  #{bug_num+1}: {api_name} -> {rel_path}")
-                
-                if len(self.bugs[bug_type]) > 3:
-                    print(f"  ... and {len(self.bugs[bug_type]) - 3} more")
+        # æ‰“å°åŸºäºŽæŒ‡çº¹çš„åŽ»é‡ç»Ÿè®¡
+        print(f"Total Unique Issues: {len(self.unique_bugs)}")
+        print(f"Distribution: {dict(self.bug_stats)}")
+        print("-" * 70)
+        
+        # æ‰“å° Top 5 å”¯ä¸€ Bug
+        print("Top Unique Bugs Found:")
+        sorted_bugs = sorted(self.unique_bugs.items(), key=lambda x: len(x[1]), reverse=True)
+        
+        for i, (sig, files) in enumerate(sorted_bugs[:5]):
+            print(f" {i+1}. [Count: {len(files)}] {sig}")
+            # æ‰“å°ä¸€ä¸ªæ ·æœ¬è·¯å¾„
+            rel_path = files[0].replace(self.output_dir + "/", "")
+            print(f"    Sample: {rel_path}")
+        
+        if not sorted_bugs:
+            print(" No bugs found.")
+            
+        # ä¿ç•™æ—§çš„ç»Ÿè®¡è¾“å‡ºï¼Œä½œä¸ºå¯¹æ¯”
+        print("-" * 70)
+        total_raw = self.get_total_bugs()
+        total_unique = len(self.unique_bugs)
+        print(f"📌 UNIQUE Bugs: {total_unique}")
+        print(f"📄 Raw Files:   CRASH={self.get_bugs_by_type('crash')} | CUDA={self.get_bugs_by_type('cuda')} | PRECISION={self.get_bugs_by_type('precision')} | Total={total_raw}")
+        print(f"📊 Dedup Rate:  {total_unique}/{total_raw} ({total_unique/max(total_raw,1)*100:.1f}% unique)")
+        print(f"{'='*70}\n")
 
 
 # =============================================================================
-# 🔥 NEW: Adaptive Saturation Detector (动态饱和检测器)
+# ðŸ”¥ NEW: Adaptive Saturation Detector (åŠ¨æ€é¥±å’Œæ£€æµ‹å™¨)
+
+# =============================================================================
+# 🆕 RealTimeBugDeduplicator (实时 Bug 去重)
+# =============================================================================
+
+class RealTimeBugDeduplicator:
+    """
+    实时 Bug 去重器 - 基于错误签名去重
+    
+    解决问题：原始 BugTracker 读取 .py 文件内容，无法提取错误信息
+    """
+    
+    CLEAN_PATTERNS = [
+        (r'0x[0-9a-fA-F]+', 'ADDR'),
+        (r'\d+\.\d+', 'FLOAT'),
+        (r'(?<!\w)\d+(?!\w)', 'INT'),
+        (r'\[.*?\]', '[SHAPE]'),
+        (r'at .*?:\d+', 'at FILE:LINE'),
+        (r'\s+', ' '),
+    ]
+    
+    def __init__(self, max_signatures: int = 10000):
+        self.max_signatures = max_signatures
+        self.signatures: Dict[str, Set[str]] = {'crash': set(), 'cuda': set(), 'precision': set()}
+        self.first_occurrence: Dict[str, dict] = {}
+        self.total_bugs = {'crash': 0, 'cuda': 0, 'precision': 0}
+        self.unique_bugs = {'crash': 0, 'cuda': 0, 'precision': 0}
+    
+    def get_signature(self, error_msg: str) -> str:
+        if not error_msg:
+            return "UNKNOWN"
+        lines = error_msg.strip().split('\n')
+        core_msg = lines[-1]
+        for line in reversed(lines):
+            if any(kw in line for kw in ['Error:', 'Exception:', 'INTERNAL ASSERT']):
+                core_msg = line
+                break
+        clean_msg = core_msg
+        for pattern, replacement in self.CLEAN_PATTERNS:
+            clean_msg = re.sub(pattern, replacement, clean_msg)
+        if 'Segmentation fault' in error_msg:
+            return "SEGFAULT"
+        return clean_msg.strip()[:200]
+    
+    def record_bug(self, oracle_type: str, error_msg: str, iteration: int = 0) -> Tuple[bool, str]:
+        oracle_type = oracle_type.lower()
+        if oracle_type not in self.signatures:
+            oracle_type = 'crash'
+        self.total_bugs[oracle_type] += 1
+        signature = self.get_signature(error_msg)
+        sig_hash = hashlib.md5(signature.encode()).hexdigest()[:12]
+        if sig_hash in self.signatures[oracle_type]:
+            return False, signature
+        if len(self.signatures[oracle_type]) >= self.max_signatures:
+            return False, signature
+        self.signatures[oracle_type].add(sig_hash)
+        self.unique_bugs[oracle_type] += 1
+        self.first_occurrence[sig_hash] = {
+            'oracle': oracle_type, 'signature': signature,
+            'iteration': iteration, 'error': error_msg[:300]
+        }
+        return True, signature
+    
+    def get_dedup_stats(self) -> dict:
+        return {
+            'total': self.total_bugs.copy(),
+            'unique': self.unique_bugs.copy(),
+            'dedup_rate': {k: 1 - (self.unique_bugs[k] / max(self.total_bugs[k], 1)) for k in self.total_bugs}
+        }
+    
+    def print_summary(self):
+        stats = self.get_dedup_stats()
+        print(f"\n{'='*70}")
+        print("🔍 BUG DEDUPLICATION REPORT")
+        print(f"{'='*70}")
+        for oracle in ['crash', 'cuda', 'precision']:
+            total, unique = stats['total'][oracle], stats['unique'][oracle]
+            rate = stats['dedup_rate'][oracle] * 100
+            print(f"[{oracle.upper()}] Total: {total}, Unique: {unique}, Dup Rate: {rate:.1f}%")
+        print(f"\nTop Unique Signatures:")
+        for i, (sig_hash, info) in enumerate(list(self.first_occurrence.items())[:10]):
+            print(f"  {i+1}. [{info['oracle'].upper()}] {info['signature'][:60]}...")
+        print(f"{'='*70}")
+
+
+# =============================================================================
+# 🆕 DispatcherSpace (参数组合覆盖率追踪)
+# =============================================================================
+
+class DispatcherSpace:
+    """
+    Dispatcher 状态空间追踪器 - 用于计算参数组合覆盖率
+    
+    计算原理：
+    - 分母 (Denominator): 理论全集 = N_dtypes × N_devices × ...
+    - 分子 (Numerator): 实际命中的参数组合（去重）
+    - 覆盖率 = Numerator / Denominator
+    
+    内存优化：使用 MD5 哈希存储，限制最大记录数防止 OOM
+    """
+    
+    DEFAULT_DIMENSIONS = {
+        'dtype': ['float16', 'float32', 'float64', 'bfloat16',
+                  'int8', 'int16', 'int32', 'int64', 'uint8',
+                  'bool', 'complex64', 'complex128'],
+        'device': ['cpu', 'cuda'],
+    }
+    
+    def __init__(self, max_hits: int = 50000):
+        self.max_hits = max_hits
+        self.api_dimensions: Dict[str, Dict[str, List[str]]] = {}
+        self.hits: Dict[str, Set[str]] = defaultdict(set)
+        self.theoretical_sizes: Dict[str, int] = {}
+        self.total_records = 0
+        self.overflow_warnings = 0
+    
+    def register_api(self, api_name: str, dimensions: Dict[str, List[str]] = None):
+        if dimensions is None:
+            dimensions = self.DEFAULT_DIMENSIONS.copy()
+        self.api_dimensions[api_name] = dimensions
+        size = 1
+        for dim_values in dimensions.values():
+            size *= len(dim_values)
+        self.theoretical_sizes[api_name] = size
+        self.hits[api_name] = set()
+        print(f"[DispatcherSpace] Registered: {api_name}, space={size}")
+    
+    def record_hit(self, api_name: str, api, is_cuda: bool = False) -> bool:
+        """
+        记录参数组合命中
+        
+        Args:
+            api_name: API 名称
+            api: TorchAPI 实例
+            is_cuda: 是否在 CUDA 上执行
+        """
+        if api_name not in self.api_dimensions:
+            self.register_api(api_name)
+        if self.total_records >= self.max_hits:
+            self.overflow_warnings += 1
+            return False
+        
+        state_parts = []
+        
+        # 1. 提取 device
+        device = "cuda" if is_cuda else "cpu"
+        state_parts.append(f"dev={device}")
+        
+        # 2. 提取 dtype（从所有参数）
+        dtypes_found = set()
+        for param_name, arg in api.args.items():
+            if arg is None:
+                continue
+            # Tensor 的 dtype
+            if hasattr(arg, 'dtype') and arg.dtype is not None:
+                dtype_str = str(arg.dtype).replace('torch.', '')
+                dtypes_found.add(dtype_str)
+            # 显式 dtype 参数
+            elif hasattr(arg, 'value') and hasattr(arg, 'type'):
+                if arg.type == ArgType.TORCH_DTYPE:
+                    dtype_str = str(arg.value).replace('torch.', '')
+                    dtypes_found.add(dtype_str)
+        
+        # 添加所有 dtype
+        for dtype in sorted(dtypes_found):
+            state_parts.append(f"d={dtype}")
+        
+        if len(state_parts) <= 1:  # 只有 device，没有 dtype
+            return False
+        
+        # 生成哈希
+        state_str = "|".join(sorted(state_parts))
+        state_hash = hashlib.md5(state_str.encode()).hexdigest()[:12]
+        
+        if state_hash not in self.hits[api_name]:
+            self.hits[api_name].add(state_hash)
+            self.total_records += 1
+            return True
+        return False
+    
+    def get_coverage(self, api_name: str) -> float:
+        if api_name not in self.theoretical_sizes:
+            return 0.0
+        actual = len(self.hits[api_name])
+        theoretical = self.theoretical_sizes[api_name]
+        return actual / theoretical if theoretical > 0 else 0.0
+    
+    def print_summary(self):
+        print(f"\n{'='*70}")
+        print("📊 DISPATCHER SPACE COVERAGE REPORT")
+        print(f"{'='*70}")
+        for api_name in self.api_dimensions:
+            actual = len(self.hits[api_name])
+            theoretical = self.theoretical_sizes[api_name]
+            cov = self.get_coverage(api_name)
+            bar_w, filled = 30, int(30 * cov)
+            bar = '█' * filled + '░' * (bar_w - filled)
+            print(f"[{api_name}] {actual}/{theoretical} ({cov*100:.1f}%) [{bar}]")
+        print(f"Total: {self.total_records}, Overflow: {self.overflow_warnings}")
+        print(f"{'='*70}")
+
+
 # =============================================================================
 
 class AdaptiveSaturationDetector:
     """
-    动态饱和检测器 - 不停止，而是扩大搜索范围
+    åŠ¨æ€é¥±å’Œæ£€æµ‹å™¨ - ä¸åœæ­¢ï¼Œè€Œæ˜¯æ‰©å¤§æœç´¢èŒƒå›´
     
-    策略:
-    1. 连续 N 次无发现 → 触发"扩大搜索"而非"停止"
-    2. 扩大搜索 = 提升探索率 + 扩大变异范围
-    3. 发现新 Kernel → 立即恢复正常模式
+    ç­–ç•¥:
+    1. è¿žç»­ N æ¬¡æ— å‘çŽ° â†’ è§¦å‘"æ‰©å¤§æœç´¢"è€Œéž"åœæ­¢"
+    2. æ‰©å¤§æœç´¢ = æå‡æŽ¢ç´¢çŽ‡ + æ‰©å¤§å˜å¼‚èŒƒå›´
+    3. å‘çŽ°æ–° Kernel â†’ ç«‹å³æ¢å¤æ­£å¸¸æ¨¡å¼
     """
     
     def __init__(self, 
-                 patience: int = 500,           # 🔧 容忍多少次无新发现
+                 patience: int = 500,           # ðŸ”§ å®¹å¿å¤šå°‘æ¬¡æ— æ–°å‘çŽ°
                  check_interval: int = 100):
         self.patience = patience
         self.check_interval = check_interval
@@ -510,38 +817,38 @@ class AdaptiveSaturationDetector:
         self.last_kernel_count = 0
         self.last_check_iteration = 0
         
-        # 扩大搜索标志
+        # æ‰©å¤§æœç´¢æ ‡å¿—
         self.expansion_mode = False
         self.expansion_count = 0
     
     def update(self, current_kernels: int, iteration: int) -> Tuple[bool, str]:
         """
-        更新状态并检查是否需要扩大搜索
+        æ›´æ–°çŠ¶æ€å¹¶æ£€æŸ¥æ˜¯å¦éœ€è¦æ‰©å¤§æœç´¢
         
         Returns:
             (should_expand, message)
         """
-        # 检查是否有新发现
+        # æ£€æŸ¥æ˜¯å¦æœ‰æ–°å‘çŽ°
         if current_kernels > self.last_kernel_count:
             self.no_discovery_count = 0
             self.last_kernel_count = current_kernels
             
-            # 发现新 Kernel，退出扩展模式
+            # å‘çŽ°æ–° Kernelï¼Œé€€å‡ºæ‰©å±•æ¨¡å¼
             if self.expansion_mode:
                 self.expansion_mode = False
-                return False, "✅ New kernels found! Returning to normal mode"
+                return False, "âœ… New kernels found! Returning to normal mode"
         else:
             self.no_discovery_count += 1
         
-        # 定期检查
+        # å®šæœŸæ£€æŸ¥
         if iteration - self.last_check_iteration >= self.check_interval:
             self.last_check_iteration = iteration
             
-            # 触发扩大搜索
+            # è§¦å‘æ‰©å¤§æœç´¢
             if self.no_discovery_count >= self.patience and not self.expansion_mode:
                 self.expansion_mode = True
                 self.expansion_count += 1
-                return True, f"🔍 Expanding search (stagnation: {self.no_discovery_count} iters)"
+                return True, f"ðŸ” Expanding search (stagnation: {self.no_discovery_count} iters)"
         
         return False, ""
     
@@ -558,7 +865,7 @@ class AdaptiveSaturationDetector:
 # =============================================================================
 
 class EnhancedCoverageTracker:
-    """覆盖率追踪器 + 动态饱和检测"""
+    """è¦†ç›–çŽ‡è¿½è¸ªå™¨ + åŠ¨æ€é¥±å’Œæ£€æµ‹"""
     
     def __init__(self, name: str, enable_adaptive_saturation: bool = True):
         self.name = name
@@ -567,12 +874,12 @@ class EnhancedCoverageTracker:
         self.history: List[Tuple[int, int]] = []
         self.new_kernel_iterations: List[int] = []
         
-        # 动态饱和检测
+        # åŠ¨æ€é¥±å’Œæ£€æµ‹
         self.saturation_detector = AdaptiveSaturationDetector() if enable_adaptive_saturation else None
     
     def update(self, new_kernels: Set[str], iteration: int) -> Tuple[int, Tuple[bool, str]]:
         """
-        更新覆盖率
+        æ›´æ–°è¦†ç›–çŽ‡
         
         Returns:
             (new_kernel_count, (should_expand, message))
@@ -598,7 +905,7 @@ class EnhancedCoverageTracker:
         
         self.history.append((iteration, len(self.all_kernels)))
         
-        # 动态饱和检测
+        # åŠ¨æ€é¥±å’Œæ£€æµ‹
         expansion_signal = (False, "")
         if self.saturation_detector:
             expansion_signal = self.saturation_detector.update(len(self.all_kernels), iteration)
@@ -622,7 +929,7 @@ class EnhancedCoverageTracker:
 # =============================================================================
 
 class EvolutionaryCorpus:
-    """进化种子池"""
+    """è¿›åŒ–ç§å­æ± """
     
     def __init__(self, max_size: int = 100):
         self.corpus: List[TorchAPI] = []
@@ -648,40 +955,40 @@ class EvolutionaryCorpus:
 
 
 # =============================================================================
-# 🔥 NEW: Adaptive Mutation Controller (动态变异控制器)
+# ðŸ”¥ NEW: Adaptive Mutation Controller (åŠ¨æ€å˜å¼‚æŽ§åˆ¶å™¨)
 # =============================================================================
 
 class AdaptiveMutationController:
     """
-    动态变异控制器
+    åŠ¨æ€å˜å¼‚æŽ§åˆ¶å™¨
     
-    功能:
-    1. 根据停滞情况自动调整变异范围
-    2. 支持 ε-greedy 探索策略
-    3. 发现新 Kernel 时立即恢复微创模式
+    åŠŸèƒ½:
+    1. æ ¹æ®åœæ»žæƒ…å†µè‡ªåŠ¨è°ƒæ•´å˜å¼‚èŒƒå›´
+    2. æ”¯æŒ Îµ-greedy æŽ¢ç´¢ç­–ç•¥
+    3. å‘çŽ°æ–° Kernel æ—¶ç«‹å³æ¢å¤å¾®åˆ›æ¨¡å¼
     """
     
     def __init__(self, 
-                 base_epsilon: float = 0.1,          # 基础探索率
-                 expansion_epsilon: float = 0.3,     # 扩张模式探索率
-                 surgical_range: int = 8,            # 微创范围
-                 exploration_range: int = 64):       # 探索范围
+                 base_epsilon: float = 0.1,          # åŸºç¡€æŽ¢ç´¢çŽ‡
+                 expansion_epsilon: float = 0.3,     # æ‰©å¼ æ¨¡å¼æŽ¢ç´¢çŽ‡
+                 surgical_range: int = 8,            # å¾®åˆ›èŒƒå›´
+                 exploration_range: int = 64):       # æŽ¢ç´¢èŒƒå›´
         self.base_epsilon = base_epsilon
         self.expansion_epsilon = expansion_epsilon
         self.surgical_range = surgical_range
         self.exploration_range = exploration_range
         
-        # 当前状态
+        # å½“å‰çŠ¶æ€
         self.current_epsilon = base_epsilon
         self.current_range = surgical_range
         self.expansion_mode = False
         
-        # 统计
+        # ç»Ÿè®¡
         self.exploration_count = 0
         self.exploitation_count = 0
     
     def should_explore(self) -> bool:
-        """决定本次迭代是否采用探索模式"""
+        """å†³å®šæœ¬æ¬¡è¿­ä»£æ˜¯å¦é‡‡ç”¨æŽ¢ç´¢æ¨¡å¼"""
         if random.random() < self.current_epsilon:
             self.exploration_count += 1
             return True
@@ -690,21 +997,21 @@ class AdaptiveMutationController:
             return False
     
     def enter_expansion_mode(self):
-        """进入扩张模式（停滞时触发）"""
+        """è¿›å…¥æ‰©å¼ æ¨¡å¼ï¼ˆåœæ»žæ—¶è§¦å‘ï¼‰"""
         self.expansion_mode = True
         self.current_epsilon = self.expansion_epsilon
         self.current_range = self.exploration_range
-        print(f"  🔍 [Mutation] Expansion mode: ε={self.current_epsilon}, range=±{self.current_range}")
+        print(f"  ðŸ” [Mutation] Expansion mode: Îµ={self.current_epsilon}, range=Â±{self.current_range}")
     
     def exit_expansion_mode(self):
-        """退出扩张模式（发现新 Kernel 时）"""
+        """é€€å‡ºæ‰©å¼ æ¨¡å¼ï¼ˆå‘çŽ°æ–° Kernel æ—¶ï¼‰"""
         self.expansion_mode = False
         self.current_epsilon = self.base_epsilon
         self.current_range = self.surgical_range
-        print(f"  ✅ [Mutation] Normal mode: ε={self.current_epsilon}, range=±{self.current_range}")
+        print(f"  âœ… [Mutation] Normal mode: Îµ={self.current_epsilon}, range=Â±{self.current_range}")
     
     def get_mutation_range(self) -> int:
-        """获取当前变异范围"""
+        """èŽ·å–å½“å‰å˜å¼‚èŒƒå›´"""
         return self.current_range
     
     def get_status(self) -> str:
@@ -714,7 +1021,7 @@ class AdaptiveMutationController:
         explore_pct = self.exploration_count / total * 100
         return (f"Explore: {self.exploration_count}/{total} ({explore_pct:.1f}%) | "
                 f"Mode: {'Expansion' if self.expansion_mode else 'Normal'} | "
-                f"ε={self.current_epsilon:.2f}, range=±{self.current_range}")
+                f"Îµ={self.current_epsilon:.2f}, range=Â±{self.current_range}")
 
 
 # =============================================================================
@@ -722,7 +1029,7 @@ class AdaptiveMutationController:
 # =============================================================================
 
 class ProbabilityPatcher:
-    """将数据库采样概率从 20% 提升到 80%"""
+    """å°†æ•°æ®åº“é‡‡æ ·æ¦‚çŽ‡ä»Ž 20% æå‡åˆ° 80%"""
     
     @staticmethod
     def patch_high_db_probability():
@@ -736,41 +1043,41 @@ class ProbabilityPatcher:
             return rand() < 0.5
         
         prob_module.do_select_from_db = high_db_select
-        print("[Patch] ✅ Database sampling: 20% → 80%")
+        print("[Patch] âœ… Database sampling: 20% â†’ 80%")
     
     @staticmethod
     def restore():
         if _ORIGINAL_DO_SELECT_FROM_DB:
             import utils.probability as prob_module
             prob_module.do_select_from_db = _ORIGINAL_DO_SELECT_FROM_DB
-            print("[Patch] 🔄 Database sampling restored")
+            print("[Patch] ðŸ”„ Database sampling restored")
 
 
 # =============================================================================
-# 🧪 NEW: Poison Patcher (投毒补丁 - 独立于策略)
+# ðŸ§ª NEW: Poison Patcher (æŠ•æ¯’è¡¥ä¸ - ç‹¬ç«‹äºŽç­–ç•¥)
 # =============================================================================
 
-# 保存原始方法的全局变量
+# ä¿å­˜åŽŸå§‹æ–¹æ³•çš„å…¨å±€å˜é‡
 _POISON_ORIGINAL_FLOAT = None
 _POISON_ORIGINAL_INT = None
 
 class PoisonPatcher:
     """
-    独立的投毒补丁 - 对 Random 和 Guided 都生效
+    ç‹¬ç«‹çš„æŠ•æ¯’è¡¥ä¸ - å¯¹ Random å’Œ Guided éƒ½ç”Ÿæ•ˆ
     
-    浮点投毒:
-    - 5%:  Infinity (±∞)
+    æµ®ç‚¹æŠ•æ¯’:
+    - 5%:  Infinity (Â±âˆž)
     - 5%:  NaN
     - 10%: Extreme Values [1e20, -1e20, 1e-10, -1e-10]
-    - 30%: 字典采样
-    - 50%: 温和微调
+    - 30%: å­—å…¸é‡‡æ ·
+    - 50%: æ¸©å’Œå¾®è°ƒ
     
-    整数投毒:
-    - 10%: 边界值 [0, -1, 1]
-    - 10%: 极端值 [-999, 999, ±2^31]
-    - 10%: 陷阱值 [-2, -3, 256, 512, 质数]
-    - 30%: 字典采样
-    - 40%: 温和微调
+    æ•´æ•°æŠ•æ¯’:
+    - 10%: è¾¹ç•Œå€¼ [0, -1, 1]
+    - 10%: æžç«¯å€¼ [-999, 999, Â±2^31]
+    - 10%: é™·é˜±å€¼ [-2, -3, 256, 512, è´¨æ•°]
+    - 30%: å­—å…¸é‡‡æ ·
+    - 40%: æ¸©å’Œå¾®è°ƒ
     """
     
     @staticmethod
@@ -781,67 +1088,67 @@ class PoisonPatcher:
         _POISON_ORIGINAL_INT = Argument.mutate_int_value
         
         def poison_float_mutation(self, value) -> float:
-            """🧪 Float Poison Injection - 对所有策略生效"""
+            """ðŸ§ª Float Poison Injection - å¯¹æ‰€æœ‰ç­–ç•¥ç”Ÿæ•ˆ"""
             from numpy.random import rand, choice
             
             roll = rand()
             
-            # [5%] 注入 Infinity (正/负无穷)
+            # [5%] æ³¨å…¥ Infinity (æ­£/è´Ÿæ— ç©·)
             if roll < 0.05:
                 return choice([float('inf'), float('-inf')])
             
-            # [5%] 注入 NaN
+            # [5%] æ³¨å…¥ NaN
             elif roll < 0.10:
                 return float('nan')
             
-            # [10%] 注入极端值 (Extreme Values)
+            # [10%] æ³¨å…¥æžç«¯å€¼ (Extreme Values)
             elif roll < 0.20:
                 extreme_values = [1e20, -1e20, 1e-10, -1e-10]
                 return choice(extreme_values)
             
-            # [30%] 原始逻辑 - 字典采样
+            # [30%] åŽŸå§‹é€»è¾‘ - å­—å…¸é‡‡æ ·
             elif roll < 0.50:
                 return choice(Argument._float_values)
             
-            # [50%] 原始逻辑 - 温和微调
+            # [50%] åŽŸå§‹é€»è¾‘ - æ¸©å’Œå¾®è°ƒ
             else:
                 return value + (rand() - 0.5) * 8.0
         
         def poison_int_mutation(self, value, _min=None, _max=None) -> int:
-            """🧪 Int Poison Injection - 对所有策略生效"""
+            """ðŸ§ª Int Poison Injection - å¯¹æ‰€æœ‰ç­–ç•¥ç”Ÿæ•ˆ"""
             from numpy.random import rand, choice, randint
             
             roll = rand()
             
-            # [10%] 边界值 - 最容易触发逻辑错误
+            # [10%] è¾¹ç•Œå€¼ - æœ€å®¹æ˜“è§¦å‘é€»è¾‘é”™è¯¯
             if roll < 0.10:
                 boundary_values = [0, -1, 1]
                 new_value = choice(boundary_values)
             
-            # [10%] 极端值 - 溢出和边界检查
+            # [10%] æžç«¯å€¼ - æº¢å‡ºå’Œè¾¹ç•Œæ£€æŸ¥
             elif roll < 0.20:
                 extreme_values = [-999, 999, -2147483648, 2147483647, -65536, 65536]
                 new_value = choice(extreme_values)
             
-            # [10%] 常见陷阱值 - 特定参数的问题值
+            # [10%] å¸¸è§é™·é˜±å€¼ - ç‰¹å®šå‚æ•°çš„é—®é¢˜å€¼
             elif roll < 0.30:
                 trap_values = [
-                    -2, -3, -4,      # 负数维度
-                    256, 512, 1024,  # 大尺寸
-                    7, 11, 13,       # 质数 (不能整除)
-                    0,               # 重复强调 0
+                    -2, -3, -4,      # è´Ÿæ•°ç»´åº¦
+                    256, 512, 1024,  # å¤§å°ºå¯¸
+                    7, 11, 13,       # è´¨æ•° (ä¸èƒ½æ•´é™¤)
+                    0,               # é‡å¤å¼ºè°ƒ 0
                 ]
                 new_value = choice(trap_values)
             
-            # [30%] 字典采样
+            # [30%] å­—å…¸é‡‡æ ·
             elif roll < 0.60:
                 new_value = choice(Argument._int_values)
             
-            # [40%] 温和微调
+            # [40%] æ¸©å’Œå¾®è°ƒ
             else:
                 new_value = value + randint(-8, 9)
             
-            # 应用边界限制 (但保留 -1 等特殊值用于触发 bug)
+            # åº”ç”¨è¾¹ç•Œé™åˆ¶ (ä½†ä¿ç•™ -1 ç­‰ç‰¹æ®Šå€¼ç”¨äºŽè§¦å‘ bug)
             if _min is not None and new_value < _min and new_value not in [-1, 0]:
                 new_value = max(_min, new_value)
             if _max is not None and new_value > _max:
@@ -849,9 +1156,10 @@ class PoisonPatcher:
             
             return int(new_value)
         
-        Argument.mutate_float_value = poison_float_mutation
+        # ä¿®æ­£ï¼šå‡½æ•°åè¦å¯¹åº”ä¸Šé¢å®šä¹‰çš„ poion_float_mutation
+        Argument.mutate_float_value = poison_float_mutation 
         Argument.mutate_int_value = poison_int_mutation
-        print("[Patch] 🧪 Poison Injection enabled (ALL strategies):")
+        print("[Patch] ðŸ§ª Poison Injection enabled (ALL strategies):")
         print("        Float: 5% Inf + 5% NaN + 10% Extreme")
         print("        Int:   10% boundary + 10% extreme + 10% trap")
     
@@ -862,38 +1170,38 @@ class PoisonPatcher:
             Argument.mutate_float_value = _POISON_ORIGINAL_FLOAT
         if _POISON_ORIGINAL_INT:
             Argument.mutate_int_value = _POISON_ORIGINAL_INT
-        print("[Patch] 🔄 Poison Injection restored")
+        print("[Patch] ðŸ”„ Poison Injection restored")
 
 
 # =============================================================================
-# 🔥 NEW: Adaptive Mutation Patcher (动态变异补丁 - 仅 Guided)
+# ðŸ”¥ NEW: Adaptive Mutation Patcher (åŠ¨æ€å˜å¼‚è¡¥ä¸ - ä»… Guided)
 # =============================================================================
 
 class AdaptiveMutationPatcher:
-    """动态范围变异补丁 - 仅 Guided 策略使用，投毒由 PoisonPatcher 统一处理"""
+    """åŠ¨æ€èŒƒå›´å˜å¼‚è¡¥ä¸ - ä»… Guided ç­–ç•¥ä½¿ç”¨ï¼ŒæŠ•æ¯’ç”± PoisonPatcher ç»Ÿä¸€å¤„ç†"""
     
     @staticmethod
     def patch_adaptive_mutation(controller: AdaptiveMutationController):
         """
-        Guided 策略额外使用动态范围调整
-        注意: 基础投毒已由 PoisonPatcher 处理，这里只增加动态范围功能
+        Guided ç­–ç•¥é¢å¤–ä½¿ç”¨åŠ¨æ€èŒƒå›´è°ƒæ•´
+        æ³¨æ„: åŸºç¡€æŠ•æ¯’å·²ç”± PoisonPatcher å¤„ç†ï¼Œè¿™é‡Œåªå¢žåŠ åŠ¨æ€èŒƒå›´åŠŸèƒ½
         """
-        # 注意: 不再保存/覆盖原始方法，因为 PoisonPatcher 已经处理了
-        # 这个 patcher 现在只是一个标记，表示 Guided 策略启用了动态范围
-        print(f"[Patch] ✅ Adaptive range enabled for Guided: ±{controller.get_mutation_range()}")
+        # æ³¨æ„: ä¸å†ä¿å­˜/è¦†ç›–åŽŸå§‹æ–¹æ³•ï¼Œå› ä¸º PoisonPatcher å·²ç»å¤„ç†äº†
+        # è¿™ä¸ª patcher çŽ°åœ¨åªæ˜¯ä¸€ä¸ªæ ‡è®°ï¼Œè¡¨ç¤º Guided ç­–ç•¥å¯ç”¨äº†åŠ¨æ€èŒƒå›´
+        print(f"[Patch] âœ… Adaptive range enabled for Guided: Â±{controller.get_mutation_range()}")
     
     @staticmethod
     def restore():
-        # PoisonPatcher 会负责恢复，这里只打印信息
-        print("[Patch] 🔄 Adaptive range disabled")
+        # PoisonPatcher ä¼šè´Ÿè´£æ¢å¤ï¼Œè¿™é‡Œåªæ‰“å°ä¿¡æ¯
+        print("[Patch] ðŸ”„ Adaptive range disabled")
 
 
 # =============================================================================
-# 🔥 Enhanced Fuzzer with Hybrid Strategy
+# ðŸ”¥ Enhanced Fuzzer with Hybrid Strategy
 # =============================================================================
 
 class EnhancedFuzzer:
-    """支持混合策略的增强型 Fuzzer"""
+    """æ”¯æŒæ··åˆç­–ç•¥çš„å¢žå¼ºåž‹ Fuzzer"""
     
     def __init__(self, 
                  api_name: str, 
@@ -904,7 +1212,9 @@ class EnhancedFuzzer:
                  enable_logging: bool = True,
                  enable_checkpoint: bool = True,
                  enable_safety_guards: bool = True,
-                 diff_bound: float = 1e-5):  # 🔧
+                 diff_bound: float = 1e-5,
+                 warmup_ratio: float = 0.1,           # 🆕 热启动比例
+                 enable_dispatcher: bool = True):     # 🆕 启用 DispatcherSpace  # ðŸ”§
         self.api_name = api_name
         self.output_dir = output_dir
         self.strategy_name = strategy_name
@@ -914,20 +1224,22 @@ class EnhancedFuzzer:
         self.enable_checkpoint = enable_checkpoint
         self.enable_safety_guards = enable_safety_guards
         self.diff_bound = diff_bound
+        self.warmup_ratio = warmup_ratio             # 🆕 保存热启动比例
+        self.enable_dispatcher = enable_dispatcher   # 🆕 保存dispatcher开关
         
         # Trackers
         self.coverage = EnhancedCoverageTracker(strategy_name, enable_adaptive_saturation=enable_patches)
         self.bug_tracker = BugTracker(strategy_name, output_dir)
         
-        # Guided 专属
+        # Guided ä¸“å±ž
         self.corpus = EvolutionaryCorpus(max_size=100) if enable_patches else None
         self.mutation_controller = AdaptiveMutationController() if enable_patches else None
         
-        # Library - 使用更严格的 diff_bound 配合投毒策略
+        # Library - ä½¿ç”¨æ›´ä¸¥æ ¼çš„ diff_bound é…åˆæŠ•æ¯’ç­–ç•¥
         self.library = TorchLibrary(output_dir, diff_bound=diff_bound)
-        print(f"[Fuzzer] 🎯 Precision tolerance: diff_bound={diff_bound}")
+        print(f"[Fuzzer] ðŸŽ¯ Precision tolerance: diff_bound={diff_bound}")
         
-        # Oracle 列表
+        # Oracle åˆ—è¡¨
         if use_all_oracles:
             self.oracles = [OracleType.CRASH, OracleType.CUDA, OracleType.PRECISION]
             print(f"[Fuzzer] Using ALL oracles: CRASH + CUDA + PRECISION")
@@ -960,8 +1272,20 @@ class EnhancedFuzzer:
         if enable_safety_guards:
             self.speedometer = Speedometer(window_size=100, slow_threshold=0.5)
             self.disk_guard = DiskGuard(output_dir, min_free_gb=1.0, auto_cleanup=True)
-            self.outlier_filter = OutlierFilter(max_elements=int(1e8), max_memory_gb=4.0)
+            self.outlier_filter = OutlierFilter(max_elements=int(5e6), max_memory_gb=2.0)  # 🔧 降低限制防止OOM
             print(f"[Safety] Guards enabled: Speedometer + DiskGuard + OutlierFilter")
+        
+        # 🆕 DispatcherSpace 初始化
+        self.dispatcher_space = None
+        if enable_dispatcher:
+            self.dispatcher_space = DispatcherSpace(max_hits=50000)
+            self.dispatcher_space.register_api(api_name)
+        
+        # 🆕 实时 Bug 去重器
+        self.bug_deduplicator = RealTimeBugDeduplicator(max_signatures=10000)
+        
+        # 🆕 Warmup 配置 (阈值在 run_fuzzing_loop 中计算)
+        self.warmup_threshold = 0
         
         print(f"\n[Fuzzer] Initialized: {strategy_name}")
         print(f"  API: {api_name}")
@@ -970,22 +1294,24 @@ class EnhancedFuzzer:
         print(f"  Data Logging: {'Enabled' if enable_logging else 'Disabled'}")
         print(f"  Checkpoint: {'Enabled' if enable_checkpoint else 'Disabled'}")
         print(f"  Safety Guards: {'Enabled' if enable_safety_guards else 'Disabled'}")
+        print(f"  Warmup Ratio: {warmup_ratio*100:.0f}%")
+        print(f"  DispatcherSpace: {'Enabled' if enable_dispatcher else 'Disabled'}")
     
     def run_fuzzing_loop(self, 
-                        max_iterations: int = 10000,
-                        checkpoint_interval: int = 100,
-                        bug_scan_interval: int = 50):
+                         max_iterations: int = 10000,
+                         checkpoint_interval: int = 100,
+                         bug_scan_interval: int = 50):
         """
-        主 Fuzzing 循环 - 混合策略版本
+        ä¸» Fuzzing å¾ªçŽ¯ - æ··åˆç­–ç•¥ç‰ˆæœ¬
         """
         # ====================================================================
-        # 初始化 Safety Guards
+        # åˆå§‹åŒ– Safety Guards
         # ====================================================================
         if self.speedometer:
             self.speedometer.start()
         
         # ====================================================================
-        # 尝试从 checkpoint 恢复
+        # å°è¯•ä»Ž checkpoint æ¢å¤
         # ====================================================================
         start_iteration = 0
         
@@ -1008,26 +1334,31 @@ class EnhancedFuzzer:
                 if self.logger:
                     self.logger.total_iterations = checkpoint_data.get('logger_iterations', 0)
                 
-                print(f"\n✅ Resuming from iteration {start_iteration}")
+                print(f"\nâœ… Resuming from iteration {start_iteration}")
                 print(f"  Previous kernels: {len(self.coverage.all_kernels)}")
                 if self.corpus:
                     print(f"  Previous corpus: {len(self.corpus.corpus)} seeds")
                 print(f"{'='*70}\n")
         
         # ====================================================================
-        # 主循环
+        # ä¸»å¾ªçŽ¯
         # ====================================================================
         print(f"\n{'='*70}")
         print(f"Starting {self.strategy_name} fuzzing")
         if self.mutation_controller:
-            print(f"Hybrid Strategy: ε-greedy + Adaptive Mutation")
-        print(f"Iterations: {start_iteration} → {max_iterations}")
+            print(f"Hybrid Strategy: Îµ-greedy + Adaptive Mutation")
+        print(f"Iterations: {start_iteration} â†’ {max_iterations}")
         if start_iteration > 0:
             print(f"(Resuming from checkpoint)")
         print(f"{'='*70}\n")
         
         start_time = time.time()
         last_bug_count = 0
+        
+        # 🆕 计算热启动阈值
+        self.warmup_threshold = int(max_iterations * self.warmup_ratio)
+        print(f"🔥 Warmup Phase: iterations 0 ~ {self.warmup_threshold} (Random only)")
+        print(f"🚀 Evolution Phase: iterations {self.warmup_threshold} ~ {max_iterations}")
         
         for i in range(start_iteration, max_iterations):
             # ================================================================
@@ -1037,33 +1368,37 @@ class EnhancedFuzzer:
                 self.speedometer.tick()
             
             # ================================================================
-            # 🔥 混合策略：ε-greedy 选择
+            # ðŸ”¥ æ··åˆç­–ç•¥ï¼šÎµ-greedy é€‰æ‹©
             # ================================================================
             source = ""
             is_exploration = False
             
-            if self.mutation_controller:
-                is_exploration = self.mutation_controller.should_explore()
-            
-            if is_exploration:
-                # 探索模式：强制随机种子 + 大范围变异
+            # 🆕 Phase 1: Warm-up (强制 Random)
+            if i < self.warmup_threshold:
                 api = TorchAPI(self.api_name)
-                source = "exploration"
+                source = "warmup_random"
+                api.mutate()
+                if i == self.warmup_threshold - 1:
+                    print(f"\n🚀 PHASE TRANSITION: Warm-up → Evolution (iter {i+1})")
+            
+            # 🆕 Phase 2: Evolution (ε-greedy)
             else:
-                # 利用模式：优先使用 Corpus
-                if self.corpus and self.corpus.size() > 0 and random.random() < 0.7:
+                if self.mutation_controller:
+                    is_exploration = self.mutation_controller.should_explore()
+                
+                if is_exploration:
+                    api = TorchAPI(self.api_name)
+                    source = "exploration"
+                elif self.corpus and self.corpus.size() > 0 and random.random() < 0.7:
                     parent_api = self.corpus.select_parent()
                     api = copy.deepcopy(parent_api)
                     source = "corpus"
                 else:
                     api = TorchAPI(self.api_name)
                     source = "random"
+                api.mutate()
             
-            # 变异
-            api.mutate()
-            
-            # ================================================================
-            # OutlierFilter 检查
+            # OutlierFilter æ£€æŸ¥
             # ================================================================
             if self.outlier_filter:
                 should_filter, reason = self.outlier_filter.check_api(api)
@@ -1079,20 +1414,39 @@ class EnhancedFuzzer:
                     continue
             
             # ================================================================
-            # 测试所有 Oracle
+            # æµ‹è¯•æ‰€æœ‰ Oracle
             # ================================================================
             all_captured_kernels = set()
             execution_valid = False
             
             for oracle in self.oracles:
                 try:
-                    captured_kernels = self.library.test_with_oracle(api, oracle)
+                    # 🆕 test_with_oracle 现在返回 (kernels, bug_info)
+                    result = self.library.test_with_oracle(api, oracle)
+                    
+                    # 兼容旧版本（只返回 kernels）和新版本（返回元组）
+                    if isinstance(result, tuple):
+                        captured_kernels, bug_info = result
+                    else:
+                        captured_kernels, bug_info = result, None
+                    
                     all_captured_kernels.update(captured_kernels)
                     execution_valid = True
+                    
+                    # 🆕 实时去重记录
+                    if bug_info and hasattr(self, 'bug_deduplicator'):
+                        is_new, sig = self.bug_deduplicator.record_bug(
+                            oracle_type=bug_info.get('type', 'crash'),
+                            error_msg=bug_info.get('error', ''),
+                            iteration=i
+                        )
+                        if is_new:
+                            print(f"  🐛 NEW [{bug_info.get('oracle', 'BUG')}]: {sig[:50]}...")
+                            
                 except Exception as e:
                     pass
             
-            # 记录原始数据
+            # è®°å½•åŽŸå§‹æ•°æ®
             if self.logger:
                 self.logger.log_iteration(
                     iteration=i,
@@ -1102,39 +1456,45 @@ class EnhancedFuzzer:
                     kernels=list(all_captured_kernels)
                 )
             
+            # 🆕 记录 DispatcherSpace 命中
+            if self.dispatcher_space and execution_valid:
+                # 检测是否使用了 CUDA (CUDA oracle 或代码中有 .cuda())
+                is_cuda = OracleType.CUDA in self.oracles
+                self.dispatcher_space.record_hit(self.api_name, api, is_cuda=is_cuda)
+            
             # ================================================================
-            # 更新覆盖率 + 动态饱和检测
+            # æ›´æ–°è¦†ç›–çŽ‡ + åŠ¨æ€é¥±å’Œæ£€æµ‹
             # ================================================================
             new_count, (should_expand, expansion_msg) = self.coverage.update(all_captured_kernels, i)
             
-            # 响应扩张信号
+            # å“åº”æ‰©å¼ ä¿¡å·
             if should_expand and self.mutation_controller:
                 self.mutation_controller.enter_expansion_mode()
             
-            # 发现新 Kernel 时退出扩张模式
+            # å‘çŽ°æ–° Kernel æ—¶é€€å‡ºæ‰©å¼ æ¨¡å¼
             if new_count > 0 and self.mutation_controller:
                 if self.mutation_controller.expansion_mode:
                     self.mutation_controller.exit_expansion_mode()
             
-            # 更新 Corpus
+            # æ›´æ–° Corpus
             if new_count > 0 and self.corpus:
                 self.corpus.add_seed(api, all_captured_kernels)
             
-            # 定期扫描 Bug
+            # å®šæœŸæ‰«æ Bug
             if (i + 1) % bug_scan_interval == 0:
                 prev_bug_count = self.bug_tracker.get_total_bugs()
                 self.bug_tracker.scan_bugs()
                 new_bugs = self.bug_tracker.get_total_bugs() - prev_bug_count
                 
                 if new_bugs > 0:
-                    print(f"  🐛 [{self.strategy_name}] Found {new_bugs} new bugs! "
+                    print(f"  ðŸ› [{self.strategy_name}] Found {new_bugs} new bugs! "
                           f"Total: {self.bug_tracker.get_total_bugs()}")
             
             # ================================================================
             # Checkpoint + Safety Guards
             # ================================================================
             if (i + 1) % checkpoint_interval == 0:
-                # Checkpoint 保存
+                # Checkpoint ä¿å­˜
                 if self.checkpoint_manager:
                     self.checkpoint_manager.save(
                         iteration=i,
@@ -1143,12 +1503,12 @@ class EnhancedFuzzer:
                         logger_iterations=self.logger.total_iterations if self.logger else 0
                     )
                 
-                # 磁盘空间检查
+                # ç£ç›˜ç©ºé—´æ£€æŸ¥
                 if self.disk_guard:
                     is_critical, message = self.disk_guard.check_and_cleanup()
                     if is_critical:
                         print(f"\n{message}")
-                        print(f"❌ STOPPING: Critical disk space issue")
+                        print(f"âŒ STOPPING: Critical disk space issue")
                         break
                     elif message:
                         print(f"\n{message}")
@@ -1163,39 +1523,50 @@ class EnhancedFuzzer:
                 print(f"Kernels: {self.coverage.get_total()} | "
                       f"Bugs: {self.bug_tracker.get_total_bugs()}{valid_rate_str}")
                 
-                # Speedometer 状态
+                # Speedometer çŠ¶æ€
                 if self.speedometer:
                     print(f"Speed: {self.speedometer.get_status(i, max_iterations)}")
                     is_slow, warning = self.speedometer.check_speed()
                     if is_slow:
                         print(warning)
                 
-                # Disk 状态
+                # Disk çŠ¶æ€
                 if self.disk_guard:
                     print(f"Disk: {self.disk_guard.get_status()}")
                 
-                # OutlierFilter 状态
+                # OutlierFilter çŠ¶æ€
                 if self.outlier_filter:
                     print(f"Filter: {self.outlier_filter.get_status()}")
                 
-                # Corpus 状态
+                # Corpus çŠ¶æ€
                 if self.corpus:
                     print(f"Corpus: {self.corpus.size()} seeds")
                 
-                # 🔥 Mutation Controller 状态
+                # 🆕 DispatcherSpace 状态
+                if self.dispatcher_space:
+                    cov = self.dispatcher_space.get_coverage(self.api_name)
+                    hits = len(self.dispatcher_space.hits[self.api_name])
+                    print(f"Dispatcher: {hits} combos ({cov*100:.1f}% coverage)")
+                
+                # ðŸ”¥ Mutation Controller çŠ¶æ€
                 if self.mutation_controller:
                     print(f"Mutation: {self.mutation_controller.get_status()}")
                 
-                # Bug 扫描
+                # 🔧 定期清理内存防止 OOM (Exit 137)
+                gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                
+                # Bug æ‰«æ
                 self.bug_tracker.scan_bugs()
         
         # ====================================================================
-        # 完成后清理
+        # å®ŒæˆåŽæ¸…ç†
         # ====================================================================
         if self.checkpoint_manager:
             self.checkpoint_manager.clear()
         
-        # 最终统计
+        # æœ€ç»ˆç»Ÿè®¡
         print(f"\n{'='*70}")
         print(f"Fuzzing completed: {self.strategy_name}")
         print(f"Total time: {(time.time() - start_time)/60:.1f} minutes")
@@ -1222,18 +1593,26 @@ class EnhancedFuzzer:
         if self.mutation_controller:
             print(f"Mutation Stats: {self.mutation_controller.get_status()}")
         
+        # 🆕 DispatcherSpace 最终报告
+        if self.dispatcher_space:
+            self.dispatcher_space.print_summary()
+        
+        # 🆕 Bug 去重报告
+        if hasattr(self, 'bug_deduplicator'):
+            self.bug_deduplicator.print_summary()
+        
         print(f"{'='*70}")
         
         return self.coverage
     
     def print_stats(self):
-        """打印统计信息"""
+        """æ‰“å°ç»Ÿè®¡ä¿¡æ¯"""
         print(f"\n{'='*70}")
         print(f"FINAL STATISTICS: {self.strategy_name}")
         print(f"{'='*70}")
         print(f"Total Kernels: {self.coverage.get_total()}")
         
-        # Bug 统计
+        # Bug ç»Ÿè®¡
         self.bug_tracker.scan_bugs()
         self.bug_tracker.print_summary()
 
@@ -1248,14 +1627,18 @@ def plot_full_oracle_results(
     random_bugs: BugTracker,
     guided_bugs: BugTracker,
     api_name: str,
-    output_dir: str
+    output_dir: str,
+    random_dispatcher: DispatcherSpace = None,  # 🆕
+    guided_dispatcher: DispatcherSpace = None,  # 🆕
+    random_dedup = None,  # 🆕 Bug 去重器
+    guided_dedup = None   # 🆕
 ):
-    """绘制完整的结果对比图（包含 Bug 统计）"""
+    """ç»˜åˆ¶å®Œæ•´çš„ç»“æžœå¯¹æ¯”å›¾ï¼ˆåŒ…å« Bug ç»Ÿè®¡ï¼‰"""
     
     fig = plt.figure(figsize=(18, 10))
     gs = fig.add_gridspec(2, 3, hspace=0.3, wspace=0.3)
     
-    # Kernel 覆盖率曲线
+    # Kernel è¦†ç›–çŽ‡æ›²çº¿
     ax1 = fig.add_subplot(gs[0, :2])
     
     if random_coverage.history:
@@ -1277,7 +1660,7 @@ def plot_full_oracle_results(
     ax1.legend(loc="lower right", fontsize=11)
     ax1.grid(True, alpha=0.3)
     
-    # Bug 数量对比
+    # Bug æ•°é‡å¯¹æ¯”
     ax2 = fig.add_subplot(gs[0, 2])
     
     bug_types = ['CRASH', 'CUDA', 'PRECISION']
@@ -1316,7 +1699,7 @@ def plot_full_oracle_results(
                         f'{int(height)}',
                         ha='center', va='bottom', fontsize=9)
     
-    # 总 Bug 数对比
+    # æ€» Bug æ•°å¯¹æ¯”
     ax3 = fig.add_subplot(gs[1, 0])
     
     total_random = random_bugs.get_total_bugs()
@@ -1332,13 +1715,13 @@ def plot_full_oracle_results(
                 autopct='%1.1f%%', shadow=True, startangle=90,
                 textprops={'fontsize': 11, 'weight': 'bold'})
         ax3.set_title("C) Total Bugs Distribution", 
-                     fontsize=12, fontweight='bold')
+                      fontsize=12, fontweight='bold')
     else:
         ax3.text(0.5, 0.5, "No Bugs Found", 
                 ha='center', va='center', fontsize=14)
         ax3.axis('off')
     
-    # 发现速率
+    # å‘çŽ°é€ŸçŽ‡
     ax4 = fig.add_subplot(gs[1, 1])
     
     window = 100
@@ -1374,9 +1757,23 @@ def plot_full_oracle_results(
     ax4.legend(loc="upper right", fontsize=10)
     ax4.grid(True, alpha=0.3)
     
-    # 统计表
+    # ç»Ÿè®¡è¡¨
     ax5 = fig.add_subplot(gs[1, 2])
     ax5.axis('off')
+    
+    # 🆕 获取 Dispatcher 覆盖率
+    random_disp_cov = random_dispatcher.get_coverage(api_name) * 100 if random_dispatcher else 0
+    guided_disp_cov = guided_dispatcher.get_coverage(api_name) * 100 if guided_dispatcher else 0
+    
+    # 🆕 获取去重后的 Bug 数量
+    random_unique = sum(random_dedup.unique_bugs.values()) if random_dedup else random_bugs.get_total_bugs()
+    guided_unique = sum(guided_dedup.unique_bugs.values()) if guided_dedup else guided_bugs.get_total_bugs()
+    
+    # 🆕 计算去重后的 Bug 数
+    random_bugs.scan_bugs()
+    guided_bugs.scan_bugs()
+    random_unique = len(random_bugs.unique_bugs)
+    guided_unique = len(guided_bugs.unique_bugs)
     
     table_data = [
         ["Metric", "Random", "Guided", "Ratio"],
@@ -1385,26 +1782,22 @@ def plot_full_oracle_results(
          f"{random_coverage.get_total()}",
          f"{guided_coverage.get_total()}",
          f"{guided_coverage.get_total()/max(random_coverage.get_total(),1):.2f}x"],
-        ["Total Bugs",
+        ["Dispatcher Cov",
+         f"{random_disp_cov:.1f}%",
+         f"{guided_disp_cov:.1f}%",
+         f"{guided_disp_cov/max(random_disp_cov,0.1):.2f}x"],
+        ["Unique Bugs",
+         f"{random_unique}",
+         f"{guided_unique}",
+         f"{guided_unique/max(random_unique,1):.2f}x"],
+        ["Raw Triggers",
          f"{random_bugs.get_total_bugs()}",
          f"{guided_bugs.get_total_bugs()}",
          f"{guided_bugs.get_total_bugs()/max(random_bugs.get_total_bugs(),1):.2f}x"],
-        ["CRASH Bugs",
-         f"{random_bugs.get_bugs_by_type('crash')}",
-         f"{guided_bugs.get_bugs_by_type('crash')}",
-         f"{guided_bugs.get_bugs_by_type('crash')/max(random_bugs.get_bugs_by_type('crash'),1):.2f}x"],
-        ["CUDA Bugs",
-         f"{random_bugs.get_bugs_by_type('cuda')}",
-         f"{guided_bugs.get_bugs_by_type('cuda')}",
-         f"{guided_bugs.get_bugs_by_type('cuda')/max(random_bugs.get_bugs_by_type('cuda'),1):.2f}x"],
-        ["PRECISION Bugs",
-         f"{random_bugs.get_bugs_by_type('precision')}",
-         f"{guided_bugs.get_bugs_by_type('precision')}",
-         f"{guided_bugs.get_bugs_by_type('precision')/max(random_bugs.get_bugs_by_type('precision'),1):.2f}x"],
     ]
     
     table = ax5.table(cellText=table_data, cellLoc='center', loc='center',
-                     colWidths=[0.35, 0.22, 0.22, 0.21])
+                      colWidths=[0.35, 0.22, 0.22, 0.21])
     table.auto_set_font_size(False)
     table.set_fontsize(9)
     table.scale(1, 2.5)
@@ -1419,10 +1812,10 @@ def plot_full_oracle_results(
     ax5.set_title("E) Comprehensive Comparison", 
                   fontsize=12, fontweight='bold', pad=20)
     
-    # 总标题
+    # æ€»æ ‡é¢˜
     fig.suptitle(
         f"Hybrid Strategy Benchmark: {api_name}\n"
-        f"ε-greedy (10% Exploration) + Adaptive Mutation + Dynamic Saturation",
+        f"Îµ-greedy (10% Exploration) + Adaptive Mutation + Dynamic Saturation",
         fontsize=15, fontweight='bold', y=0.98
     )
     
@@ -1432,7 +1825,7 @@ def plot_full_oracle_results(
     plt.savefig(plot_file, dpi=150, bbox_inches='tight')
     plt.close()
     
-    print(f"\n📊 Hybrid strategy plot saved: {plot_file}")
+    print(f"\nðŸ“Š Hybrid strategy plot saved: {plot_file}")
 
 
 # =============================================================================
@@ -1446,10 +1839,10 @@ def run_full_oracle_experiment(
     config_file: str = "demo_torch.conf",
     diff_bound: float = 1e-5
 ):
-    """运行完整的混合策略实验 (含投毒策略)"""
+    """è¿è¡Œå®Œæ•´çš„æ··åˆç­–ç•¥å®žéªŒ (å«æŠ•æ¯’ç­–ç•¥)"""
     os.makedirs(output_dir, exist_ok=True)
     
-    # 配置数据库
+    # é…ç½®æ•°æ®åº“
     config = configparser.ConfigParser()
     possible_paths = [
         join("config", config_file),
@@ -1464,10 +1857,10 @@ def run_full_oracle_experiment(
             break
     
     if not config_path:
-        print("❌ Config file not found")
+        print("âŒ Config file not found")
         return None
     
-    print(f"📝 Config: {os.path.abspath(config_path)}")
+    print(f"ðŸ“ Config: {os.path.abspath(config_path)}")
     config.read(config_path)
     
     TorchDatabase.database_config(
@@ -1480,7 +1873,7 @@ def run_full_oracle_experiment(
     # Phase 1: Random Baseline
     # =========================================================================
     # =========================================================================
-    # 🧪 Enable Poison Injection for ALL strategies
+    # ðŸ§ª Enable Poison Injection for ALL strategies
     # =========================================================================
     PoisonPatcher.patch()
     
@@ -1526,7 +1919,7 @@ def run_full_oracle_experiment(
             diff_bound=diff_bound
         )
         
-        # 🔥 应用动态变异补丁 (仅 Guided)
+        # ðŸ”¥ åº”ç”¨åŠ¨æ€å˜å¼‚è¡¥ä¸ (ä»… Guided)
         AdaptiveMutationPatcher.patch_adaptive_mutation(guided_fuzzer.mutation_controller)
         
         guided_coverage = guided_fuzzer.run_fuzzing_loop(
@@ -1537,7 +1930,7 @@ def run_full_oracle_experiment(
         guided_fuzzer.print_stats()
         
     finally:
-        # 恢复所有补丁
+        # æ¢å¤æ‰€æœ‰è¡¥ä¸
         ProbabilityPatcher.restore()
         AdaptiveMutationPatcher.restore()
         PoisonPatcher.restore()
@@ -1548,25 +1941,35 @@ def run_full_oracle_experiment(
     plot_full_oracle_results(
         random_coverage, guided_coverage,
         random_fuzzer.bug_tracker, guided_fuzzer.bug_tracker,
-        api_name, output_dir
+        api_name, output_dir,
+        random_dispatcher=random_fuzzer.dispatcher_space,  # 🆕
+        guided_dispatcher=guided_fuzzer.dispatcher_space,  # 🆕
+        random_dedup=getattr(random_fuzzer, 'bug_deduplicator', None),  # 🆕
+        guided_dedup=getattr(guided_fuzzer, 'bug_deduplicator', None)   # 🆕
     )
     
     # =========================================================================
     # Save Results
     # =========================================================================
+    # 🆕 获取去重统计
+    random_dedup_stats = random_fuzzer.bug_deduplicator.get_dedup_stats() if hasattr(random_fuzzer, 'bug_deduplicator') else None
+    guided_dedup_stats = guided_fuzzer.bug_deduplicator.get_dedup_stats() if hasattr(guided_fuzzer, 'bug_deduplicator') else None
+    
     results = {
         "api": api_name,
         "max_iterations": max_iterations,
         "hybrid_strategy": {
             "epsilon_greedy": "10% exploration",
-            "adaptive_mutation": "±8 → ±64 on stagnation",
+            "adaptive_mutation": "Â±8 â†’ Â±64 on stagnation",
             "dynamic_saturation": "expand search instead of stop"
         },
         "random": {
             "total_kernels": random_coverage.get_total(),
             "iterations_run": len(random_coverage.history),
+            "dispatcher_coverage": random_fuzzer.dispatcher_space.get_coverage(api_name) if random_fuzzer.dispatcher_space else 0,
             "bugs": {
-                "total": random_fuzzer.bug_tracker.get_total_bugs(),
+                "total_triggers": random_fuzzer.bug_tracker.get_total_bugs(),
+                "unique_bugs": sum(random_dedup_stats['unique'].values()) if random_dedup_stats else 0,
                 "crash": random_fuzzer.bug_tracker.get_bugs_by_type("crash"),
                 "cuda": random_fuzzer.bug_tracker.get_bugs_by_type("cuda"),
                 "precision": random_fuzzer.bug_tracker.get_bugs_by_type("precision")
@@ -1575,8 +1978,10 @@ def run_full_oracle_experiment(
         "guided": {
             "total_kernels": guided_coverage.get_total(),
             "iterations_run": len(guided_coverage.history),
+            "dispatcher_coverage": guided_fuzzer.dispatcher_space.get_coverage(api_name) if guided_fuzzer.dispatcher_space else 0,
             "bugs": {
-                "total": guided_fuzzer.bug_tracker.get_total_bugs(),
+                "total_triggers": guided_fuzzer.bug_tracker.get_total_bugs(),
+                "unique_bugs": sum(guided_dedup_stats['unique'].values()) if guided_dedup_stats else 0,
                 "crash": guided_fuzzer.bug_tracker.get_bugs_by_type("crash"),
                 "cuda": guided_fuzzer.bug_tracker.get_bugs_by_type("cuda"),
                 "precision": guided_fuzzer.bug_tracker.get_bugs_by_type("precision")
@@ -1594,7 +1999,7 @@ def run_full_oracle_experiment(
     with open(result_file, "w") as f:
         json.dump(results, f, indent=2)
     
-    print(f"\n💾 Results saved: {result_file}")
+    print(f"\nðŸ’¾ Results saved: {result_file}")
     
     return results
 
@@ -1607,27 +2012,27 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(
-        description="Hybrid Strategy Benchmark: ε-greedy + Adaptive Mutation + Poison Injection"
+        description="Hybrid Strategy Benchmark: Îµ-greedy + Adaptive Mutation + Poison Injection"
     )
     parser.add_argument("--api", type=str, default="torch.nn.LSTM",
-                       help="API to test")
+                        help="API to test")
     parser.add_argument("--max-iterations", type=int, default=10000,
-                       help="Maximum iterations")
+                        help="Maximum iterations")
     parser.add_argument("--output", type=str, default="hybrid_output")
     parser.add_argument("--conf", type=str, default="demo_torch.conf")
     parser.add_argument("--diff-bound", type=float, default=1e-5,
-                       help="Precision tolerance for PRECISION oracle (default: 1e-5)")
+                        help="Precision tolerance for PRECISION oracle (default: 1e-5)")
     
     args = parser.parse_args()
     
     print("="*70)
-    print("🔬 HYBRID STRATEGY BENCHMARK + POISON INJECTION")
+    print("ðŸ”¬ HYBRID STRATEGY BENCHMARK + POISON INJECTION")
     print("="*70)
     print(f"API: {args.api}")
     print(f"Max Iterations: {args.max_iterations:,}")
-    print(f"Strategy: ε-greedy (10% exploration) + Adaptive Mutation")
-    print(f"🧪 Poison Injection: 5% Inf + 5% NaN + 10% Extreme")
-    print(f"🎯 Precision Tolerance: {args.diff_bound}")
+    print(f"Strategy: Îµ-greedy (10% exploration) + Adaptive Mutation")
+    print(f"ðŸ§ª Poison Injection: 5% Inf + 5% NaN + 10% Extreme")
+    print(f"ðŸŽ¯ Precision Tolerance: {args.diff_bound}")
     print(f"Oracles: CRASH + CUDA + PRECISION")
     print("="*70)
     

@@ -1,0 +1,25 @@
+results = dict()
+import torch
+arg_1_0 = 20
+arg_1_1 = 16
+arg_1_2 = 50
+arg_1_3 = 44
+arg_1_4 = 31
+arg_1 = [arg_1_0,arg_1_1,arg_1_2,arg_1_3,arg_1_4,]
+arg_class = torch.nn.LocalResponseNorm(arg_1,)
+arg_2_0_tensor = torch.rand([32, 5, 24, 24], dtype=torch.float32)
+arg_2_0 = arg_2_0_tensor.clone()
+arg_2 = [arg_2_0,]
+try:
+  results["res_cpu"] = arg_class(*arg_2)
+except Exception as e:
+  results["err_cpu"] = "ERROR:"+str(e)
+arg_class = arg_class.cuda()
+arg_2_0 = arg_2_0_tensor.clone().cuda()
+arg_2 = [arg_2_0,]
+try:
+  results["res_gpu"] = arg_class(*arg_2)
+except Exception as e:
+  results["err_gpu"] = "ERROR:"+str(e)
+
+print(results)

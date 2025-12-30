@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.BCEWithLogitsLoss",
+  "max_iterations": 4000,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00c2\u00b18 \u00e2\u2020\u2019 \u00c2\u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 81,
+    "iterations_run": 3995,
+    "bugs": {
+      "total": 3,
+      "crash": 0,
+      "cuda": 3,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 77,
+    "iterations_run": 3994,
+    "bugs": {
+      "total": 52,
+      "crash": 0,
+      "cuda": 52,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 0.9506172839506173,
+    "bug_ratio": 17.333333333333332,
+    "exclusive_random": 7,
+    "exclusive_guided": 3
+  }
+}

@@ -1,0 +1,33 @@
+======================================================================
+🔬 KERNEL-GUIDED FUZZING (Original Strategy)
+======================================================================
+API: torch.nn.Transformer
+Max Iterations: 7,000
+Strategy: 80% DB Sampling + Standard Mutation (No Constraints)
+======================================================================
+📝 Config: /workspace/FreeFuzz/src/config/demo_torch.conf
+
+======================================================================
+PHASE 1: RANDOM BASELINE (Original FreeFuzz)
+======================================================================
+[Fuzzer] Random | Corpus: False | Oracles: 3
+
+======================================================================
+Starting Random: 0 → 7000
+======================================================================
+
+NO SUCH API: torch.nn.Transformer
+Traceback (most recent call last):
+  File "benchmark_full_oracle_tc.py", line 926, in <module>
+    main()
+  File "benchmark_full_oracle_tc.py", line 921, in main
+    config_file=args.conf
+  File "benchmark_full_oracle_tc.py", line 812, in run_full_oracle_experiment
+    checkpoint_interval=max(100, max_iterations // 20)
+  File "benchmark_full_oracle_tc.py", line 506, in run_fuzzing_loop
+    api = TorchAPI(self.api_name)
+  File "/workspace/FreeFuzz/src/classes/torch_api.py", line 272, in __init__
+    record = TorchDatabase.get_rand_record(self.api)
+  File "/workspace/FreeFuzz/src/classes/database.py", line 87, in get_rand_record
+    assert(0)
+AssertionError

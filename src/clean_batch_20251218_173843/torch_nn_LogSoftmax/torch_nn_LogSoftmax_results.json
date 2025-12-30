@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.LogSoftmax",
+  "max_iterations": 3500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 29,
+    "compute_kernels": 28,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 33,
+    "compute_kernels": 32,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 59
+  },
+  "ratios": {
+    "compute_kernel": 1.1428571428571428,
+    "deep_bug": 1.0
+  }
+}

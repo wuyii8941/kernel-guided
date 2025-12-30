@@ -1,0 +1,528 @@
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/Loss.cu:247: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/Loss.cu:247: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/Loss.cu:247: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+======================================================================
+ðŸ”¬ HYBRID STRATEGY BENCHMARK + POISON INJECTION
+======================================================================
+API: torch.nn.NLLLoss
+Max Iterations: 4,000
+Strategy: Îµ-greedy (10% exploration) + Adaptive Mutation
+ðŸ§ª Poison Injection: 5% Inf + 5% NaN + 10% Extreme
+ðŸŽ¯ Precision Tolerance: 1e-05
+Oracles: CRASH + CUDA + PRECISION
+======================================================================
+ðŸ“ Config: /workspace/FreeFuzz/src/config/demo_torch.conf
+[Patch] ðŸ§ª Poison Injection enabled (ALL strategies):
+        Float: 5% Inf + 5% NaN + 10% Extreme
+        Int:   10% boundary + 10% extreme + 10% trap
+
+======================================================================
+PHASE 1: RANDOM BASELINE (All Oracles + Poison)
+======================================================================
+[Fuzzer] ðŸŽ¯ Precision tolerance: diff_bound=1e-05
+[Fuzzer] Using ALL oracles: CRASH + CUDA + PRECISION
+[Logger] Trace file: poison_batch_20251229_170336/torch_nn_NLLLoss/random/torch_nn_NLLLoss_random_trace.jsonl
+[Checkpoint] Manager initialized: torch_nn_NLLLoss_random_checkpoint.pkl
+[Safety] Guards enabled: Speedometer + DiskGuard + OutlierFilter
+[DispatcherSpace] Registered: torch.nn.NLLLoss, space=24
+
+[Fuzzer] Initialized: Random
+  API: torch.nn.NLLLoss
+  Patches: Disabled
+  Hybrid Strategy: N/A
+  Data Logging: Enabled
+  Checkpoint: Enabled
+  Safety Guards: Enabled
+  Warmup Ratio: 10%
+  DispatcherSpace: Enabled
+
+======================================================================
+Starting Random fuzzing
+Iterations: 0 â†’ 4000
+======================================================================
+
+🔥 Warmup Phase: iterations 0 ~ 400 (Random only)
+🚀 Evolution Phase: iterations 400 ~ 4000
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamIsCapturing', 'cudaDeviceSynchronize', 'cudaMalloc']...[0m
+  [Random] Iter 0: +4 new kernels! Total: 4
+
+--- Checkpoint: 200/4000 (0.1 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.0%
+Speed: 60.81 it/s (avg: 23.95) | Elapsed: 8s | ETA: 2m 38s
+Disk: 13562.20 GB free (3.2% used)
+Filter: 2/200 filtered (1.0%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+🚀 PHASE TRANSITION: Warm-up → Evolution (iter 400)
+
+--- Checkpoint: 400/4000 (0.2 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.5%
+Speed: 54.93 it/s (avg: 33.64) | Elapsed: 11s | ETA: 1m 47s
+Disk: 13562.20 GB free (3.2% used)
+Filter: 2/400 filtered (0.5%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 600/4000 (0.3 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.7%
+Speed: 62.21 it/s (avg: 39.03) | Elapsed: 15s | ETA: 1m 27s
+Disk: 13562.20 GB free (3.2% used)
+Filter: 2/600 filtered (0.3%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 800/4000 (0.3 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.8%
+Speed: 47.57 it/s (avg: 41.52) | Elapsed: 19s | ETA: 1m 17s
+Disk: 13562.20 GB free (3.2% used)
+Filter: 2/800 filtered (0.2%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1000/4000 (0.4 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 45.62 it/s (avg: 42.97) | Elapsed: 23s | ETA: 1m 9s
+Disk: 13562.19 GB free (3.2% used)
+Filter: 4/1000 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1200/4000 (0.5 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 45.25 it/s (avg: 43.47) | Elapsed: 27s | ETA: 1m 4s
+Disk: 13562.19 GB free (3.2% used)
+Filter: 5/1200 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1400/4000 (0.5 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 43.50 it/s (avg: 43.83) | Elapsed: 31s | ETA: 59s
+Disk: 13562.19 GB free (3.2% used)
+Filter: 6/1400 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1600/4000 (0.6 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 43.16 it/s (avg: 43.91) | Elapsed: 36s | ETA: 54s
+Disk: 13562.19 GB free (3.2% used)
+Filter: 6/1600 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1800/4000 (0.7 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 44.07 it/s (avg: 43.68) | Elapsed: 41s | ETA: 50s
+Disk: 13562.18 GB free (3.2% used)
+Filter: 7/1800 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2000/4000 (0.8 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 50.10 it/s (avg: 44.28) | Elapsed: 45s | ETA: 45s
+Disk: 13562.18 GB free (3.2% used)
+Filter: 9/2000 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2200/4000 (0.8 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 39.16 it/s (avg: 44.41) | Elapsed: 49s | ETA: 40s
+Disk: 13562.18 GB free (3.2% used)
+Filter: 9/2200 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2400/4000 (0.9 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 36.31 it/s (avg: 43.72) | Elapsed: 54s | ETA: 36s
+Disk: 13562.18 GB free (3.2% used)
+Filter: 9/2400 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2600/4000 (1.0 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 37.01 it/s (avg: 43.06) | Elapsed: 1m 0s | ETA: 32s
+Disk: 13562.18 GB free (3.2% used)
+Filter: 10/2600 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2800/4000 (1.1 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 40.27 it/s (avg: 42.98) | Elapsed: 1m 5s | ETA: 27s
+Disk: 13562.17 GB free (3.2% used)
+Filter: 10/2800 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3000/4000 (1.2 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 43.22 it/s (avg: 43.01) | Elapsed: 1m 9s | ETA: 23s
+Disk: 13562.17 GB free (3.2% used)
+Filter: 11/3000 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3200/4000 (1.2 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.7%
+Speed: 41.16 it/s (avg: 42.73) | Elapsed: 1m 14s | ETA: 18s
+Disk: 13562.17 GB free (3.2% used)
+Filter: 11/3200 filtered (0.3%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3400/4000 (1.3 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.7%
+Speed: 38.50 it/s (avg: 42.50) | Elapsed: 1m 19s | ETA: 14s
+Disk: 13562.17 GB free (3.2% used)
+Filter: 11/3400 filtered (0.3%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3600/4000 (1.4 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.7%
+Speed: 39.80 it/s (avg: 42.37) | Elapsed: 1m 24s | ETA: 9s
+Disk: 13562.16 GB free (3.2% used)
+Filter: 12/3600 filtered (0.3%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3800/4000 (1.5 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 35.49 it/s (avg: 42.06) | Elapsed: 1m 30s | ETA: 4s
+Disk: 13562.16 GB free (3.2% used)
+Filter: 14/3800 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 4000/4000 (1.6 min) ---
+Kernels: 4 | Bugs: 0 | Valid: 99.6%
+Speed: 38.04 it/s (avg: 41.81) | Elapsed: 1m 35s | ETA: 0s
+Disk: 13562.16 GB free (3.2% used)
+Filter: 17/4000 filtered (0.4%)
+Dispatcher: 0 combos (0.0% coverage)
+Dispatcher: 0 combos (0.0% coverage)
+[Checkpoint] Cleared
+
+======================================================================
+Fuzzing completed: Random
+Total time: 1.6 minutes
+Valid Rate: 99.6%
+Trace file: poison_batch_20251229_170336/torch_nn_NLLLoss/random/torch_nn_NLLLoss_random_trace.jsonl
+Average Speed: 41.81 it/s
+Final Disk Usage: 13562.16 GB free
+Outliers Filtered: 17/4000
+
+======================================================================
+📊 DISPATCHER SPACE COVERAGE REPORT
+======================================================================
+[torch.nn.NLLLoss] 0/24 (0.0%) [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░]
+Total: 0, Overflow: 0
+======================================================================
+======================================================================
+
+======================================================================
+FINAL STATISTICS: Random
+======================================================================
+Total Kernels: 4
+
+======================================================================
+ðŸ§© BUG ANALYSIS REPORT: Random
+======================================================================
+Total Unique Issues: 0
+Distribution: {}
+----------------------------------------------------------------------
+Top Unique Bugs Found:
+ No bugs found.
+----------------------------------------------------------------------
+Raw Counts (Old Metric): CRASH=0 | CUDA=0 | PRECISION=0
+======================================================================
+
+
+======================================================================
+PHASE 2: KERNEL-GUIDED WITH HYBRID STRATEGY (+ Poison)
+======================================================================
+[Patch] âœ… Database sampling: 20% â†’ 80%
+[Fuzzer] ðŸŽ¯ Precision tolerance: diff_bound=1e-05
+[Fuzzer] Using ALL oracles: CRASH + CUDA + PRECISION
+[Logger] Trace file: poison_batch_20251229_170336/torch_nn_NLLLoss/guided/torch_nn_NLLLoss_guided_trace.jsonl
+[Checkpoint] Manager initialized: torch_nn_NLLLoss_guided_checkpoint.pkl
+[Safety] Guards enabled: Speedometer + DiskGuard + OutlierFilter
+[DispatcherSpace] Registered: torch.nn.NLLLoss, space=24
+
+[Fuzzer] Initialized: Guided
+  API: torch.nn.NLLLoss
+  Patches: Enabled
+  Hybrid Strategy: Active
+  Data Logging: Enabled
+  Checkpoint: Enabled
+  Safety Guards: Enabled
+  Warmup Ratio: 10%
+  DispatcherSpace: Enabled
+[Patch] âœ… Adaptive range enabled for Guided: Â±8
+
+======================================================================
+Starting Guided fuzzing
+Hybrid Strategy: Îµ-greedy + Adaptive Mutation
+Iterations: 0 â†’ 4000
+======================================================================
+
+🔥 Warmup Phase: iterations 0 ~ 400 (Random only)
+🚀 Evolution Phase: iterations 400 ~ 4000
+
+--- Checkpoint: 200/4000 (0.0 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.5%
+Speed: 77.00 it/s (avg: 74.95) | Elapsed: 2s | ETA: 50s
+Disk: 13562.16 GB free (3.2% used)
+Filter: 1/200 filtered (0.5%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: No mutations yet
+Dispatcher: 0 combos (0.0% coverage)
+
+🚀 PHASE TRANSITION: Warm-up → Evolution (iter 400)
+
+--- Checkpoint: 400/4000 (0.1 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.2%
+Speed: 68.61 it/s (avg: 71.73) | Elapsed: 5s | ETA: 50s
+Disk: 13562.15 GB free (3.2% used)
+Filter: 3/400 filtered (0.8%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: No mutations yet
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 600/4000 (0.1 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.5%
+Speed: 61.26 it/s (avg: 68.70) | Elapsed: 8s | ETA: 49s
+Disk: 13562.15 GB free (3.2% used)
+Filter: 3/600 filtered (0.5%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 18/200 (9.0%) | Mode: Normal | Îµ=0.10, range=Â±8
+Dispatcher: 0 combos (0.0% coverage)
+
+ðŸ” Expanding search (stagnation: 598 iters)
+  ðŸ” [Mutation] Expansion mode: Îµ=0.3, range=Â±64
+
+--- Checkpoint: 800/4000 (0.2 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 56.53 it/s (avg: 64.78) | Elapsed: 12s | ETA: 49s
+Disk: 13562.15 GB free (3.2% used)
+Filter: 3/800 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 71/400 (17.8%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1000/4000 (0.3 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 50.60 it/s (avg: 61.05) | Elapsed: 16s | ETA: 49s
+Disk: 13562.15 GB free (3.2% used)
+Filter: 4/1000 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 134/600 (22.3%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1200/4000 (0.3 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 46.43 it/s (avg: 58.43) | Elapsed: 20s | ETA: 47s
+Disk: 13562.15 GB free (3.2% used)
+Filter: 5/1200 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 189/800 (23.6%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1400/4000 (0.4 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 54.47 it/s (avg: 57.77) | Elapsed: 24s | ETA: 45s
+Disk: 13562.14 GB free (3.2% used)
+Filter: 6/1400 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 240/1000 (24.0%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1600/4000 (0.5 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 56.60 it/s (avg: 57.49) | Elapsed: 27s | ETA: 41s
+Disk: 13562.14 GB free (3.2% used)
+Filter: 6/1600 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 301/1200 (25.1%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 1800/4000 (0.5 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.7%
+Speed: 51.35 it/s (avg: 56.78) | Elapsed: 31s | ETA: 38s
+Disk: 13562.14 GB free (3.2% used)
+Filter: 6/1800 filtered (0.3%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 352/1400 (25.1%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2000/4000 (0.6 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.7%
+Speed: 48.26 it/s (avg: 55.99) | Elapsed: 35s | ETA: 35s
+Disk: 13562.14 GB free (3.2% used)
+Filter: 7/2000 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 408/1600 (25.5%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2200/4000 (0.7 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 48.74 it/s (avg: 55.44) | Elapsed: 39s | ETA: 32s
+Disk: 13562.13 GB free (3.2% used)
+Filter: 8/2200 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 477/1800 (26.5%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2400/4000 (0.7 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 48.32 it/s (avg: 54.49) | Elapsed: 44s | ETA: 29s
+Disk: 13562.13 GB free (3.2% used)
+Filter: 9/2400 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 536/2000 (26.8%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2600/4000 (0.8 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 45.67 it/s (avg: 53.84) | Elapsed: 48s | ETA: 26s
+Disk: 13562.13 GB free (3.2% used)
+Filter: 11/2600 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 587/2200 (26.7%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 2800/4000 (0.9 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 44.47 it/s (avg: 53.04) | Elapsed: 52s | ETA: 22s
+Disk: 13562.13 GB free (3.2% used)
+Filter: 11/2800 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 649/2400 (27.0%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3000/4000 (1.0 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 42.20 it/s (avg: 52.09) | Elapsed: 57s | ETA: 19s
+Disk: 13562.12 GB free (3.2% used)
+Filter: 12/3000 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 715/2600 (27.5%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3200/4000 (1.0 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 39.92 it/s (avg: 51.35) | Elapsed: 1m 2s | ETA: 15s
+Disk: 13562.12 GB free (3.2% used)
+Filter: 13/3200 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 772/2800 (27.6%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3400/4000 (1.1 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.5%benchmark_full_oracle.py:1657: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  plt.tight_layout()
+
+Speed: 38.51 it/s (avg: 50.38) | Elapsed: 1m 7s | ETA: 11s
+Disk: 13562.12 GB free (3.2% used)
+Filter: 16/3400 filtered (0.5%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 832/3000 (27.7%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3600/4000 (1.2 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.5%
+Speed: 39.51 it/s (avg: 49.72) | Elapsed: 1m 12s | ETA: 8s
+Disk: 13562.12 GB free (3.2% used)
+Filter: 17/3600 filtered (0.5%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 884/3200 (27.6%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 3800/4000 (1.3 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 37.70 it/s (avg: 48.86) | Elapsed: 1m 17s | ETA: 4s
+Disk: 13562.11 GB free (3.2% used)
+Filter: 17/3800 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 942/3400 (27.7%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+
+--- Checkpoint: 4000/4000 (1.4 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 99.6%
+Speed: 38.28 it/s (avg: 48.14) | Elapsed: 1m 23s | ETA: 0s
+Disk: 13562.11 GB free (3.2% used)
+Filter: 17/4000 filtered (0.4%)
+Corpus: 0 seeds
+Dispatcher: 0 combos (0.0% coverage)
+Mutation: Explore: 1005/3600 (27.9%) | Mode: Expansion | Îµ=0.30, range=Â±64
+Dispatcher: 0 combos (0.0% coverage)
+[Checkpoint] Cleared
+
+======================================================================
+Fuzzing completed: Guided
+Total time: 1.4 minutes
+Valid Rate: 99.6%
+Trace file: poison_batch_20251229_170336/torch_nn_NLLLoss/guided/torch_nn_NLLLoss_guided_trace.jsonl
+Average Speed: 48.14 it/s
+Final Disk Usage: 13562.11 GB free
+Outliers Filtered: 17/4000
+Mutation Stats: Explore: 1005/3600 (27.9%) | Mode: Expansion | Îµ=0.30, range=Â±64
+
+======================================================================
+📊 DISPATCHER SPACE COVERAGE REPORT
+======================================================================
+[torch.nn.NLLLoss] 0/24 (0.0%) [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░]
+Total: 0, Overflow: 0
+======================================================================
+======================================================================
+
+======================================================================
+FINAL STATISTICS: Guided
+======================================================================
+Total Kernels: 0
+
+======================================================================
+ðŸ§© BUG ANALYSIS REPORT: Guided
+======================================================================
+Total Unique Issues: 0
+Distribution: {}
+----------------------------------------------------------------------
+Top Unique Bugs Found:
+ No bugs found.
+----------------------------------------------------------------------
+Raw Counts (Old Metric): CRASH=0 | CUDA=0 | PRECISION=0
+======================================================================
+
+[Patch] ðŸ”„ Database sampling restored
+[Patch] ðŸ”„ Adaptive range disabled
+[Patch] ðŸ”„ Poison Injection restored
+
+ðŸ“Š Hybrid strategy plot saved: poison_batch_20251229_170336/torch_nn_NLLLoss/torch_nn_NLLLoss_hybrid_strategy.png
+
+ðŸ’¾ Results saved: poison_batch_20251229_170336/torch_nn_NLLLoss/torch_nn_NLLLoss_hybrid_results.json

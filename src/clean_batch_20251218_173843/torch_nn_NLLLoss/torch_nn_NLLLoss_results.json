@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.NLLLoss",
+  "max_iterations": 3000,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 0,
+    "compute_kernels": 0,
+    "dirty_kernels": 0,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 0,
+    "compute_kernels": 0,
+    "dirty_kernels": 0,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 60
+  },
+  "ratios": {
+    "compute_kernel": 0.0,
+    "deep_bug": 0.0
+  }
+}

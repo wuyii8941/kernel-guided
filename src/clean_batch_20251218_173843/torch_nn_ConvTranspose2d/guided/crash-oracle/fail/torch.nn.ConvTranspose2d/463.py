@@ -1,0 +1,13 @@
+import torch
+arg_1 = -10
+arg_2 = 2
+arg_3 = "max"
+arg_4 = -52
+arg_5 = -16
+arg_6 = True
+arg_7 = True
+arg_class = torch.nn.ConvTranspose2d(arg_1,arg_2,arg_3,stride=arg_4,padding=arg_5,output_padding=arg_6,bias=arg_7,)
+arg_8_0_tensor = torch.rand([8, 1, 128, 256], dtype=torch.float32)
+arg_8_0 = arg_8_0_tensor.clone()
+arg_8 = [arg_8_0,]
+res = arg_class(*arg_8)

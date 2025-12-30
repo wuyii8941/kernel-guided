@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.BatchNorm2d",
+  "max_iterations": 8000,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00c2\u00b18 \u00e2\u2020\u2019 \u00c2\u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 33,
+    "iterations_run": 7950,
+    "bugs": {
+      "total": 1,
+      "crash": 0,
+      "cuda": 1,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 22,
+    "iterations_run": 7948,
+    "bugs": {
+      "total": 0,
+      "crash": 0,
+      "cuda": 0,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 0.6666666666666666,
+    "bug_ratio": 0.0,
+    "exclusive_random": 16,
+    "exclusive_guided": 5
+  }
+}

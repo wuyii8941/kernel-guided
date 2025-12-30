@@ -1,0 +1,11 @@
+import torch
+arg_1 = 20
+arg_2 = False
+arg_3 = -46.0
+arg_class = torch.nn.Bilinear(arg_1,arg_2,arg_3,)
+arg_4_0_tensor = torch.rand([128, 43], dtype=torch.float32)
+arg_4_0 = arg_4_0_tensor.clone()
+arg_4_1_tensor = torch.randint(-32768,32,[163, 30, 1], dtype=torch.int32)
+arg_4_1 = arg_4_1_tensor.clone()
+arg_4 = [arg_4_0,arg_4_1,]
+res = arg_class(*arg_4)

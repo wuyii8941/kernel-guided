@@ -1,8 +1,0 @@
-import torch
-arg_1 = 390
-arg_2 = 12.709068428749921
-arg_class = torch.nn.LayerNorm(arg_1,eps=arg_2,)
-arg_3_0_tensor = torch.randint(-1,16384,[3, np.int64(1024)], dtype=torch.int16)
-arg_3_0 = arg_3_0_tensor.clone()
-arg_3 = [arg_3_0,]
-res = arg_class(*arg_3)

@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.Sigmoid",
+  "max_iterations": 2500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 14,
+    "compute_kernels": 12,
+    "dirty_kernels": 2,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 12,
+    "compute_kernels": 10,
+    "dirty_kernels": 2,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 47
+  },
+  "ratios": {
+    "compute_kernel": 0.8333333333333334,
+    "deep_bug": 0.0
+  }
+}

@@ -1,0 +1,19 @@
+results = dict()
+import torch
+import time
+arg_1 = 960
+arg_2 = -13.9
+arg_class = torch.nn.BatchNorm2d(arg_1,momentum=arg_2,)
+arg_3_0_tensor = torch.randint(0,32,[0, 244, 14, 14, 1], dtype=torch.uint8)
+arg_3_0 = arg_3_0_tensor.clone()
+arg_3 = [arg_3_0,]
+start = time.time()
+results["time_low"] = arg_class(*arg_3)
+results["time_low"] = time.time() - start
+arg_3_0 = arg_3_0_tensor.clone().type(torch.uint8)
+arg_3 = [arg_3_0,]
+start = time.time()
+results["time_high"] = arg_class(*arg_3)
+results["time_high"] = time.time() - start
+
+print(results)

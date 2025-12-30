@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.Linear",
+  "max_iterations": 3000,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 46,
+    "compute_kernels": 40,
+    "dirty_kernels": 6,
+    "bugs": {
+      "total": 2,
+      "deep": 1,
+      "shallow": 1
+    }
+  },
+  "guided": {
+    "total_kernels": 47,
+    "compute_kernels": 41,
+    "dirty_kernels": 6,
+    "bugs": {
+      "total": 2,
+      "deep": 1,
+      "shallow": 1
+    },
+    "stagnation_resets": 49
+  },
+  "ratios": {
+    "compute_kernel": 1.025,
+    "deep_bug": 1.0
+  }
+}

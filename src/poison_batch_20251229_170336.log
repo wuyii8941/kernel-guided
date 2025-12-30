@@ -1,0 +1,275 @@
+==================================================
+🧪 Poison Batch Test
+==================================================
+
+[Running under nohup]
+Strategy: Value Poisoning (NaN/Inf/Extreme)
+Safety: Segfaults (139) will be caught and logged
+
+==================================================
+Test Plan Summary (Poison Version)
+==================================================
+Total APIs: 49
+Total iterations: 259000
+Output directory: poison_batch_20251229_170336
+
+Starting in 5 seconds...
+✅ Found Poison Script: benchmark_full_oracle.py
+
+==================================================
+Starting Tests
+==================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1/49] 🔴 Tier1 torch.nn.CrossEntropyLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 5000
+Output: poison_batch_20251229_170336/torch_nn_CrossEntropyLoss
+Started: 2025-12-29 17:03:41
+PID: 18161
+Finished: 2025-12-29 17:07:38 (237s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2/49] 🔴 Tier1 torch.nn.Softmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_Softmax
+Started: 2025-12-29 17:07:40
+PID: 18187
+Finished: 2025-12-29 17:27:44 (1204s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3/49] 🔴 Tier1 torch.nn.LogSoftmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_LogSoftmax
+Started: 2025-12-29 17:27:46
+PID: 18236
+Finished: 2025-12-29 17:33:32 (346s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4/49] 🔴 Tier1 torch.nn.NLLLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_NLLLoss
+Started: 2025-12-29 17:33:34
+PID: 18285
+Finished: 2025-12-29 17:36:37 (183s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[5/49] 🔴 Tier1 torch.nn.BCELoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_BCELoss
+Started: 2025-12-29 17:36:39
+PID: 18311
+Finished: 2025-12-29 17:39:55 (196s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[6/49] 🔴 Tier1 torch.nn.BCEWithLogitsLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_BCEWithLogitsLoss
+Started: 2025-12-29 17:39:57
+PID: 18360
+Finished: 2025-12-29 17:43:51 (234s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[7/49] 🔴 Tier1 torch.nn.KLDivLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_KLDivLoss
+Started: 2025-12-29 17:43:53
+PID: 18409
+Finished: 2025-12-29 17:43:56 (3s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[8/49] 🔴 Tier1 torch.nn.PoissonNLLLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_PoissonNLLLoss
+Started: 2025-12-29 17:43:58
+PID: 18430
+Finished: 2025-12-29 17:48:39 (281s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[9/49] 🔴 Tier1 torch.nn.GELU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_GELU
+Started: 2025-12-29 17:48:41
+PID: 18479
+Finished: 2025-12-29 18:34:49 (2768s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[10/49] 🔴 Tier1 torch.nn.Mish
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251229_170336/torch_nn_Mish
+Started: 2025-12-29 18:34:51
+PID: 18528
+Finished: 2025-12-29 18:34:54 (3s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[11/49] 🔴 Tier1 torch.nn.Sigmoid
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: poison_batch_20251229_170336/torch_nn_Sigmoid
+Started: 2025-12-29 18:34:56
+PID: 18549
+Finished: 2025-12-29 18:55:48 (1252s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[12/49] 🔴 Tier1 torch.nn.Tanh
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: poison_batch_20251229_170336/torch_nn_Tanh
+Started: 2025-12-29 18:55:50
+PID: 18598
+Finished: 2025-12-29 19:11:04 (914s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[13/49] 🔴 Tier1 torch.nn.Softplus
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: poison_batch_20251229_170336/torch_nn_Softplus
+Started: 2025-12-29 19:11:06
+PID: 18647
+Finished: 2025-12-29 19:13:42 (156s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[14/49] 🔴 Tier1 torch.nn.SELU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: poison_batch_20251229_170336/torch_nn_SELU
+Started: 2025-12-29 19:13:44
+PID: 18696
+Finished: 2025-12-29 19:16:48 (184s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[15/49] 🟠 Tier2 torch.nn.BatchNorm2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 8000
+Output: poison_batch_20251229_170336/torch_nn_BatchNorm2d
+Started: 2025-12-29 19:16:50
+PID: 18745
+Finished: 2025-12-29 20:29:41 (4371s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[16/49] 🟠 Tier2 torch.nn.BatchNorm1d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 6000
+Output: poison_batch_20251229_170336/torch_nn_BatchNorm1d
+Started: 2025-12-29 20:29:43
+PID: 18794
+Finished: 2025-12-29 21:03:32 (2029s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[17/49] 🟠 Tier2 torch.nn.LayerNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 6000
+Output: poison_batch_20251229_170336/torch_nn_LayerNorm
+Started: 2025-12-29 21:03:35
+PID: 18843
+Finished: 2025-12-29 21:22:45 (1150s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[18/49] 🟠 Tier2 torch.nn.GroupNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 6000
+Output: poison_batch_20251229_170336/torch_nn_GroupNorm
+Started: 2025-12-29 21:22:47
+PID: 18892
+Finished: 2025-12-29 21:39:28 (1001s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19/49] 🟠 Tier2 torch.nn.InstanceNorm2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 6000
+Output: poison_batch_20251229_170336/torch_nn_InstanceNorm2d
+Started: 2025-12-29 21:39:30
+PID: 18941
+./run_poison_tests.sh: line 256: 18941 Killed                  python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" > "$LOG_FILE" 2>&1
+Finished: 2025-12-29 21:56:51 (1041s)
+❌ Failed with exit code 137
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[20/49] 🟠 Tier2 torch.nn.LocalResponseNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 5000
+Output: poison_batch_20251229_170336/torch_nn_LocalResponseNorm
+Started: 2025-12-29 21:56:54
+PID: 18990
+./run_poison_tests.sh: line 256: 18990 Killed                  python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" > "$LOG_FILE" 2>&1
+Finished: 2025-12-29 22:46:18 (2964s)
+❌ Failed with exit code 137
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[21/49] 🟡 Tier3 torch.nn.Transformer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 12000
+Output: poison_batch_20251229_170336/torch_nn_Transformer
+Started: 2025-12-29 22:46:20
+PID: 19039
+Finished: 2025-12-29 22:46:26 (6s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[22/49] 🟡 Tier3 torch.nn.MultiheadAttention
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 10000
+Output: poison_batch_20251229_170336/torch_nn_MultiheadAttention
+Started: 2025-12-29 22:46:28
+PID: 19060
+./run_poison_tests.sh: line 256: 19060 Killed                  python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" > "$LOG_FILE" 2>&1
+Finished: 2025-12-30 04:38:31 (21123s)
+❌ Failed with exit code 137
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[23/49] 🟡 Tier3 torch.nn.TransformerEncoderLayer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 10000
+Output: poison_batch_20251229_170336/torch_nn_TransformerEncoderLayer
+Started: 2025-12-30 04:38:33
+PID: 19109

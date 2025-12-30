@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.TransformerDecoderLayer",
+  "max_iterations": 6000,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 50,
+    "compute_kernels": 44,
+    "dirty_kernels": 6,
+    "bugs": {
+      "total": 3,
+      "deep": 2,
+      "shallow": 1
+    }
+  },
+  "guided": {
+    "total_kernels": 50,
+    "compute_kernels": 45,
+    "dirty_kernels": 5,
+    "bugs": {
+      "total": 3,
+      "deep": 2,
+      "shallow": 1
+    },
+    "stagnation_resets": 112
+  },
+  "ratios": {
+    "compute_kernel": 1.0227272727272727,
+    "deep_bug": 1.0
+  }
+}

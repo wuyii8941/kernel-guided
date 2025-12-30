@@ -1,0 +1,15 @@
+import torch
+arg_1 = 3
+arg_2_0 = 2
+arg_2_1 = 1
+arg_2_2 = 1
+arg_2 = [arg_2_0,arg_2_1,arg_2_2,]
+arg_3_0 = -26.0
+arg_3_1 = False
+arg_3_2 = "replicate"
+arg_3 = [arg_3_0,arg_3_1,arg_3_2,]
+arg_class = torch.nn.MaxPool2d(kernel_size=arg_1,stride=arg_2,padding=arg_3,)
+arg_4_0_tensor = torch.rand([16, 64, 30, 30], dtype=torch.float32)
+arg_4_0 = arg_4_0_tensor.clone()
+arg_4 = [arg_4_0,]
+res = arg_class(*arg_4)

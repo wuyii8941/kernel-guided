@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.Conv1d",
+  "max_iterations": 2500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 38,
+    "compute_kernels": 31,
+    "dirty_kernels": 7,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 28,
+    "compute_kernels": 23,
+    "dirty_kernels": 5,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 45
+  },
+  "ratios": {
+    "compute_kernel": 0.7419354838709677,
+    "deep_bug": 0.0
+  }
+}

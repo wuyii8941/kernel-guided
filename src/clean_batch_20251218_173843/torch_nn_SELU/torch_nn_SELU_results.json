@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.SELU",
+  "max_iterations": 2500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 11,
+    "compute_kernels": 10,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 7,
+    "compute_kernels": 7,
+    "dirty_kernels": 0,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 48
+  },
+  "ratios": {
+    "compute_kernel": 0.7,
+    "deep_bug": 0.0
+  }
+}

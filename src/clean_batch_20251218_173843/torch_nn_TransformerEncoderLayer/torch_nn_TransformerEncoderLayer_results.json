@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.TransformerEncoderLayer",
+  "max_iterations": 6000,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 54,
+    "compute_kernels": 48,
+    "dirty_kernels": 6,
+    "bugs": {
+      "total": 3,
+      "deep": 2,
+      "shallow": 1
+    }
+  },
+  "guided": {
+    "total_kernels": 43,
+    "compute_kernels": 39,
+    "dirty_kernels": 4,
+    "bugs": {
+      "total": 3,
+      "deep": 2,
+      "shallow": 1
+    },
+    "stagnation_resets": 117
+  },
+  "ratios": {
+    "compute_kernel": 0.8125,
+    "deep_bug": 1.0
+  }
+}

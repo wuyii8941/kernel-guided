@@ -1,0 +1,7 @@
+{
+  "iteration": 7999,
+  "total_kernels": 59,
+  "corpus_size": 0,
+  "logger_iterations": 8000,
+  "strategy": "random"
+}

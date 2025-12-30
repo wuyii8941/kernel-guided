@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.MultiheadAttention",
+  "max_iterations": 4500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 34,
+    "compute_kernels": 27,
+    "dirty_kernels": 7,
+    "bugs": {
+      "total": 3,
+      "deep": 2,
+      "shallow": 1
+    }
+  },
+  "guided": {
+    "total_kernels": 26,
+    "compute_kernels": 22,
+    "dirty_kernels": 4,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 88
+  },
+  "ratios": {
+    "compute_kernel": 0.8148148148148148,
+    "deep_bug": 0.5
+  }
+}

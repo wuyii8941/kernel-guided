@@ -1,0 +1,35 @@
+{
+  "api": "torch.nn.LogSoftmax",
+  "max_iterations": 4000,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00c2\u00b18 \u00e2\u2020\u2019 \u00c2\u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 28,
+    "iterations_run": 3992,
+    "bugs": {
+      "total": 7,
+      "crash": 0,
+      "cuda": 7,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 33,
+    "iterations_run": 3993,
+    "bugs": {
+      "total": 176,
+      "crash": 0,
+      "cuda": 176,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 1.1785714285714286,
+    "bug_ratio": 25.142857142857142,
+    "exclusive_random": 6,
+    "exclusive_guided": 11
+  }
+}

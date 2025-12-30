@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.LayerNorm",
+  "max_iterations": 3500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 7,
+    "compute_kernels": 6,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 2,
+      "deep": 1,
+      "shallow": 1
+    }
+  },
+  "guided": {
+    "total_kernels": 7,
+    "compute_kernels": 6,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 2,
+      "deep": 1,
+      "shallow": 1
+    },
+    "stagnation_resets": 69
+  },
+  "ratios": {
+    "compute_kernel": 1.0,
+    "deep_bug": 1.0
+  }
+}

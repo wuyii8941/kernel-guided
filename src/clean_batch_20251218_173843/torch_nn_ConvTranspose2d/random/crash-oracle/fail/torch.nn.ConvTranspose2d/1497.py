@@ -1,0 +1,11 @@
+import torch
+arg_1 = 28
+arg_2 = 72
+arg_3 = 3
+arg_4 = -18
+arg_5 = -9
+arg_class = torch.nn.ConvTranspose2d(arg_1,arg_2,arg_3,stride=arg_4,padding=arg_5,)
+arg_6_0_tensor = torch.rand([1, 16, 16, 23], dtype=torch.float64)
+arg_6_0 = arg_6_0_tensor.clone()
+arg_6 = [arg_6_0,]
+res = arg_class(*arg_6)

@@ -1,0 +1,52 @@
+==================================================
+🧪 Poison Batch Test
+==================================================
+
+[Running under nohup]
+Strategy: Value Poisoning (NaN/Inf/Extreme)
+Safety: Segfaults (139) will be caught and logged
+
+==================================================
+Test Plan Summary (Poison Version)
+==================================================
+Total APIs: 49
+Total iterations: 259000
+Output directory: poison_batch_20251230_082453
+
+Starting in 5 seconds...
+✅ Found Poison Script: benchmark_full_oracle.py
+
+==================================================
+Starting Tests
+==================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1/49] 🔴 Tier1 torch.nn.CrossEntropyLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 5000
+Output: poison_batch_20251230_082453/torch_nn_CrossEntropyLoss
+Started: 2025-12-30 08:24:58
+PID: 19462
+Finished: 2025-12-30 08:25:12 (14s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2/49] 🔴 Tier1 torch.nn.Softmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251230_082453/torch_nn_Softmax
+Started: 2025-12-30 08:25:14
+PID: 19488
+Finished: 2025-12-30 08:25:31 (17s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3/49] 🔴 Tier1 torch.nn.LogSoftmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4000
+Output: poison_batch_20251230_082453/torch_nn_LogSoftmax
+Started: 2025-12-30 08:25:33
+PID: 19537

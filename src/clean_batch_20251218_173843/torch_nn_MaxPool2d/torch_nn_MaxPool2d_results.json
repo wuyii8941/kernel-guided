@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.MaxPool2d",
+  "max_iterations": 1500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 9,
+    "compute_kernels": 8,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 8,
+    "compute_kernels": 6,
+    "dirty_kernels": 2,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 28
+  },
+  "ratios": {
+    "compute_kernel": 0.75,
+    "deep_bug": 0.0
+  }
+}

@@ -1,0 +1,68 @@
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/Loss.cu:247: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/Loss.cu:247: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/opt/conda/conda-bld/pytorch_1634272168290/work/aten/src/ATen/native/cuda/Loss.cu:247: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+======================================================================
+ðŸ”¬ HYBRID STRATEGY BENCHMARK + POISON INJECTION
+======================================================================
+API: torch.nn.CrossEntropyLoss
+Max Iterations: 5,000
+Strategy: Îµ-greedy (10% exploration) + Adaptive Mutation
+ðŸ§ª Poison Injection: 5% Inf + 5% NaN + 10% Extreme
+ðŸŽ¯ Precision Tolerance: 1e-05
+Oracles: CRASH + CUDA + PRECISION
+======================================================================
+ðŸ“ Config: /workspace/FreeFuzz/src/config/demo_torch.conf
+[Patch] ðŸ§ª Poison Injection enabled (ALL strategies):
+        Float: 5% Inf + 5% NaN + 10% Extreme
+        Int:   10% boundary + 10% extreme + 10% trap
+
+======================================================================
+PHASE 1: RANDOM BASELINE (All Oracles + Poison)
+======================================================================
+[Fuzzer] ðŸŽ¯ Precision tolerance: diff_bound=1e-05
+[Fuzzer] Using ALL oracles: CRASH + CUDA + PRECISION
+[Logger] Trace file: poison_batch_20251230_082811/torch_nn_CrossEntropyLoss/random/torch_nn_CrossEntropyLoss_random_trace.jsonl
+[Checkpoint] Manager initialized: torch_nn_CrossEntropyLoss_random_checkpoint.pkl
+[Safety] Guards enabled: Speedometer + DiskGuard + OutlierFilter
+[DispatcherSpace] Registered: torch.nn.CrossEntropyLoss, space=24
+
+[Fuzzer] Initialized: Random
+  API: torch.nn.CrossEntropyLoss
+  Patches: Disabled
+  Hybrid Strategy: N/A
+  Data Logging: Enabled
+  Checkpoint: Enabled
+  Safety Guards: Enabled
+  Warmup Ratio: 10%
+  DispatcherSpace: Enabled
+
+======================================================================
+Starting Random fuzzing
+Iterations: 0 â†’ 5000
+======================================================================
+
+🔥 Warmup Phase: iterations 0 ~ 500 (Random only)
+🚀 Evolution Phase: iterations 500 ~ 5000
+
+--- Checkpoint: 250/5000 (0.2 min) ---
+Kernels: 0 | Bugs: 0 | Valid: 100.0%
+Speed: 58.72 it/s (avg: 25.27) | Elapsed: 9s | ETA: 3m 8s
+Disk: 13568.32 GB free (3.2% used)
+Filter: 0/250 filtered (0.0%)
+Dispatcher: 0 combos (0.0% coverage)
+[Patch] ðŸ”„ Adaptive range disabled
+[Patch] ðŸ”„ Poison Injection restored
+Traceback (most recent call last):
+  File "benchmark_full_oracle.py", line 2049, in <module>
+    main()
+  File "benchmark_full_oracle.py", line 2044, in main
+    diff_bound=args.diff_bound
+  File "benchmark_full_oracle.py", line 1900, in run_full_oracle_experiment
+    bug_scan_interval=50
+  File "benchmark_full_oracle.py", line 1558, in run_fuzzing_loop
+    torch.cuda.empty_cache()
+  File "/opt/conda/lib/python3.7/site-packages/torch/cuda/memory.py", line 114, in empty_cache
+    torch._C._cuda_emptyCache()
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.

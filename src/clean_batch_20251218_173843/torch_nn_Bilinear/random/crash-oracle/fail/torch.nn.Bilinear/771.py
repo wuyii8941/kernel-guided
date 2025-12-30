@@ -1,0 +1,11 @@
+import torch
+arg_1 = 20
+arg_2 = True
+arg_3 = "mean"
+arg_class = torch.nn.Bilinear(arg_1,arg_2,arg_3,)
+arg_4_0_tensor = torch.randint(-4,16384,[128, 20], dtype=torch.int32)
+arg_4_0 = arg_4_0_tensor.clone()
+arg_4_1_tensor = torch.randint(-1,8,[185, 78], dtype=torch.int32)
+arg_4_1 = arg_4_1_tensor.clone()
+arg_4 = [arg_4_0,arg_4_1,]
+res = arg_class(*arg_4)

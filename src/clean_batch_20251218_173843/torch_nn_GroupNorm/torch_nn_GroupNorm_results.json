@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.GroupNorm",
+  "max_iterations": 3000,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 14,
+    "compute_kernels": 11,
+    "dirty_kernels": 3,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 9,
+    "compute_kernels": 8,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 58
+  },
+  "ratios": {
+    "compute_kernel": 0.7272727272727273,
+    "deep_bug": 0.0
+  }
+}

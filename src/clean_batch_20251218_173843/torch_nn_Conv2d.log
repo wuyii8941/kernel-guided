@@ -1,0 +1,139 @@
+======================================================================
+🔬 KERNEL-GUIDED FUZZING (Original Strategy)
+======================================================================
+API: torch.nn.Conv2d
+Max Iterations: 3,000
+Strategy: 80% DB Sampling + Standard Mutation (No Constraints)
+======================================================================
+📝 Config: /workspace/FreeFuzz/src/config/demo_torch.conf
+
+======================================================================
+PHASE 1: RANDOM BASELINE (Original FreeFuzz)
+======================================================================
+[Fuzzer] Random | Corpus: False | Oracles: 3
+
+======================================================================
+Starting Random: 0 → 3000
+======================================================================
+
+
+[92m[Kernel-Probe] ✅ Captured 4 kernels: ['cudaStreamIsCapturing', 'cudaStreamSynchronize', 'cudaMalloc']...[0m
+  [Random] Iter 0: +4 kernels! Total: 4
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 29 kernels: ['cudaStreamIsCapturing', 'cudaGetDeviceCount', 'void fft2d_r2c_32x32<float, false, 1u, false>(float2*, float const*, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)']...[0m
+  [Random] Iter 1: +25 kernels! Total: 29
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)', 'cudaDeviceSynchronize']...[0m
+  [Random] Iter 2: +2 kernels! Total: 31
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaLaunchKernel', 'cudaDeviceSynchronize', 'void cudnn::winograd_nonfused::winogradForwardData4x4<float, float>(cudnn::winograd_nonfused::WinogradDataParams<float, float>)']...[0m
+  [Random] Iter 3: +4 kernels! Total: 35
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['volta_scudnn_128x128_relu_interior_nn_v1', 'cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)']...[0m
+  [Random] Iter 10: +1 kernels! Total: 36
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 9 kernels: ['cudaMemsetAsync', 'cudaLaunchKernel', 'volta_scudnn_128x64_3dconv_fprop_xregs_large_nn_v1']...[0m
+  [Random] Iter 19: +3 kernels! Total: 39
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaMemsetAsync', 'cudaLaunchKernel', 'void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::AddFunctor<float> >, at::detail::Array<char*, 3> >(int, at::native::BinaryFunctor<float, float, float, at::native::AddFunctor<float> >, at::detail::Array<char*, 3>)']...[0m
+  [Random] Iter 22: +2 kernels! Total: 41
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['volta_scudnn_128x128_relu_interior_nn_v1', 'cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['volta_scudnn_128x128_relu_small_nn_v1', 'cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)']...[0m
+  [Random] Iter 33: +1 kernels! Total: 42
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['volta_scudnn_128x128_relu_small_nn_v1', 'cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 7 kernels: ['cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)', 'cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+  🐛 [Random] New bugs found!
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+  [Random] Iter 53: +1 kernels! Total: 43
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 12 kernels: ['cudaLaunchKernel', 'cudaDeviceSynchronize', 'void fft2d_r2c_32x32<float, false, 1u, true>(float2*, float const*, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)']...[0m
+  [Random] Iter 59: +4 kernels! Total: 47
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 10 kernels: ['cudaLaunchKernel', 'cudaDeviceSynchronize', 'void cudnn::winograd_nonfused::winogradForwardData4x4<float, float>(cudnn::winograd_nonfused::WinogradDataParams<float, float>)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 8 kernels: ['volta_scudnn_128x128_relu_small_nn_v1', 'cudaLaunchKernel', 'void cask_cudnn::computeOffsetsKernel<false, false>(cask_cudnn::ComputeOffsetsParams)']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 2 kernels: ['cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 1 kernels: ['cudaDeviceSynchronize']...[0m
+
+[92m[Kernel-Probe] ✅ Captured 6 kernels: ['cudaLaunchKernel', 'cudaDeviceSynchronize', 'cudaStreamSynchronize']...[0m

@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.BCELoss",
+  "max_iterations": 3500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 10,
+    "compute_kernels": 9,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 6,
+    "compute_kernels": 6,
+    "dirty_kernels": 0,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 69
+  },
+  "ratios": {
+    "compute_kernel": 0.6666666666666666,
+    "deep_bug": 0.0
+  }
+}

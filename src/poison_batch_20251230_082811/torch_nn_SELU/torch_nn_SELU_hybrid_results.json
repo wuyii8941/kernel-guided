@@ -1,0 +1,39 @@
+{
+  "api": "torch.nn.SELU",
+  "max_iterations": 3000,
+  "hybrid_strategy": {
+    "epsilon_greedy": "10% exploration",
+    "adaptive_mutation": "\u00c2\u00b18 \u00e2\u2020\u2019 \u00c2\u00b164 on stagnation",
+    "dynamic_saturation": "expand search instead of stop"
+  },
+  "random": {
+    "total_kernels": 11,
+    "iterations_run": 2997,
+    "dispatcher_coverage": 0.0,
+    "bugs": {
+      "total_triggers": 0,
+      "unique_bugs": 0,
+      "crash": 0,
+      "cuda": 0,
+      "precision": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 9,
+    "iterations_run": 2999,
+    "dispatcher_coverage": 0.0,
+    "bugs": {
+      "total_triggers": 0,
+      "unique_bugs": 0,
+      "crash": 0,
+      "cuda": 0,
+      "precision": 0
+    }
+  },
+  "comparison": {
+    "kernel_ratio": 0.8181818181818182,
+    "bug_ratio": 0.0,
+    "exclusive_random": 2,
+    "exclusive_guided": 0
+  }
+}

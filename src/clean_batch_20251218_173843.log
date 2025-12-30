@@ -1,0 +1,431 @@
+==================================================
+🧪 Clean Batch Test (Baseline)
+==================================================
+
+[Running under nohup]
+Strategy: Standard Mutation (No Poison)
+Database Sampling: 80%
+
+==================================================
+Test Plan Summary (Clean Baseline)
+==================================================
+Total APIs: 49
+Total iterations: 142500
+Output directory: clean_batch_20251218_173843
+
+Starting in 5 seconds...
+✅ Found Benchmark Script: benchmark_full_oracle_tc.py
+
+==================================================
+Starting Tests
+==================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1/49] 🔴 Tier1 torch.nn.Softmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_Softmax
+Started: 2025-12-18 17:38:48
+PID: 1712
+Finished: 2025-12-18 17:45:05 (377s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2/49] 🔴 Tier1 torch.nn.LogSoftmax
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_LogSoftmax
+Started: 2025-12-18 17:45:07
+PID: 1761
+Finished: 2025-12-18 17:49:35 (268s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3/49] 🔴 Tier1 torch.nn.CrossEntropyLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_CrossEntropyLoss
+Started: 2025-12-18 17:49:37
+PID: 1810
+Finished: 2025-12-18 17:52:12 (155s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4/49] 🔴 Tier1 torch.nn.NLLLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_NLLLoss
+Started: 2025-12-18 17:52:14
+PID: 1836
+Finished: 2025-12-18 17:54:26 (132s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[5/49] 🔴 Tier1 torch.nn.BCELoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_BCELoss
+Started: 2025-12-18 17:54:28
+PID: 1862
+Finished: 2025-12-18 17:58:15 (227s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[6/49] 🔴 Tier1 torch.nn.BCEWithLogitsLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_BCEWithLogitsLoss
+Started: 2025-12-18 17:58:17
+PID: 1911
+Finished: 2025-12-18 18:01:24 (187s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[7/49] 🔴 Tier1 torch.nn.KLDivLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_KLDivLoss
+Started: 2025-12-18 18:01:26
+PID: 1937
+Finished: 2025-12-18 18:01:29 (3s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[8/49] 🔴 Tier1 torch.nn.PoissonNLLLoss
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_PoissonNLLLoss
+Started: 2025-12-18 18:01:31
+PID: 1958
+Finished: 2025-12-18 18:04:17 (166s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[9/49] 🔴 Tier1 torch.nn.Sigmoid
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_Sigmoid
+Started: 2025-12-18 18:04:19
+PID: 2007
+Finished: 2025-12-18 18:15:09 (650s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[10/49] 🔴 Tier1 torch.nn.Tanh
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_Tanh
+Started: 2025-12-18 18:15:11
+PID: 2056
+Finished: 2025-12-18 18:19:54 (283s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[11/49] 🔴 Tier1 torch.nn.Softplus
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_Softplus
+Started: 2025-12-18 18:19:56
+PID: 2105
+Finished: 2025-12-18 18:21:51 (115s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[12/49] 🔴 Tier1 torch.nn.GELU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_GELU
+Started: 2025-12-18 18:21:54
+PID: 2154
+./run_all_baseline.sh: line 235:  2154 Killed                  python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /workspace/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+Finished: 2025-12-18 19:00:12 (2298s)
+❌ Failed with exit code 137
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[13/49] 🔴 Tier1 torch.nn.SELU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_SELU
+Started: 2025-12-18 19:00:14
+PID: 2203
+Finished: 2025-12-18 19:02:24 (130s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[14/49] 🔴 Tier1 torch.nn.Mish
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_Mish
+Started: 2025-12-18 19:02:26
+PID: 2229
+Finished: 2025-12-18 19:02:29 (3s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[15/49] 🟠 Tier2 torch.nn.LayerNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_LayerNorm
+Started: 2025-12-18 19:02:31
+PID: 2250
+Finished: 2025-12-18 19:07:53 (322s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[16/49] 🟠 Tier2 torch.nn.BatchNorm1d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_BatchNorm1d
+Started: 2025-12-18 19:07:55
+PID: 2299
+Finished: 2025-12-18 19:12:13 (258s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[17/49] 🟠 Tier2 torch.nn.BatchNorm2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_BatchNorm2d
+Started: 2025-12-18 19:12:15
+PID: 2348
+./run_all_baseline.sh: line 235:  2348 Killed                  python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /workspace/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+Finished: 2025-12-18 20:35:06 (4971s)
+❌ Failed with exit code 137
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[18/49] 🟠 Tier2 torch.nn.GroupNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_GroupNorm
+Started: 2025-12-18 20:35:08
+PID: 2397
+Finished: 2025-12-18 20:38:22 (194s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[19/49] 🟠 Tier2 torch.nn.InstanceNorm2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_InstanceNorm2d
+Started: 2025-12-18 20:38:24
+PID: 2446
+./run_all_baseline.sh: line 235:  2446 Killed                  python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /workspace/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+Finished: 2025-12-18 22:20:53 (6149s)
+❌ Failed with exit code 137
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[20/49] 🟠 Tier2 torch.nn.LocalResponseNorm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_LocalResponseNorm
+Started: 2025-12-18 22:20:55
+PID: 2495
+Finished: 2025-12-18 22:25:49 (294s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[21/49] 🟡 Tier3 torch.nn.LSTM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4500
+Output: clean_batch_20251218_173843/torch_nn_LSTM
+Started: 2025-12-18 22:25:51
+PID: 2544
+Finished: 2025-12-18 22:34:56 (545s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[22/49] 🟡 Tier3 torch.nn.GRU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4500
+Output: clean_batch_20251218_173843/torch_nn_GRU
+Started: 2025-12-18 22:34:58
+PID: 2593
+Finished: 2025-12-18 22:50:31 (933s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[23/49] 🟡 Tier3 torch.nn.RNN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3500
+Output: clean_batch_20251218_173843/torch_nn_RNN
+Started: 2025-12-18 22:50:33
+PID: 2642
+Finished: 2025-12-18 22:55:53 (320s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[24/49] 🟡 Tier3 torch.nn.LSTMCell
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_LSTMCell
+Started: 2025-12-18 22:55:55
+PID: 2691
+Finished: 2025-12-18 22:58:51 (176s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[25/49] 🟡 Tier3 torch.nn.GRUCell
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_GRUCell
+Started: 2025-12-18 22:58:53
+PID: 2740
+Finished: 2025-12-18 23:01:43 (170s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[26/49] 🟡 Tier3 torch.nn.RNNCell
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_RNNCell
+Started: 2025-12-18 23:01:45
+PID: 2789
+Finished: 2025-12-18 23:04:09 (144s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[27/49] 🟡 Tier3 torch.nn.MultiheadAttention
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 4500
+Output: clean_batch_20251218_173843/torch_nn_MultiheadAttention
+Started: 2025-12-18 23:04:11
+PID: 2838
+Finished: 2025-12-18 23:16:56 (765s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[28/49] 🟡 Tier3 torch.nn.TransformerEncoderLayer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 6000
+Output: clean_batch_20251218_173843/torch_nn_TransformerEncoderLayer
+Started: 2025-12-18 23:16:58
+PID: 2887
+Finished: 2025-12-18 23:34:19 (1041s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[29/49] 🟡 Tier3 torch.nn.TransformerDecoderLayer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 6000
+Output: clean_batch_20251218_173843/torch_nn_TransformerDecoderLayer
+Started: 2025-12-18 23:34:21
+PID: 2936
+Finished: 2025-12-19 00:00:10 (1549s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[30/49] 🟡 Tier3 torch.nn.Transformer
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 7000
+Output: clean_batch_20251218_173843/torch_nn_Transformer
+Started: 2025-12-19 00:00:12
+PID: 2985
+Finished: 2025-12-19 00:00:15 (3s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[31/49] 🟢 Tier4 torch.nn.Linear
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_Linear
+Started: 2025-12-19 00:00:17
+PID: 3006
+Finished: 2025-12-19 00:20:07 (1190s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[32/49] 🟢 Tier4 torch.nn.Bilinear
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_Bilinear
+Started: 2025-12-19 00:20:09
+PID: 3055
+Finished: 2025-12-19 00:35:07 (898s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[33/49] 🟢 Tier4 torch.nn.Conv1d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_Conv1d
+Started: 2025-12-19 00:35:09
+PID: 3104
+Finished: 2025-12-19 00:41:37 (388s)
+✅ Completed successfully
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[34/49] 🟢 Tier4 torch.nn.Conv2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 3000
+Output: clean_batch_20251218_173843/torch_nn_Conv2d
+Started: 2025-12-19 00:41:39
+PID: 3153
+./run_all_baseline.sh: line 235:  3153 Segmentation fault      (core dumped) python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /workspace/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+Finished: 2025-12-19 01:05:28 (1429s)
+❌ Segmentation fault (exit code 139)
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[35/49] 🟢 Tier4 torch.nn.ConvTranspose1d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_ConvTranspose1d
+Started: 2025-12-19 01:05:30
+PID: 3202
+Finished: 2025-12-19 01:05:33 (3s)
+❌ Failed with exit code 1
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[36/49] 🟢 Tier4 torch.nn.ConvTranspose2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 2500
+Output: clean_batch_20251218_173843/torch_nn_ConvTranspose2d
+Started: 2025-12-19 01:05:35
+PID: 3223
+./run_all_baseline.sh: line 235:  3223 Killed                  python3 "$BENCHMARK_SCRIPT" --api "$API_NAME" --max-iterations $MAX_ITER --output "$OUTPUT_DIR" --conf /workspace/FreeFuzz/src/config/demo_torch.conf > "$LOG_FILE" 2>&1
+Finished: 2025-12-19 09:30:19 (30284s)
+❌ Failed with exit code 137
+Kernels Found: Random=0, Guided=0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[37/49] 🔵 Tier5 torch.nn.MaxPool2d
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Iterations: 1500
+Output: clean_batch_20251218_173843/torch_nn_MaxPool2d
+Started: 2025-12-19 09:30:21
+PID: 3289

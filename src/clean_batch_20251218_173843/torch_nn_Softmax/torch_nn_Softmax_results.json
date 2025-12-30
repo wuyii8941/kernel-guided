@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.Softmax",
+  "max_iterations": 3500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 27,
+    "compute_kernels": 26,
+    "dirty_kernels": 1,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 30,
+    "compute_kernels": 30,
+    "dirty_kernels": 0,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 56
+  },
+  "ratios": {
+    "compute_kernel": 1.1538461538461537,
+    "deep_bug": 1.0
+  }
+}

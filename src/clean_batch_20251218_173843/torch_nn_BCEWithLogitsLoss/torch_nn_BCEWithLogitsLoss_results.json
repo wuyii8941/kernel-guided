@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.BCEWithLogitsLoss",
+  "max_iterations": 3500,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 79,
+    "compute_kernels": 64,
+    "dirty_kernels": 15,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 79,
+    "compute_kernels": 63,
+    "dirty_kernels": 16,
+    "bugs": {
+      "total": 1,
+      "deep": 1,
+      "shallow": 0
+    },
+    "stagnation_resets": 57
+  },
+  "ratios": {
+    "compute_kernel": 0.984375,
+    "deep_bug": 1.0
+  }
+}

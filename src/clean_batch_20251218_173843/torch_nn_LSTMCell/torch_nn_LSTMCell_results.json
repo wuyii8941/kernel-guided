@@ -1,0 +1,30 @@
+{
+  "api": "torch.nn.LSTMCell",
+  "max_iterations": 3000,
+  "strategy": "Original: 80% DB Sampling + Standard Mutation",
+  "random": {
+    "total_kernels": 12,
+    "compute_kernels": 10,
+    "dirty_kernels": 2,
+    "bugs": {
+      "total": 4,
+      "deep": 4,
+      "shallow": 0
+    }
+  },
+  "guided": {
+    "total_kernels": 6,
+    "compute_kernels": 6,
+    "dirty_kernels": 0,
+    "bugs": {
+      "total": 0,
+      "deep": 0,
+      "shallow": 0
+    },
+    "stagnation_resets": 59
+  },
+  "ratios": {
+    "compute_kernel": 0.6,
+    "deep_bug": 0.0
+  }
+}

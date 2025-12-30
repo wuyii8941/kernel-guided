@@ -1,0 +1,29 @@
+results = dict()
+import torch
+import time
+arg_1 = 32
+arg_2 = 256
+arg_3_0 = 2
+arg_3_1 = 2
+arg_3 = [arg_3_0,arg_3_1,]
+arg_4 = -43.0
+arg_5_0 = 0
+arg_5 = [arg_5_0,]
+arg_6 = 0
+arg_7 = True
+arg_class = torch.nn.ConvTranspose2d(in_channels=arg_1,out_channels=arg_2,kernel_size=arg_3,stride=arg_4,padding=arg_5,output_padding=arg_6,bias=arg_7,)
+arg_8_0_tensor = torch.rand([1, 256, 14, 14], dtype=torch.bfloat16)
+arg_8_0 = arg_8_0_tensor.clone()
+arg_8 = [arg_8_0,]
+start = time.time()
+results["time_low"] = arg_class(*arg_8)
+results["time_low"] = time.time() - start
+arg_3 = [arg_3_0,arg_3_1,]
+arg_5 = [arg_5_0,]
+arg_8_0 = arg_8_0_tensor.clone().type(torch.bfloat16)
+arg_8 = [arg_8_0,]
+start = time.time()
+results["time_high"] = arg_class(*arg_8)
+results["time_high"] = time.time() - start
+
+print(results)
